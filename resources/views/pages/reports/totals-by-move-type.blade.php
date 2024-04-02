@@ -15,40 +15,42 @@
 
 <body>
 <x-app-layout>
-    <x-card>
-        <table class="tile-table" data-view-fields="{{ implode(',', $view_fields) }}">
-            <tr>
-                @foreach($headers as $header)
-                    <th>{{ mb_strtoupper($header) }}</th>
-                @endforeach
-            </tr>
-
-            @foreach ($paginator as $total)
+    <div class="py-12 vertical-arrange">
+        <x-card>
+            <table class="tile-table" data-view-fields="{{ implode(',', $view_fields) }}">
                 <tr>
-                    <td>{{ $total->product_name }}</td>
-
-                    <td>{{ $total->purchases_totals }}</td>
-                    <td>{{ $total->sales_totals }}</td>
-                    <td>{{ $total->quantity_totals }}</td>
-                    <td>{{ $total->liquidating_totals }}</td>
-                    <td>{{ $total->inventory_totals }}</td>
-                    <td>{{ $total->import_totals }}</td>
+                    @foreach($headers as $header)
+                        <th>{{ mb_strtoupper($header) }}</th>
+                    @endforeach
                 </tr>
-            @endforeach
-        </table>
+
+                @foreach ($paginator as $total)
+                    <tr>
+                        <td>{{ $total->product_name }}</td>
+
+                        <td>{{ $total->purchases_totals }}</td>
+                        <td>{{ $total->sales_totals }}</td>
+                        <td>{{ $total->quantity_totals }}</td>
+                        <td>{{ $total->liquidating_totals }}</td>
+                        <td>{{ $total->inventory_totals }}</td>
+                        <td>{{ $total->import_totals }}</td>
+                    </tr>
+                @endforeach
+            </table>
 
 
-        <div>{{ $paginator->links('pagination::my-pagination-links') }}</div>
-        @include('table-tools.search-bar', compact('search_targets', 'view_fields', 'headers'))
-        @include('table-tools.ordering-menu', compact('view_fields', 'headers'))
+            <div>{{ $paginator->links('pagination::my-pagination-links') }}</div>
+            @include('table-tools.search-bar', compact('search_targets', 'view_fields', 'headers'))
+            @include('table-tools.ordering-menu', compact('view_fields', 'headers'))
 
-        <form class="vertical-arrange" style="max-width: 200px">
-            @include('report-components.report-storage-select', compact('Storage', 'report_storage'))
-            <input name="begin_date" type="date" onfocusout="this.form.submit()" value="{{ $begin_date }}">
-            <input name="end_date" type="date" onfocusout="this.form.submit()" value="{{ $end_date }}">
-            @include('report-components.report-field-btn', compact('is_cost_report'))
-        </form>
-    </x-card>
+            <form class="vertical-arrange" style="max-width: 200px">
+                @include('report-components.report-storage-select', compact('Storage', 'report_storage'))
+                <input name="begin_date" type="date" onfocusout="this.form.submit()" value="{{ $begin_date }}">
+                <input name="end_date" type="date" onfocusout="this.form.submit()" value="{{ $end_date }}">
+                @include('report-components.report-field-btn', compact('is_cost_report'))
+            </form>
+        </x-card>
+    </div>
 </x-app-layout>
 </body>
 </html>
