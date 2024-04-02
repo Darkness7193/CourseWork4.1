@@ -35,10 +35,8 @@ class TotalsByMoveType extends Controller
         ]);
         $used_years = get_used_years_of(session()->get('report_storage')->id);
         $session_items = session_setif([
-            'report_year' => [
-                $request->report_storage_id !== session('report_storage_id') ? $request->report_year : null,
-                max($used_years)
-            ],
+            'begin_date' => $request->begin_date,
+            'end_date' => $request->end_date,
             'is_cost_report' => [
                 (bool)$request->is_cost_report,
                 false
@@ -51,7 +49,7 @@ class TotalsByMoveType extends Controller
             ]
         ]);
 
-        $totals = general_totals(session()->get('report_storage')->id, session('report_year'), session('is_cost_report'));
+        $totals = general_totals(session()->get('report_storage')->id, session('begin_date'), session('end_date'), session('is_cost_report'));
 
         return view('pages/reports/totals-by-move-type', [
             'paginator' => filter_order_paginate($totals, $view_fields),
