@@ -83,6 +83,7 @@
                 </tr>
             </table>
         </x-card>
+
     </x-card-list>
 </x-app-layout>
 </body>
