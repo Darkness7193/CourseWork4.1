@@ -8,7 +8,6 @@
 
     <!-- imports: -->
     @include('php_variables')
-    <link rel="stylesheet" href="{{ asset('css/abstract/tile-table.css') }}">
     <link rel="stylesheet" href="{{ asset('css/global.css') }}">
     <link rel="stylesheet" href="{{ asset('css/abstract/report-table.css') }}">
 </head>
@@ -30,7 +29,7 @@
         </x-card>
 
         <x-card class="foot-margin">
-            <table class="tile-table report-table" data-view-fields="{{ implode(',', $view_fields) }}">
+            <table class="report-table" data-view-fields="{{ implode(',', $view_fields) }}">
                 <tr>
                     @foreach($headers as $header)
                         <th>{{ mb_strtoupper($header) }}</th>

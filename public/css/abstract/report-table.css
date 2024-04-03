@@ -1,34 +1,31 @@
-.year-td {
-    min-width: 44px;
-}
-
-.report-table td:last-child {
-    border: 0;
+.report-table {
+    border-collapse: collapse;
+    table-layout: fixed;
 }
 
 
-tr > .winter-td {
-    background: #29364A;
-    min-width: 44px;
-}
+/* Cells structure: */
+    .report-table th {
+        padding: 5px;
+        border: 3px solid transparent;
+    }
 
-tr > .spring-td {
-    background: #32432C;
-    min-width: 44px;
-}
+    .report-table td {
+        padding: 5px;
+        border: 1px solid #111827;
+        background: #29364A;
+        overflow: hidden;
+        vertical-align: top;
+        font-size: 14px;
+    }
 
-tr > .summer-td {
-    background: #545433;
-    min-width: 44px;
-}
+    .report-table tr:last-child td {
+        background: transparent;
+        border: 0;
+    }
 
-tr > .fall-td {
-    background: #563131;
-    min-width: 44px;
-}
 
-tr > .report-field-td {
-    background: transparent;
-    min-width: 44px;
+.paginator-wrapper {
+    float: right;
+    margin: 10px;
 }
-
