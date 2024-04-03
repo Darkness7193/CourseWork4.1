@@ -11,14 +11,14 @@
     <script src="{{ asset('js/of_crud-table/submit_changes.js') }}" type="module"></script>
     <script src="{{ asset('js/of_crud-table/delete-btn_bulk_activation.js') }}" type="module"></script>
     <link rel="stylesheet" href="{{ asset('css/global.css') }}">
-    <link rel="stylesheet" href="{{ asset('css/crud-table.css') }}">
+    <link rel="stylesheet" href="{{ asset('css/abstract/crud-table.css') }}">
     <link rel="stylesheet" href="{{ asset('css/abstract/foreign-cell.css') }}">
 </head>
 
 
 <body>
 <x-app-layout>
-    <div class="py-12 vertical-arrange">
+    <x-card-list>
         <x-card>
             @include('crud-components.save-btn', ['no_view_fields' => [
                 'product_move_type' => 'purchasing',
@@ -62,7 +62,7 @@
                 </tr>
             </table>
         </x-card>
-    </div>
+    </x-card-list>
 </x-app-layout>
 </body>
 </html>
