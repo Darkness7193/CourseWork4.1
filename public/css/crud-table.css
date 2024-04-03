@@ -1,8 +1,36 @@
-input, select {
-    width:100%;
-    box-sizing:border-box;
-    min-height: 21px;
-    margin: 0;
+.crud-table {
+    border-collapse: collapse;
+
+
+}
+
+/* crud-table td borders */
+    .crud-table input, .crud-table select {
+        margin: 0;
+
+        border-top: 1px solid #1f2937;
+        border-bottom: 0 solid #1f2937;
+        border-left: 0 solid #1f2937;
+        border-right: 1px solid #1f2937;
+    }
+
+    .crud-table td:first-child {
+        border-left: 1px solid #1f2937;
+    }
+
+    .crud-table tr:last-child > td:not(:last-child) {
+        border-bottom: 1px solid #1f2937;
+    }
+
+    .crud-table td, .crud-table th {
+        margin: 0;
+        padding: 0;
+    }
+
+.crud-table input, .crud-table select {
+    width: 100%;
+    box-sizing: border-box;
+    min-height: 24px;
 }
 
 .btn {
@@ -10,6 +38,7 @@ input, select {
     background: none;
     height: 18px;
     width: 18px;
+    margin: 0;
 }
 
 .btn-icon {
