@@ -18,7 +18,16 @@
 
 <body>
 <x-app-layout>
-    <div class="py-12 vertical-arrange">
+    <x-card-list>
+        <x-card>
+            @include('crud-components.save-btn', ['no_view_fields' => [
+                'product_move_type' => 'purchasing',
+                'new_storage_id' => null
+            ]])
+            @include('table-tools.search-bar', compact('search_targets', 'view_fields', 'headers'))
+            @include('table-tools.ordering-menu', compact('view_fields', 'headers'))
+        </x-card>
+
         <x-card class="foot-margin">
             <table class="crud-table" data-max-id="{{ $Product::max('id') }}"
                    data-view-fields="{{ implode(',', $view_fields) }}" data-crud-model="{{ $Product }}">
@@ -42,15 +51,15 @@
                         <td>@include('crud-components.delete-btn')</td>
                     </tr>
                 @endforeach
+                <tr>
+                    <td colspan="{{ count($view_fields) }}">
+                        <div class="paginator-wrapper">{{ $paginator->links('pagination::my-pagination-links') }}</div>
+                    </td>
+                    <td></td>
+                </tr>
             </table>
-
-
-            <div>{{ $paginator->links('pagination::my-pagination-links') }}</div>
-            @include('crud-components.save-btn', ['no_view_fields' => []])
-            @include('table-tools.search-bar', compact('search_targets', 'view_fields', 'headers'))
-            @include('table-tools.ordering-menu', compact('view_fields', 'headers'))
         </x-card>
-    </div>
+    </x-card-list>
 </x-app-layout>
 </body>
 </html>

@@ -21,7 +21,7 @@
 <body>
 <x-app-layout>
     <x-card-list>
-        <x-card class="foot-margin">
+        <x-card>
             @include('crud-components.save-btn', ['no_view_fields' => [
                 'product_move_type' => 'purchasing',
                 'new_storage_id' => null

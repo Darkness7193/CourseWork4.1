@@ -15,7 +15,19 @@
 
 <body>
 <x-app-layout>
-    <div class="py-12 vertical-arrange">
+    <x-card-list>
+        <x-card>
+            @include('table-tools.search-bar', compact('search_targets', 'view_fields', 'headers'))
+            @include('table-tools.ordering-menu', compact('view_fields', 'headers'))
+
+            <form class="vertical-arrange" style="max-width: 200px">
+                @include('report-components.report-storage-select', compact('Storage', 'report_storage'))
+                <input name="begin_date" type="date" onfocusout="this.form.submit()" value="{{ $begin_date }}">
+                <input name="end_date" type="date" onfocusout="this.form.submit()" value="{{ $end_date }}">
+                @include('report-components.report-field-btn', compact('is_cost_report'))
+            </form>
+        </x-card>
+
         <x-card class="foot-margin">
             <table class="tile-table" data-view-fields="{{ implode(',', $view_fields) }}">
                 <tr>
@@ -36,21 +48,15 @@
                         <td>{{ $total->import_totals }}</td>
                     </tr>
                 @endforeach
+                <tr>
+                    <td colspan="{{ count($view_fields) }}">
+                        <div class="paginator-wrapper">{{ $paginator->links('pagination::my-pagination-links') }}</div>
+                    </td>
+                    <td></td>
+                </tr>
             </table>
-
-
-            <div>{{ $paginator->links('pagination::my-pagination-links') }}</div>
-            @include('table-tools.search-bar', compact('search_targets', 'view_fields', 'headers'))
-            @include('table-tools.ordering-menu', compact('view_fields', 'headers'))
-
-            <form class="vertical-arrange" style="max-width: 200px">
-                @include('report-components.report-storage-select', compact('Storage', 'report_storage'))
-                <input name="begin_date" type="date" onfocusout="this.form.submit()" value="{{ $begin_date }}">
-                <input name="end_date" type="date" onfocusout="this.form.submit()" value="{{ $end_date }}">
-                @include('report-components.report-field-btn', compact('is_cost_report'))
-            </form>
         </x-card>
-    </div>
+    </x-card-list>
 </x-app-layout>
 </body>
 </html>
