@@ -49,6 +49,10 @@
         min-width: 124px;
     }
 
+    .crud-table option {
+        background-color: #1F2937;
+    }
+
 
 /* Buttons: */
     .btn {

@@ -1,14 +1,20 @@
-.ordering-btn {
-    background-image: url('../../images/ordering-icon.png');
-    background-size: 100% 100% ;
-}
+
 
 .ordering-menu {
     background-color: #1F2937;
     border-radius: 2px;
     border-top: 1px solid #111827;
     border-left: 1px solid #111827;
+    border-bottom: 1px solid #3a3232;
+    border-right: 1px solid #3a3232;
     box-shadow: rgba(0, 0, 0, 0.16) 0px 3px 6px, rgba(0, 0, 0, 0.23) 0px 3px 6px;
+}
+
+.ordering-menu input {
+    background-color: #29364A;
+    border: 1px solid #111827;
+    border-radius: 3px;
+    color: white;
 }
 
 .un-ordering-btn {
@@ -21,7 +27,13 @@
     background-size: 100% 100% ;
 }
 
+.ordering-btn {
+    background-image: url('../../images/ordering-icon.png');
+    background-size: 100% 100% ;
+}
+
 .order-direction-btn {
     background-image: url('../../images/up-ordering-icon.png');
     background-size: 100% 100% ;
 }
+
