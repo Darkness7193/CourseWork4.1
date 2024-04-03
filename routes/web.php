@@ -17,7 +17,8 @@ use App\Http\Controllers\ProfileController;
 
 Route::middleware('auth')->group(function () use($post_to_get_route) {
     /*Home*/
-    Route::get('', [HomeController::class, 'index'])->name('home');
+    Route::get('', [HomeController::class, 'index']);
+    Route::get('home', [HomeController::class, 'index'])->name('home');
 
     /*Cruds & Reports*/
     Route::group(['namespace' => 'App\Http\Controllers\ProductMove'], function() {
