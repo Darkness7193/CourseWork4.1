@@ -41,7 +41,7 @@
         padding-left: 4px;
     }
 
-    .crud-table input:focus {
+    .crud-table input:focus, .crud-table select:focus {
         outline: 1px solid lightblue;
     }
 
