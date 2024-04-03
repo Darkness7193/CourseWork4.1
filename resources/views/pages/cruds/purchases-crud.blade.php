@@ -20,7 +20,7 @@
 
 <body>
 <x-app-layout>
-    <div class="py-12 vertical-arrange">
+    <x-card-list>
         <x-card class="foot-margin">
             @include('crud-components.save-btn', ['no_view_fields' => [
                 'product_move_type' => 'purchasing',
@@ -79,7 +79,7 @@
                 </tr>
             </table>
         </x-card>
-    </div>
+    </x-card-list>
 </x-app-layout>
 </body>
 </html>
