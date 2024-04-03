@@ -8,13 +8,14 @@ function auto_table_input_refocus(table) {
 
         if (document.activeElement.tagName === 'INPUT') {
             let [row_index, cell_index] = row_cell_indexes(document.activeElement)
-            let table_width = table.dataset.viewFields.split(',').length
+            let has_next_row = ()=>{ return row_index+1 <= table.rows.length-1 }
+            let has_next_col = ()=>{ return cell_index+1 <= table.dataset.viewFields.split(',').length-1 }
 
-            if (row_index+1 <= table.rows.length-1) {
+            if (has_next_row()) {
                 row_index += 1
-            } else if (cell_index+1 <= table_width-1) {
-                row_index = 1
+            } else if (has_next_col()) {
                 cell_index +=1
+                row_index = 1
             } else {
                 return
             }
