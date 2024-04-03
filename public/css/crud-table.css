@@ -1,6 +1,7 @@
 .crud-table {
     border-collapse: collapse;
     table-layout: fixed;
+
 }
 
 .crud-table input, .crud-table select {
