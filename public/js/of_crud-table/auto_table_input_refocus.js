@@ -1,4 +1,4 @@
-import { row_cell_indexes, set_caret } from "../helpers.js"
+import { row_cell_indexes } from "../helpers.js"
 
 
 function auto_table_input_refocus(table) {
