@@ -85,6 +85,7 @@
         </x-card>
 
     </x-card-list>
+    <div style="height: 200px"></div>
 </x-app-layout>
 </body>
 </html>
