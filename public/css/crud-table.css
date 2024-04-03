@@ -8,7 +8,7 @@
     box-sizing: border-box;
     min-height: 24px;
     border: 0;
-    background-color: #454a4d;
+    background-color: #374151;
     color: white;
 }
 
@@ -20,6 +20,10 @@
     border: 1px solid #1f2937;
     margin: 0;
     padding: 0;
+}
+
+.crud-table th {
+    margin-bottom: 16px;
 }
 
 .btn {
