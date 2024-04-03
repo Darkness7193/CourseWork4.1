@@ -10,6 +10,7 @@
     border: 0;
     background-color: #29364A;
     color: white;
+    padding-left: 4px;
 }
 
 .crud-table input:focus {
