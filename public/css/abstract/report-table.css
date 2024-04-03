@@ -2,24 +2,28 @@
     min-width: 44px;
 }
 
+.report-table td:last-child {
+    border: 0;
+}
+
 
 tr > .winter-td {
-    background: #bcbcd2;
+    background: #29364A;
     min-width: 44px;
 }
 
 tr > .spring-td {
-    background: #c3d7c3;
+    background: #32432C;
     min-width: 44px;
 }
 
 tr > .summer-td {
-    background: #adad7a;
+    background: #545433;
     min-width: 44px;
 }
 
 tr > .fall-td {
-    background: #cca6a6;
+    background: #563131;
     min-width: 44px;
 }
 
