@@ -1,14 +1,10 @@
-.count-input {
+.count-input, .page-input{
     width:38px;
     text-align: right;
-}
+    color: white;
 
-.page-input {
-    width:38px;
-    text-align: right;
-}
-
-.paginator-wrapper {
-    float: right;
-    margin: 6px;
+    background: #2F3D53;
+    border: 1px solid #111827;
+    border-radius: 4px;
+    padding-right: 3px;
 }
