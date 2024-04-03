@@ -1,4 +1,12 @@
+<!-- imports: -->
+    <link rel="stylesheet" href="{{ asset('css/abstract/tooltip.css') }}">
 
 
-<!-- f($tooltip) -->
-<img class='icon' title="{{ $tooltip }}" src="{{ asset('images/question-icon.png') }}"/>
+<!-- f($tooltip_text): -->
+<div class="tooltip">
+    <img class='icon' src="{{ asset('images/question-icon.png') }}"/>
+    <span class="tooltiptext">{{ $tooltip_text }}</span>
+</div>
+
+
+
