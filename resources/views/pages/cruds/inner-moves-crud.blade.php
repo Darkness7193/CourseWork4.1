@@ -11,6 +11,7 @@
     <script src="{{ asset('js/of_crud-table/submit_changes.js') }}" type="module"></script>
     <script src="{{ asset('js/of_crud-table/disable_new_storage_field.js') }}" type="module"></script>
     <script src="{{ asset('js/of_crud-table/delete-btn_bulk_activation.js') }}" type="module"></script>
+    <script src="{{ asset('js/of_crud-table/auto_table_input_refocus.js') }}" type="module"></script>
     <link rel="stylesheet" href="{{ asset('css/global.css') }}">
     <link rel="stylesheet" href="{{ asset('css/crud-table.css') }}">
     <link rel="stylesheet" href="{{ asset('css/abstract/foreign-cell.css') }}">

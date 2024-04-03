@@ -125,3 +125,11 @@ export function activation_by_hold_mouse(element) {
         }
     })
 }
+
+export function row_cell_indexes(input) {
+    let td = input.parentNode
+    let tr = td.parentNode
+    return [tr.rowIndex, td.cellIndex]
+}
+
+export function set_caret(element, caret_index) {element.setSelectionRange(caret_index, caret_index)}
