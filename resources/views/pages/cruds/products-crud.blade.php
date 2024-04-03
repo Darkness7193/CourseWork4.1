@@ -49,6 +49,7 @@
             @include('crud-components.save-btn', ['no_view_fields' => []])
             @include('table-tools.search-bar', compact('search_targets', 'view_fields', 'headers'))
             @include('table-tools.ordering-menu', compact('view_fields', 'headers'))
+            @include('tooltip-icon', ['tooltip' => 'asdfff'])
         </x-card>
     </div>
 </x-app-layout>
