@@ -9,7 +9,7 @@
         autocomplete="off"
     >   @csrf
 
-        <div class="small text-muted">
+        <div class="paginator small text-muted">
             {!! __('Показать') !!}
             <input type="number" class="count-input" onfocus="this.select();" name='per_page' value="{{ $paginator->perPage() }}" onchange="this.form.submit()">
             {!! __('строк') !!}

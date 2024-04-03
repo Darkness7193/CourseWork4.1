@@ -18,7 +18,7 @@
     background-color: #29364A;
     border: 1px solid #111827;
     border-radius: 3px;
-    color: white;
+    color: lightgray;
 }
 
 .fieldwise-search-input::-webkit-inner-spin-button,

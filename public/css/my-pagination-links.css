@@ -1,10 +1,14 @@
 .count-input, .page-input{
     width:38px;
     text-align: right;
-    color: white;
+    color: lightgray;
 
     background: #2F3D53;
     border: 1px solid #111827;
     border-radius: 4px;
     padding-right: 3px;
+}
+
+.paginator {
+    color: lightgray;
 }
