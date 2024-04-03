@@ -19,7 +19,7 @@
 <body>
 <x-app-layout>
     <div class="py-12 vertical-arrange">
-        <x-card>
+        <x-card class="foot-margin">
             <table class="crud-table" data-max-id="{{ $Product::max('id') }}"
                    data-view-fields="{{ implode(',', $view_fields) }}" data-crud-model="{{ $Product }}">
                 <tr>

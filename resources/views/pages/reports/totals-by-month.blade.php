@@ -17,7 +17,7 @@
 <body>
 <x-app-layout>
     <div class="py-12 vertical-arrange">
-        <x-card>
+        <x-card class="foot-margin">
             <table class="tile-table report-table" data-view-fields="{{ implode(',', $view_fields) }}">
                 <tr>
                     @foreach($headers as $header)

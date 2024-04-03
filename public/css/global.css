@@ -39,3 +39,7 @@ input::-webkit-outer-spin-button {
     height: 0;
     overflow: hidden;
 }
+
+.foot-margin {
+    margin-bottom: 300px;
+}
