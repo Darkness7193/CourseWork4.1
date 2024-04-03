@@ -7,3 +7,8 @@
     width:38px;
     text-align: right;
 }
+
+.paginator-wrapper {
+    float: right;
+    margin: 6px;
+}

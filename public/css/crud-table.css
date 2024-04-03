@@ -1,52 +1,71 @@
 .crud-table {
     border-collapse: collapse;
     table-layout: fixed;
-
 }
 
-.crud-table input, .crud-table select {
-    width: 100%;
-    box-sizing: border-box;
-    min-height: 26px;
-    border: 0;
-    background-color: #29364A;
-    color: white;
-    padding-left: 4px;
-}
 
-.crud-table input:focus {
-    outline: 1px solid lightblue;
-}
+/* Cells structure: */
+    .crud-table td, .crud-table > tr:not(:first-child) > th {
+        border: 1px solid #111827;
+        margin: 0;
+        padding: 0;
+    }
 
-.crud-table td:not(:last-child), .crud-table > tr:not(:first-child) > th:not(:last-child) {
-    border: 1px solid #111827;
-    margin: 0;
-    padding: 0;
-}
+    .crud-table td:last-child, th:last-child {
+        border: 0;
+    }
 
-.crud-table th {
-    margin-bottom: 16px;
-}
+    .crud-table tr:last-child td {
+        border: 0;
+    }
 
-.btn {
-    border: 0;
-    background: none;
-    height: 18px;
-    width: 18px;
-    margin: 0;
-}
 
-.btn-icon {
-    height: 18px;
-    width: 18px;
-    display:block;
-    margin:auto;
-}
+/* Certain columns details: */
+    .crud-table th {
+        padding-bottom: 4px;
+    }
 
-.product-move-type-select {
-    min-width: 124px;
-}
+    .comment-td {
+        width: 30%;
+    }
 
-.comment-td {
-    width: 30%;
-}
+
+/* Editors of crud-table: */
+    .crud-table tr:not(:last-child) input, .crud-table select {
+        width: 100%;
+        box-sizing: border-box;
+        min-height: 26px;
+        border: 0;
+        background-color: #29364A;
+        color: white;
+        padding-left: 4px;
+    }
+
+    .crud-table input:focus {
+        outline: 1px solid lightblue;
+    }
+
+    .product-move-type-select {
+        min-width: 124px;
+    }
+
+
+/* Buttons: */
+    .btn {
+        border: 0;
+        background: none;
+        height: 18px;
+        width: 18px;
+        margin: 0;
+    }
+
+    .btn-icon {
+        height: 18px;
+        width: 18px;
+        display:block;
+        margin:auto;
+    }
+
+
+
+
