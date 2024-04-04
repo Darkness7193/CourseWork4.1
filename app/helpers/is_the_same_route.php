@@ -5,7 +5,7 @@ use Illuminate\Support\Facades\Route;
 
 
 
-function get_previous_route_name(): string {
+function get_previous_route_name(): ?string {
     return app('router')->getRoutes()->match(app('request')->create(url()->previous()))->getName();
 }
 
