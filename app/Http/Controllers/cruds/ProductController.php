@@ -1,30 +1,34 @@
 <?php
 
-namespace App\Http\Controllers;
+namespace App\Http\Controllers\cruds;
 
 include_once(app_path().'/sql/queries/filter_order_paginate.php');
+include_once(app_path().'/sql/helpers/update_or_create_in_bulk.php');
 
 include_once(app_path().'/helpers/pure_php/get_columns.php');
 include_once(app_path().'/helpers/get_filler_rows.php');
 include_once(app_path().'/helpers/session_setif.php');
+include_once(app_path().'/helpers/is_the_same_route.php');
 
-use App\Models\Storage;
+use App\Models\Product;
 use Illuminate\Http\Request;
 use Illuminate\Routing\Controller;
 use Illuminate\Support\Facades\Session;
 use Illuminate\View\View;
 
 
-class StorageController extends Controller
+
+
+class ProductController extends Controller
 {
     public function index(Request $request): View
     {
         [$view_fields, $headers] = get_columns([
             ['name', 'Наименование'],
 
-            ['address', 'Адрес'],
-            ['phone_number', 'Номер'],
-            ['email', 'Эл. почта'],
+            ['manufactor', 'Производитель'],
+            ['purchase_price', 'Цена закупки'],
+            ['selling_price', 'Цена продажи'],
 
             ['comment', 'Комментарий'],
         ]);
@@ -38,14 +42,20 @@ class StorageController extends Controller
             'current_page' => $request->current_page
         ]);
 
-        $storages = filter_order_paginate(Storage::query(), $view_fields);
+        $products = filter_order_paginate(Product::query(), $view_fields);
 
-        return view('pages/cruds/storages-crud', [
-            'paginator' => $storages,
-            'Storage' => Storage::class,
-            'filler_rows' => get_filler_rows($storages, Storage::max('id')),
+        return view('pages/cruds/products-crud', [
+            'paginator' => $products,
+            'Product' => Product::class,
+            'filler_rows' => get_filler_rows($products, Product::max('id')),
             'search_targets' => session('search_targets')
 
         ] + $session_items + compact('view_fields', 'headers'));
+    }
+
+
+    public function update_or_create(Request $request): void
+    {
+        update_or_create_in_bulk($request->CrudModel, $request->updated_rows, $request->no_view_fields);
     }
 }

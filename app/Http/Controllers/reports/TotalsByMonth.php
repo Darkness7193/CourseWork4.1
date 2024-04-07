@@ -1,23 +1,27 @@
 <?php
 
-namespace App\Http\Controllers\ProductMove\reports;
+namespace App\Http\Controllers\reports;
 
 include_once(app_path().'/helpers/get_used_years_of.php');
 include_once(app_path().'/helpers/session_setif.php');
 include_once(app_path().'/helpers/session_get.php');
+include_once(app_path().'/helpers/is_the_same_route.php');
+include_once(app_path().'/helpers/pure_php/get_columns.php');
 
 include_once(app_path().'/sql/queries/filter_order_paginate.php');
 include_once(app_path().'/sql/queries/report_totals/product_totals.php');
 
+use App\Models\Storage;
 use Illuminate\Http\Request;
 use Illuminate\Routing\Controller;
-use App\Models\Storage;
 use Illuminate\Support\Facades\Session;
+
+
 
 
 class TotalsByMonth extends Controller
 {
-    public function __invoke(Request $request) {
+    public function index(Request $request) {
         [$view_fields, $headers] = get_columns([
             ['product_name', 'Товар'],
             ['year_totals', 'Год'],

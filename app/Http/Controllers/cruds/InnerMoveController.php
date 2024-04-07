@@ -1,12 +1,15 @@
 <?php
 
-namespace App\Http\Controllers\ProductMove\cruds;
+namespace App\Http\Controllers\cruds;
 
 include_once(app_path().'/sql/queries/filter_order_paginate.php');
 include_once(app_path().'/sql/queries/inner_moves.php');
+include_once(app_path().'/sql/helpers/update_or_create_in_bulk.php');
 
+include_once(app_path().'/helpers/pure_php/get_columns.php');
 include_once(app_path().'/helpers/get_filler_rows.php');
 include_once(app_path().'/helpers/session_setif.php');
+include_once(app_path().'/helpers/is_the_same_route.php');
 
 use App\Models\Product;
 use App\Models\ProductMove;
@@ -17,9 +20,11 @@ use Illuminate\Support\Facades\Session;
 use Illuminate\View\View;
 
 
-class InnerMovesCrud extends Controller
+
+
+class InnerMoveController extends Controller
 {
-    public function __invoke(Request $request): View
+    public function index(Request $request): View
     {
         [$view_fields, $headers] = get_columns([
             ['date', 'Дата'],
@@ -55,5 +60,11 @@ class InnerMovesCrud extends Controller
             'search_targets' => session('search_targets')
 
         ] + $session_items + compact('view_fields', 'headers'));
+    }
+
+
+    public function update_or_create(Request $request): void
+    {
+        update_or_create_in_bulk($request->CrudModel, $request->updated_rows, $request->no_view_fields);
     }
 }

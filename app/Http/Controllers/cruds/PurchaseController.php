@@ -1,11 +1,15 @@
 <?php
 
-namespace App\Http\Controllers\ProductMove\cruds;
+namespace App\Http\Controllers\cruds;
 
 include_once(app_path().'/sql/queries/filter_order_paginate.php');
+include_once(app_path().'/sql/helpers/update_or_create_in_bulk.php');
 
+include_once(app_path().'/helpers/pure_php/get_columns.php');
 include_once(app_path().'/helpers/get_filler_rows.php');
 include_once(app_path().'/helpers/session_setif.php');
+include_once(app_path().'/helpers/clear_session.php');
+include_once(app_path().'/helpers/is_the_same_route.php');
 
 use App\Models\Product;
 use App\Models\ProductMove;
@@ -16,12 +20,14 @@ use Illuminate\Support\Facades\Session;
 use Illuminate\View\View;
 
 
-class SalesCrud extends Controller
+
+
+class PurchaseController extends Controller
 {
-    public function __invoke(Request $request): View
+    public function index(Request $request): View
     {
         [$view_fields, $headers] = get_columns([
-            ['date', 'Продано'],
+            ['date', 'Поступило'],
 
             ['product_id', 'Товар'],
             ['quantity', 'Кол-во'],
@@ -40,16 +46,22 @@ class SalesCrud extends Controller
             'current_page' => $request->current_page
         ]);
 
-        $sales = filter_order_paginate(ProductMove::where('product_move_type', 'selling'), $view_fields);
+        $purchases = filter_order_paginate(ProductMove::where('product_move_type', 'purchasing'), $view_fields);
 
-        return view('pages/cruds/sales-crud', [
-            'paginator' => $sales,
+        return view('pages/cruds/purchases-crud', [
+            'paginator' => $purchases,
             'ProductMove' => ProductMove::class,
-            'products' => Product::select('id', 'name', 'selling_price')->get(),
+            'products' => Product::select('id', 'name', 'purchase_price')->get(),
             'storages' => Storage::select('id', 'name')->get(),
-            'filler_rows' => get_filler_rows($sales, ProductMove::max('id')),
+            'filler_rows' => get_filler_rows($purchases, ProductMove::max('id')),
             'search_targets' => session('search_targets')
 
         ] + $session_items + compact('view_fields', 'headers'));
+    }
+
+
+    public function update_or_create(Request $request): void
+    {
+        update_or_create_in_bulk($request->CrudModel, $request->updated_rows, $request->no_view_fields);
     }
 }
