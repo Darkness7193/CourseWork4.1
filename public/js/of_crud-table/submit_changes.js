@@ -2,18 +2,25 @@ import { get_value, post, get_row_id_and_cl, set_by_double_keys, remove_elements
 
 
 window.updated_rows = {}
+window.new_rows = {}
 window.deleted_rows = new Set([])
 let view_fields = document.getElementsByClassName('crud-table')[0].dataset.viewFields.split(',')
 
 
 function update_cell_of(editor) {
     let [row_id, cl] = get_row_id_and_cl(editor)
-    set_by_double_keys(updated_rows, [row_id, view_fields[cl]], get_value(editor))
+    let is_new_row = ()=>{ return (typeof(row_id) === "string" && row_id.slice(0, 7) === 'new_row') }
+
+    if (is_new_row()) {
+        set_by_double_keys(new_rows, [row_id, view_fields[cl]], get_value(editor))
+    } else {
+        set_by_double_keys(updated_rows, [row_id, view_fields[cl]], get_value(editor))
+    }
 }
 
 
 function toggle_row_deleting(delete_btn) {
-    let row_id = Number(delete_btn.parentNode.parentNode.dataset.rowId)
+    let row_id = delete_btn.parentNode.parentNode.dataset.rowId
     let img = delete_btn.getElementsByTagName('img')[0]
     let is_add_to_delete = deleted_rows.has(row_id)
 
@@ -30,9 +37,11 @@ function toggle_row_deleting(delete_btn) {
 function submit_changes(no_view_fields) {
     let CrudModel = document.getElementsByClassName('crud-table')[0].dataset.crudModel
     ;[deleted_rows, updated_rows] = remove_elements_that_in_both(deleted_rows, updated_rows)
+    ;[deleted_rows, new_rows] = remove_elements_that_in_both(deleted_rows, new_rows)
 
-    post(window.php_vars['update_or_create_in_bulk_route'], {'CrudModel': CrudModel, 'updated_rows': updated_rows, 'no_view_fields': JSON.parse(no_view_fields)})
-    post(window.php_vars['delete_in_bulk_route'], {'CrudModel': CrudModel, 'deleted_rows': Array.from(deleted_rows)})
+    post(window.php_vars['update_bulk_route'], {'CrudModel': CrudModel, 'updated_rows': updated_rows})
+    post(window.php_vars['create_bulk_route'], {'CrudModel': CrudModel, 'new_rows': new_rows, 'no_view_fields': JSON.parse(no_view_fields)})
+    post(window.php_vars['delete_bulk_route'], {'CrudModel': CrudModel, 'deleted_rows': Array.from(deleted_rows)})
 
     msleep(100).then(() => { location.reload(); })
 }

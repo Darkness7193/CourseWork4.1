@@ -61,11 +61,14 @@ Route::middleware('auth')->group(function () use($post_to_get_route) {
         ->name('post_to_get_route');
 
     Route::group(['namespace' => 'App\Http\Controllers\TableViewCommands'], function() {
-        Route::post('bulk_update_or_create', 'UpdateOrCreateInBulk')
-            ->name('bulk_update_or_create');
+        Route::post('create_bulk', 'CreateBulk')
+            ->name('create_bulk');
 
-        Route::post('bulk_delete', 'DeleteInBulk')
-            ->name('bulk_delete');
+        Route::post('update_bulk', 'UpdateBulk')
+            ->name('update_bulk');
+
+        Route::post('delete_bulk', 'DeleteBulk')
+            ->name('delete_bulk');
 
         Route::post('set_filter', 'SetFilter')
             ->name('set_filter');
