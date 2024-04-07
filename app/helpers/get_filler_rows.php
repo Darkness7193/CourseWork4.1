@@ -5,13 +5,13 @@ use App\helpers\pure_php\EmptyRow;
 
 
 
-function get_filler_rows($paginator, $max_id) {
+function get_filler_rows($paginator) {
     $n = $paginator->perPage() - $paginator->count();
     $filler_rows = [];
 
     for ($i=0; $i<$n; $i++) {
         $FillerRow = new EmptyRow();
-        $FillerRow->id = $max_id + 1 + $i;
+        $FillerRow->id = "new_row_$i";
         $filler_rows[] = $FillerRow;
     }
 

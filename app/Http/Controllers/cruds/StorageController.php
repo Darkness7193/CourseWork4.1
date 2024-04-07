@@ -47,7 +47,7 @@ class StorageController extends Controller
         return view('pages/cruds/storages-crud', [
             'paginator' => $storages,
             'Storage' => Storage::class,
-            'filler_rows' => get_filler_rows($storages, Storage::max('id')),
+            'filler_rows' => get_filler_rows($storages),
             'search_targets' => session('search_targets')
 
         ] + $session_items + compact('view_fields', 'headers'));
