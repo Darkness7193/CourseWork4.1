@@ -1,10 +1,11 @@
 <?php
 
-namespace App\Http\Requests\TableViewCommands;
+namespace App\Http\Requests\cruds;
 
+use Illuminate\Contracts\Validation\Validator;
 use Illuminate\Foundation\Http\FormRequest;
 
-class UpdateOrCreateInBulkRequest extends FormRequest
+class PurchasesCrudRequest extends FormRequest
 {
     /**
      * Determine if the user is authorized to make this request.
@@ -22,7 +23,17 @@ class UpdateOrCreateInBulkRequest extends FormRequest
     public function rules(): array
     {
         return [
-            //
+            'asdf' => 'max:3'
         ];
+    }
+
+    public function failedValidation(Validator $validator)
+    {
+        // $ViewErrorBag = new ViewErrorBag;
+        // $ViewErrorBag->put('default', $validator->errors());
+        // session()->put('errors', $ViewErrorBag);
+
+
+        parent::failedValidation($validator);
     }
 }
