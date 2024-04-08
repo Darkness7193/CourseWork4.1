@@ -13,7 +13,7 @@ include_once(app_path().'/helpers/session_setif.php');
 include_once(app_path().'/helpers/clear_session.php');
 include_once(app_path().'/helpers/is_the_same_route.php');
 
-use App\Http\Requests\cruds\PurchaseUpdateBulkRequest;
+use App\Http\Requests\cruds\Purchase\PurchaseUpdateBulkRequest;
 use App\Models\Product;
 use App\Models\ProductMove;
 use App\Models\Storage;
@@ -21,8 +21,6 @@ use Illuminate\Http\Request;
 use Illuminate\Routing\Controller;
 use Illuminate\Support\Facades\Session;
 use Illuminate\View\View;
-
-
 
 
 class PurchaseController extends Controller

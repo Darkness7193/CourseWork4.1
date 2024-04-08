@@ -1,18 +1,15 @@
 <?php
 
-namespace App\Http\Requests\cruds;
+namespace App\Http\Requests\cruds\Product;
 
 use Illuminate\Foundation\Http\FormRequest;
 
 
 
 
-class ProductUpdateOrCreateRequest extends FormRequest
+class ProductUpdateBulkRequest extends FormRequest
 {
-    public function authorize(): bool
-    {
-        return true;
-    }
+    public function authorize(): bool {return true;}
 
 
     public function rules(): array

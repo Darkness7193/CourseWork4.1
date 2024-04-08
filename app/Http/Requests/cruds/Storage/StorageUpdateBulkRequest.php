@@ -1,18 +1,15 @@
 <?php
 
-namespace App\Http\Requests\cruds;
+namespace App\Http\Requests\cruds\Storage;
 
 use Illuminate\Foundation\Http\FormRequest;
 
 
 
 
-class StorageUpdateOrCreateRequest extends FormRequest
+class StorageUpdateBulkRequest extends FormRequest
 {
-    public function authorize(): bool
-    {
-        return true;
-    }
+    public function authorize(): bool {return true;}
 
 
     public function rules(): array
