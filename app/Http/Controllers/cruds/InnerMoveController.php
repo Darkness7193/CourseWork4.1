@@ -6,6 +6,7 @@ include_once(app_path().'/sql/queries/filter_order_paginate.php');
 include_once(app_path().'/sql/queries/inner_moves.php');
 include_once(app_path().'/sql/helpers/update_bulk.php');
 include_once(app_path().'/sql/helpers/create_bulk.php');
+include_once(app_path().'/sql/helpers/delete_bulk.php');
 
 include_once(app_path().'/helpers/pure_php/get_columns.php');
 include_once(app_path().'/helpers/get_filler_rows.php');
@@ -64,14 +65,17 @@ class InnerMoveController extends Controller
     }
 
 
-    public function update_bulk(Request $request): void
-    {
+    public function update_bulk(Request $request): void {
         update_bulk(ProductMove::class, $request->updated_rows);
     }
 
 
-    public function create_bulk(Request $request): void
-    {
+    public function create_bulk(Request $request): void {
         create_bulk(ProductMove::class, $request->new_rows, $request->no_view_fields);
+    }
+
+
+    public function delete_bulk(Request $request): void {
+        delete_bulk(ProductMove::class, $request->deleted_rows);
     }
 }
