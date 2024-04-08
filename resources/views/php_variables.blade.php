@@ -1,8 +1,6 @@
 <script>
     window.php_vars = {
-        'update_bulk_route': '{{ route('update_bulk') }}',
-        'create_bulk_route': '{{ route('create_bulk') }}',
-        'delete_bulk_route': '{{ route('delete_bulk') }}',
+        'save_crud_route': '{{ route('save_crud') }}',
         'post_to_get_route_route': '{{ route('post_to_get_route') }}',
         'current_route': '{{ Route::current()->getName() }}',
 

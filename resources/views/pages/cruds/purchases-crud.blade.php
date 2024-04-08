@@ -22,7 +22,7 @@
 <x-app-layout>
     <x-card-list>
         <x-card>
-            @include('crud-components.save-btn', ['no_view_fields' => [
+            @include('crud-components.save-btn', ['controller' => 'PurchaseController', 'no_view_fields' => [
                 'product_move_type' => 'purchasing',
                 'new_storage_id' => null
             ]])
