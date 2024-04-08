@@ -13,6 +13,7 @@ include_once(app_path().'/helpers/session_setif.php');
 include_once(app_path().'/helpers/clear_session.php');
 include_once(app_path().'/helpers/is_the_same_route.php');
 
+use App\Http\Requests\cruds\Purchase\PurchaseCreateBulkRequest;
 use App\Http\Requests\cruds\Purchase\PurchaseUpdateBulkRequest;
 use App\Models\Product;
 use App\Models\ProductMove;
@@ -61,13 +62,13 @@ class PurchaseController extends Controller
     }
 
 
-    public function update_bulk(PurchaseUpdateBulkRequest $request): void {
-        update_bulk(ProductMove::class, $request->updated_rows);
+    public function PurchaseCreateBulkRequest(PurchaseCreateBulkRequest $request): void {
+        create_bulk(ProductMove::class, $request->new_rows, $request->no_view_fields);
     }
 
 
-    public function create_bulk(Request $request): void {
-        create_bulk(ProductMove::class, $request->new_rows, $request->no_view_fields);
+    public function PurchaseUpdateBulkRequest(PurchaseUpdateBulkRequest $request): void {
+        update_bulk(ProductMove::class, $request->updated_rows);
     }
 
 

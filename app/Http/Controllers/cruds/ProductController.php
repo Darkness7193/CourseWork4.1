@@ -12,6 +12,8 @@ include_once(app_path().'/helpers/get_filler_rows.php');
 include_once(app_path().'/helpers/session_setif.php');
 include_once(app_path().'/helpers/is_the_same_route.php');
 
+use App\Http\Requests\cruds\Product\ProductCreateBulkRequest;
+use App\Http\Requests\cruds\Product\ProductUpdateBulkRequest;
 use App\Models\Product;
 use App\Models\ProductMove;
 use Illuminate\Http\Request;
@@ -57,13 +59,13 @@ class ProductController extends Controller
     }
 
 
-    public function update_bulk(Request $request): void {
-        update_bulk(Product::class, $request->updated_rows);
+    public function create_bulk(ProductCreateBulkRequest $request): void {
+        create_bulk(Product::class, $request->new_rows, $request->no_view_fields);
     }
 
 
-    public function create_bulk(Request $request): void {
-        create_bulk(Product::class, $request->new_rows, $request->no_view_fields);
+    public function update_bulk(ProductUpdateBulkRequest $request): void {
+        update_bulk(Product::class, $request->updated_rows);
     }
 
 

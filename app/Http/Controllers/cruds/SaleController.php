@@ -12,6 +12,8 @@ include_once(app_path().'/helpers/get_filler_rows.php');
 include_once(app_path().'/helpers/session_setif.php');
 include_once(app_path().'/helpers/is_the_same_route.php');
 
+use App\Http\Requests\cruds\Sale\SaleCreateBulkRequest;
+use App\Http\Requests\cruds\Sale\SaleUpdateBulkRequest;
 use App\Models\Product;
 use App\Models\ProductMove;
 use App\Models\Storage;
@@ -61,14 +63,13 @@ class SaleController extends Controller
     }
 
 
-    public function update_bulk(Request $request): void
-    {
-        update_bulk(ProductMove::class, $request->updated_rows);
+    public function create_bulk(SaleCreateBulkRequest $request): void {
+        create_bulk(ProductMove::class, $request->new_rows, $request->no_view_fields);
     }
 
 
-    public function create_bulk(Request $request): void {
-        create_bulk(ProductMove::class, $request->new_rows, $request->no_view_fields);
+    public function update_bulk(SaleUpdateBulkRequest $request): void {
+        update_bulk(ProductMove::class, $request->updated_rows);
     }
 
 

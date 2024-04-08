@@ -12,6 +12,8 @@ include_once(app_path().'/helpers/get_filler_rows.php');
 include_once(app_path().'/helpers/session_setif.php');
 include_once(app_path().'/helpers/is_the_same_route.php');
 
+use App\Http\Requests\cruds\Storage\StorageCreateBulkRequest;
+use App\Http\Requests\cruds\Storage\StorageUpdateBulkRequest;
 use App\Models\ProductMove;
 use App\Models\Storage;
 use Illuminate\Http\Request;
@@ -57,12 +59,12 @@ class StorageController extends Controller
     }
 
 
-    public function update_bulk(Request $request): void {
+    public function update_bulk(StorageUpdateBulkRequest $request): void {
         update_bulk(Storage::class, $request->updated_rows);
     }
 
 
-    public function create_bulk(Request $request): void {
+    public function create_bulk(StorageCreateBulkRequest $request): void {
         create_bulk(Storage::class, $request->new_rows, $request->no_view_fields);
     }
 
