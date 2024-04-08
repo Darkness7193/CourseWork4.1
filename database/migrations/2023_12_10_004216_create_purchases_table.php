@@ -16,12 +16,12 @@ return new class extends Migration
             $table->id();
             $table->timestamps();
             $table->date('date');
-            $table->string('operation_type');
+            $table->string('operation_type', 100);
             $table->foreignId('product_id')->constrained();
             $table->integer('quantity');
-            $table->float('price');
+            $table->float('price', 10, 2);
             $table->foreignId('storage_id')->constrained();
-            $table->string('comment');
+            $table->string('comment', 1000);
         });
     }
 

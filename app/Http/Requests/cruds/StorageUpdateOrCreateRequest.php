@@ -18,7 +18,13 @@ class StorageUpdateOrCreateRequest extends FormRequest
     public function rules(): array
     {
         return [
-            'asdf' => 'max:3'
+            'name' => 'filled|string|max:100',
+
+            'address' => 'filled|string|max:100',
+            'phone_number' => 'filled|string|max:100',
+            'email' => 'filled|email|max:100',
+
+            'comment' => 'nullable|string|max:1000',
         ];
     }
 }

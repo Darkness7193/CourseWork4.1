@@ -18,7 +18,14 @@ class SaleUpdateOrCreateRequest extends FormRequest
     public function rules(): array
     {
         return [
-            'asdf' => 'max:3'
+            'date' => 'filled|string|date',
+
+            'product_id' => 'filled|integer|digits:8',
+            'quantity' => 'filled|integer|digits:8',
+            'price' => 'filled|numeric|min:0|max:100000000',
+
+            'storage_id' => 'filled|integer|digits:8',
+            'comment' => 'nullable|string|max:1000'
         ];
     }
 }

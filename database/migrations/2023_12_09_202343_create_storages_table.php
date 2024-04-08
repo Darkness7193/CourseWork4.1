@@ -11,11 +11,11 @@ return new class extends Migration
         Schema::create('storages', function (Blueprint $table) {
             $table->id();
             $table->timestamps();
-            $table->string('name');
-            $table->string('address');
-            $table->string('phone_number');
-            $table->string('email');
-            $table->string('comment');
+            $table->string('name', 100);
+            $table->string('address', 100);
+            $table->string('phone_number', 100);
+            $table->string('email', 100);
+            $table->string('comment', 1000);
         });
     }
 

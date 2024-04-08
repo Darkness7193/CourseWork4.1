@@ -11,11 +11,11 @@ return new class extends Migration
         Schema::create('products', function (Blueprint $table) {
             $table->id();
             $table->timestamps();
-            $table->string('name');
-            $table->string('manufactor');
-            $table->float('purchase_price');
-            $table->float('selling_price');
-            $table->string('comment');
+            $table->string('name', 100);
+            $table->string('manufactor', 100);
+            $table->float('purchase_price', 10, 2);
+            $table->float('selling_price', 10, 2);
+            $table->string('comment', 1000);
         });
     }
 
