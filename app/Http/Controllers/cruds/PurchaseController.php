@@ -62,12 +62,12 @@ class PurchaseController extends Controller
     }
 
 
-    public function PurchaseCreateBulkRequest(PurchaseCreateBulkRequest $request): void {
+    public function create_bulk(PurchaseCreateBulkRequest $request): void {
         create_bulk(ProductMove::class, $request->new_rows, $request->no_view_fields);
     }
 
 
-    public function PurchaseUpdateBulkRequest(PurchaseUpdateBulkRequest $request): void {
+    public function update_bulk(PurchaseUpdateBulkRequest $request): void {
         update_bulk(ProductMove::class, $request->updated_rows);
     }
 
