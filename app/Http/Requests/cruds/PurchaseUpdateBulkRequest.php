@@ -7,7 +7,7 @@ use Illuminate\Foundation\Http\FormRequest;
 
 
 
-class PurchaseUpdateOrCreateRequest extends FormRequest
+class PurchaseUpdateBulkRequest extends FormRequest
 {
     public function authorize(): bool
     {
@@ -18,7 +18,7 @@ class PurchaseUpdateOrCreateRequest extends FormRequest
     public function rules(): array
     {
         return [
-            'asdf' => 'max:3'
+            'updated_rows.*.price' => 'max:1'
         ];
     }
 }

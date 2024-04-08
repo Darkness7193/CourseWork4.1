@@ -7,7 +7,7 @@ use Illuminate\Foundation\Http\FormRequest;
 
 
 
-class InnerMoveUpdateOrCreateRequest extends FormRequest
+class InnerMoveUpdateBulkRequest extends FormRequest
 {
     public function authorize(): bool
     {
@@ -18,7 +18,6 @@ class InnerMoveUpdateOrCreateRequest extends FormRequest
     public function rules(): array
     {
         return [
-            'asdf' => 'max:3'
         ];
     }
 }

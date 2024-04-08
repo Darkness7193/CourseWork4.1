@@ -46,7 +46,7 @@ function submit_changes(controller, no_view_fields) {
         'deleted_rows': Array.from(deleted_rows)
     })
 
-    msleep(100).then(() => { location.reload(); })
+    location.reload();
 }
 
 
