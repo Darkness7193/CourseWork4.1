@@ -39,6 +39,7 @@
         background-color: #29364A;
         color: lightgray;
         padding-left: 4px;
+        font-family: Arial;
     }
 
     .crud-table input:focus, .crud-table select:focus {

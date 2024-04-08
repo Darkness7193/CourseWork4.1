@@ -16,7 +16,8 @@
         background: #29364A;
         overflow: hidden;
         vertical-align: top;
-        font-size: 14px;
+        font-size: 13.33px;
+        font-family: Arial;
     }
 
     .report-table tr:last-child td {
