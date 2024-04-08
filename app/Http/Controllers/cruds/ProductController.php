@@ -68,6 +68,6 @@ class ProductController extends Controller
 
 
     public function delete_bulk(Request $request): void {
-        delete_bulk(ProductMove::class, $request->deleted_rows);
+        delete_bulk(Product::class, $request->deleted_rows);
     }
 }
