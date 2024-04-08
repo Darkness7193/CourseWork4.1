@@ -18,13 +18,13 @@ class ProductUpdateOrCreateRequest extends FormRequest
     public function rules(): array
     {
         return [
-            'name' => 'filled|string|max:100',
+            'updated_rows.*.name' => 'filled|string|max:100',
 
-            'manufactor' => 'filled|string|max:100',
-            'purchase_price' => 'filled|numeric|min:0|max:100000000',
-            'selling_price' => 'nullable|numeric|min:0|max:100000000',
+            'updated_rows.*.manufactor' => 'filled|string|max:100',
+            'updated_rows.*.purchase_price' => 'filled|numeric|min:0|max:100000000',
+            'updated_rows.*.selling_price' => 'nullable|numeric|min:0|max:100000000',
 
-            'comment' => 'nullable|string|max:1000',
+            'updated_rows.*.comment' => 'nullable|string|max:1000',
         ];
     }
 }

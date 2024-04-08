@@ -18,17 +18,17 @@ class InnerMoveUpdateBulkRequest extends FormRequest
     public function rules(): array
     {
         return [
-            'date' => 'filled|string|date',
+            'updated_rows.*.date' => 'filled|string|date',
 
-            'product_move_type' => 'filled|string|max:100',
-            'storage_id' => 'filled|integer|digits:8',
-            'new_storage_id' => 'filled|integer|digits:8',
+            'updated_rows.*.product_move_type' => 'filled|string|max:100',
+            'updated_rows.*.storage_id' => 'filled|integer|digits:8',
+            'updated_rows.*.new_storage_id' => 'filled|integer|digits:8',
 
-            'product_id' => 'filled|integer|digits:8',
-            'quantity' => 'filled|integer|digits:8',
-            'price' => 'filled|numeric|min:0|max:100000000',
+            'updated_rows.*.product_id' => 'filled|integer|digits:8',
+            'updated_rows.*.quantity' => 'filled|integer|digits:8',
+            'updated_rows.*.price' => 'filled|numeric|min:0|max:100000000',
 
-            'comment' => 'nullable|string|max:1000',
+            'updated_rows.*.comment' => 'nullable|string|max:1000',
         ];
     }
 }
