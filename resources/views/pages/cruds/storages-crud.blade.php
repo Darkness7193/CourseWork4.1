@@ -18,6 +18,8 @@
 
 <body>
 <x-app-layout>
+    @include('global-errors')
+
     <x-card-list>
         <x-card>
             @include('crud-components.save-btn', ['controller' => 'Storage', 'no_view_fields' => [
@@ -26,7 +28,6 @@
             ]])
             @include('table-tools.search-bar', compact('search_targets', 'view_fields', 'headers'))
             @include('table-tools.ordering-menu', compact('view_fields', 'headers'))
-            @include('errors')
         </x-card>
 
         <x-card class="foot-margin">
@@ -46,7 +47,8 @@
                         <td><input type="text" value="{{ $storage->address }}" onfocusout="update_cell_of(this)"></td>
                         <td><input type="text" step="0.01" value="{{ $storage->phone_number }}"
                                    onfocusout="update_cell_of(this)"></td>
-                        <td><input type="text" step="0.01" value="{{ $storage->email }}" onfocusout="update_cell_of(this)">
+                        <td><input type="text" step="0.01" value="{{ $storage->email }}"
+                                   onfocusout="update_cell_of(this)">
                         </td>
 
                         <td class="comment-td"><input type="text" value="{{ $storage->comment }}"

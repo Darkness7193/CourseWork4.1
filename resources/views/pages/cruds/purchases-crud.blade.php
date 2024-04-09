@@ -20,6 +20,8 @@
 
 <body>
 <x-app-layout>
+    @include('global-errors')
+
     <x-card-list>
         <x-card>
             @include('crud-components.save-btn', ['controller' => 'Purchase', 'no_view_fields' => [
@@ -28,7 +30,6 @@
             ]])
             @include('table-tools.search-bar', compact('search_targets', 'view_fields', 'headers'))
             @include('table-tools.ordering-menu', compact('view_fields', 'headers'))
-            @include('errors')
         </x-card>
 
         <x-card class="foot-margin">
@@ -61,7 +62,8 @@
                             </select>
                         </td>
 
-                        <td><input type="number" value="{{ $purchase->quantity }}" onfocusout="update_cell_of(this)"></td>
+                        <td><input type="number" value="{{ $purchase->quantity }}" onfocusout="update_cell_of(this)">
+                        </td>
                         <td><input class="purchase-price-input" type="number" step="0.01" value="{{ $purchase->price }}"
                                    onfocusout="update_cell_of(this)"></td>
 

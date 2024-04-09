@@ -19,6 +19,8 @@
 
 <body>
 <x-app-layout>
+    @include('global-errors')
+
     <x-card-list>
         <x-card>
             @include('crud-components.save-btn', ['controller' => 'Sale', 'no_view_fields' => [
@@ -27,7 +29,6 @@
             ]])
             @include('table-tools.search-bar', compact('search_targets', 'view_fields', 'headers'))
             @include('table-tools.ordering-menu', compact('view_fields', 'headers'))
-            @include('errors')
         </x-card>
 
         <x-card class="foot-margin">
@@ -43,7 +44,8 @@
 
                 @foreach (array_merge($paginator->items(), $filler_rows) as $sale)
                     <tr data-row-id="{{ $sale->id }}">
-                        <td><input type="date" value="{{ $sale->date->toDateString() }}" onfocusout="update_cell_of(this)">
+                        <td><input type="date" value="{{ $sale->date->toDateString() }}"
+                                   onfocusout="update_cell_of(this)">
                         </td>
 
                         <td>

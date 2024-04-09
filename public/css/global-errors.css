@@ -1,0 +1,25 @@
+.global-errors {
+    position: absolute;
+    border-collapse: collapse;
+    table-layout: fixed;
+    top: 71px; /* navigation-bar-height + margin-top. I too lazy to do it in proper way */
+    right: 0; /* element somehow have the 'right-margin', and it is approximately equal to margin-top from line 5 comment */
+
+    margin: 8px;
+    margin-top: 0;
+
+    background-color: #ef4444;
+    border-radius: 3px;
+}
+
+.global-errors td {
+    border: 0;
+    border-bottom: 1px solid #111827;
+    margin: 0;
+    padding: 4px 8px;
+    height: 26px;
+
+    color: white;
+    font-family: Figtree, ui-sans-serif, system-ui, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
+    font-size: 14px;
+}

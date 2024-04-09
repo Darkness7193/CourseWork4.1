@@ -20,6 +20,8 @@
 
 <body>
 <x-app-layout>
+    @include('global-errors')
+
     <x-card-list>
         <x-card>
             @include('crud-components.save-btn', ['controller' => 'InnerMove', 'no_view_fields' => [
@@ -28,7 +30,6 @@
             ]])
             @include('table-tools.search-bar', compact('search_targets', 'view_fields', 'headers'))
             @include('table-tools.ordering-menu', compact('view_fields', 'headers'))
-            @include('errors')
         </x-card>
 
         <x-card class="foot-margin">
@@ -51,7 +52,8 @@
                                 @foreach($ProductMove::inner_move_types_ru() as $inner_move_type => $inner_move_type_ru)
                                     <option value="{{ $inner_move_type }}"> {{ $inner_move_type_ru }} </option>
                                 @endforeach
-                                <option value="{{ $inner_move->product_move_type }}" selected="selected" hidden="hidden">
+                                <option value="{{ $inner_move->product_move_type }}" selected="selected"
+                                        hidden="hidden">
                                     {{ "$inner_move" ? $ProductMove::inner_move_types_ru()[$inner_move->product_move_type] : '' }}
                                 </option>
                             </select></td>
@@ -66,7 +68,8 @@
                         </td>
 
                         <td>@include('crud-components.foreign-cell', ['selected_foreign_row' => $inner_move->product, 'foreign_rows' => $products])</td>
-                        <td><input type="number" value="{{ $inner_move->quantity }}" onfocusout="update_cell_of(this)"></td>
+                        <td><input type="number" value="{{ $inner_move->quantity }}" onfocusout="update_cell_of(this)">
+                        </td>
                         <td><input type="number" step="0.01" value="{{ $inner_move->price }}"
                                    onfocusout="update_cell_of(this)"></td>
 
