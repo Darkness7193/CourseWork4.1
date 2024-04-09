@@ -29,4 +29,20 @@ class InnerMoveUpdateBulkRequest extends FormRequest
             'updated_rows.*.comment' => 'nullable|string|max:1000',
         ];
     }
+
+    public function attributes() {
+        return [
+            'updated_rows.*.date' => 'Дата',
+
+            'updated_rows.*.product_move_type' => 'Тип',
+            'updated_rows.*.storage_id' => 'Склад (начальный)',
+            'updated_rows.*.new_storage_id' => 'Склад (конечный)',
+
+            'updated_rows.*.product_id' => 'Товар',
+            'updated_rows.*.quantity' => 'Количество',
+            'updated_rows.*.price' => 'Цена',
+
+            'updated_rows.*.comment' => 'Комментарий',
+        ];
+    }
 }

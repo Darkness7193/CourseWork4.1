@@ -25,4 +25,16 @@ class StorageCreateBulkRequest extends FormRequest
             'new_rows.*.comment' => 'nullable|string|max:1000',
         ];
     }
+
+    public function attributes() {
+        return [
+            'new_rows.*.name' => 'Наименование',
+
+            'new_rows.*.address' => 'Адрес',
+            'new_rows.*.phone_number' => 'Номер',
+            'new_rows.*.email' => 'Эл. почта',
+
+            'new_rows.*.comment' => 'Комментарий',
+        ];
+    }
 }

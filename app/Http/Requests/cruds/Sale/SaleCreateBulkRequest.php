@@ -26,4 +26,17 @@ class SaleCreateBulkRequest extends FormRequest
             'new_rows.*.comment' => 'nullable|string|max:1000'
         ];
     }
+
+    public function attributes() {
+        return [
+            'new_rows.*.date' => 'Дата',
+
+            'new_rows.*.product_id' => 'Товар',
+            'new_rows.*.quantity' => 'Количество',
+            'new_rows.*.price' => 'Цена',
+
+            'new_rows.*.storage_id' => 'Склад',
+            'new_rows.*.comment' => 'Комментарий'
+        ];
+    }
 }

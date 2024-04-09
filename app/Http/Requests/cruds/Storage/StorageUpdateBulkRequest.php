@@ -25,4 +25,16 @@ class StorageUpdateBulkRequest extends FormRequest
             'updated_rows.*.comment' => 'nullable|string|max:1000',
         ];
     }
+
+    public function attributes() {
+        return [
+            'updated_rows.*.name' => 'Наименование',
+
+            'updated_rows.*.address' => 'Адрес',
+            'updated_rows.*.phone_number' => 'Номер',
+            'updated_rows.*.email' => 'Эл. почта',
+
+            'updated_rows.*.comment' => 'Комментарий',
+        ];
+    }
 }

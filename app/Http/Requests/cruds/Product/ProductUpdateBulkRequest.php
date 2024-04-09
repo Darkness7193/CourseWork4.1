@@ -25,4 +25,16 @@ class ProductUpdateBulkRequest extends FormRequest
             'updated_rows.*.comment' => 'nullable|string|max:1000',
         ];
     }
+
+    public function attributes() {
+        return [
+            'updated_rows.*.name' => 'Наименование',
+
+            'updated_rows.*.manufactor' => 'Производитель',
+            'updated_rows.*.purchase_price' => 'Цена закупки',
+            'updated_rows.*.selling_price' => 'Цена продажи',
+
+            'updated_rows.*.comment' => 'Комментарий',
+        ];
+    }
 }
