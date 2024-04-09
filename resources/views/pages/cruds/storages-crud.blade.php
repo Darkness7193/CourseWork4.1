@@ -26,6 +26,7 @@
             ]])
             @include('table-tools.search-bar', compact('search_targets', 'view_fields', 'headers'))
             @include('table-tools.ordering-menu', compact('view_fields', 'headers'))
+            @include('errors')
         </x-card>
 
         <x-card class="foot-margin">

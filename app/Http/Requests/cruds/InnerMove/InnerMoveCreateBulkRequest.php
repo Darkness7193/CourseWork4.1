@@ -9,8 +9,9 @@ use Illuminate\Foundation\Http\FormRequest;
 
 class InnerMoveCreateBulkRequest extends FormRequest
 {
-    public function authorize(): bool {return true;}
+    use CreateUpdate;
 
+    public function authorize(): bool {return true;}
 
     public function rules(): array
     {
