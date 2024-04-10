@@ -2,8 +2,8 @@
     <link rel="stylesheet" href="{{ asset('css/abstract/dropdown.css') }}">
     <link rel="stylesheet" href="{{ asset('css/abstract/number-checkbox-input.css') }}">
     <link rel="stylesheet" href="{{ asset('css/table-tools/ordering-menu.css') }}">
-    <script src="{{ asset('js/of_abstract/of_dropdown.js') }}" type="module"></script>
-    <script src="{{ asset('js/of_abstract/of_number-checkbox-input.js') }}" type="module"></script>
+    <script src="{{ asset('js/of_component/of_dropdown.js') }}" type="module"></script>
+    <script src="{{ asset('js/of_component/of_number-checkbox-input.js') }}" type="module"></script>
     <script src="{{ asset('js/of_ordering-menu/of_order-direction-btn.js') }}" type="module"></script>
 
 
