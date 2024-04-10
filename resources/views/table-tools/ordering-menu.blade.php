@@ -8,7 +8,7 @@
 
 
 <!-- f($CrudModel, $view_fields, $headers): -->
-<form class="vertical-center"
+<form class="ordering-component vertical-center"
     method="post"
     action="{{ route('set_order', ['previous_route' => Route::current()->getName()]) }}"
 >   @csrf
