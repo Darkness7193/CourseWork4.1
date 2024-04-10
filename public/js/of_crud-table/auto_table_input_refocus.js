@@ -1,6 +1,8 @@
 import { row_cell_indexes } from "../helpers.js"
 
 
+
+
 function row_refocus(table) {
     if (document.activeElement.tagName === 'INPUT') {
         let [row_index, cell_index] = row_cell_indexes(document.activeElement)

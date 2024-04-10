@@ -10,6 +10,7 @@
     @include('php_variables')
     <script src="{{ asset('js/of_crud-table/delete-btn_bulk_activation.js') }}" type="module"></script>
     <script src="{{ asset('js/of_crud-table/submit_changes.js') }}" type="module"></script>
+    <script src="{{ asset('js/of_crud-table/copy_input_value_by_hold.js') }}" type="module"></script>
     <script src="{{ asset('js/of_crud-table/auto_price_insert.js') }}" type="module"></script>
     <script src="{{ asset('js/of_crud-table/auto_table_input_refocus.js') }}" type="module"></script>
     <link rel="stylesheet" href="{{ asset('css/global.css') }}">

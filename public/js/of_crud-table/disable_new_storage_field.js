@@ -1,5 +1,8 @@
 import { get_value } from "../helpers.js"
 
+
+
+
 ;[...document.getElementsByClassName('product-move-type-select')].forEach((move_type_select)=>{
     move_type_select.addEventListener('change', ()=>{
         let tr = move_type_select.parentNode.parentNode
