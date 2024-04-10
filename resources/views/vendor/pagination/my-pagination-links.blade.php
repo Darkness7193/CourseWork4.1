@@ -15,7 +15,8 @@
             {!! __('строк') !!}
             <input type="number" class="page-input" onfocus="this.select();" name='current_page' value="{{ $paginator->currentPage() }}" onchange="this.form.submit()">
             {!! __('страницы из') !!}
-            <span class="last-page-indicator fw-semibold">{{ $paginator->lastPage() }}</span>
+            @php($is_last_page_full = !($paginator->total() % $paginator->perPage()) )
+            <span class="last-page-indicator fw-semibold">{{ $paginator->lastPage() + ($is_last_page_full ? 1 : 0) }}</span>
         </div>
     </form>
 </nav>
