@@ -26,6 +26,40 @@
     }
 
 
+/* */
+.year-td {
+    min-width: 44px;
+}
+
+/* Seasons td's */
+    tr > .winter-td {
+        background: #29364A;
+        min-width: 44px;
+    }
+
+    tr > .spring-td {
+        background: #31432D;
+        min-width: 44px;
+    }
+
+    tr > .summer-td {
+        background: #535434;
+        min-width: 44px;
+    }
+
+    tr > .fall-td {
+        background: #4f2d2d;
+        min-width: 44px;
+    }
+
+tr > .report-field-td {
+    background: transparent;
+    border: 0;
+    min-width: 44px;
+}
+
+
+/* */
 .paginator-wrapper {
     float: right;
     margin: 10px;

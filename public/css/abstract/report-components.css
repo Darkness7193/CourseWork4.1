@@ -2,34 +2,3 @@
     text-align: left;
     padding-left: 3px; /* it's padding of <select>s of report-components */
 }
-
-.year-td {
-    min-width: 44px;
-}
-
-
-tr > .winter-td {
-    background: #29364A;
-    min-width: 44px;
-}
-
-tr > .spring-td {
-    background: #31432D;
-    min-width: 44px;
-}
-
-tr > .summer-td {
-    background: #535434;
-    min-width: 44px;
-}
-
-tr > .fall-td {
-    background: #4f2d2d;
-    min-width: 44px;
-}
-
-tr > .report-field-td {
-    background: transparent;
-    border: 0;
-    min-width: 44px;
-}
