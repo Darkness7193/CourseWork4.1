@@ -1,4 +1,21 @@
+.report-component {
+    width: 160px;
+    height: 24px;
+    padding: 4px 8px 4px 2px;
+    margin-left: 4px;
+    margin-right: 0;
+
+    background-color: #29364A;
+    border: 1px solid #111827;
+    color: lightgray;
+    font-size: 14px;
+}
+
+.report-component option {
+    margin: 0;
+}
+
 .report-field-btn {
     text-align: left;
-    padding-left: 3px; /* it's padding of <select>s of report-components */
+    padding-left: 6px;
 }

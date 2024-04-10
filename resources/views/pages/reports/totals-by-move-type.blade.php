@@ -17,15 +17,17 @@
 <x-app-layout>
     <x-card-list>
         <x-card>
-            @include('table-tools.search-bar', compact('view_fields', 'headers'))
-            @include('table-tools.ordering-menu', compact('view_fields', 'headers'))
+            <div class="horizontal-arrange vertical-center">
+                @include('table-tools.search-bar', compact('view_fields', 'headers'))
+                @include('table-tools.ordering-menu', compact('view_fields', 'headers'))
 
-            <form class="vertical-arrange" style="max-width: 200px">
-                @include('report-components.report-storage-select', compact('Storage', 'report_storage'))
-                <input name="begin_date" type="date" onfocusout="this.form.submit()" value="{{ $begin_date }}">
-                <input name="end_date" type="date" onfocusout="this.form.submit()" value="{{ $end_date }}">
-                @include('report-components.report-field-btn', compact('is_cost_report'))
-            </form>
+                <form class="horizontal-arrange">
+                    @include('report-components.report-storage-select', compact('Storage', 'report_storage'))
+                    <input name="begin_date" type="date" onfocusout="this.form.submit()" value="{{ $begin_date }}">
+                    <input name="end_date" type="date" onfocusout="this.form.submit()" value="{{ $end_date }}">
+                    @include('report-components.report-field-btn', compact('is_cost_report'))
+                </form>
+            </div>
         </x-card>
 
         <x-card class="foot-margin">
