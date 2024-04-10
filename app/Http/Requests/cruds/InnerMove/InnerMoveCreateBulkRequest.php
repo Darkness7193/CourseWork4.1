@@ -35,7 +35,7 @@ class InnerMoveCreateBulkRequest extends FormRequest
             'new_rows.*.date' => 'Дата',
 
             'new_rows.*.product_move_type' => 'Тип',
-            'new_rows.*.storage_id' => 'Склад (начальный)',
+            'new_rows.*.storage_id' => 'Склад (изначальный)',
             'new_rows.*.new_storage_id' => 'Склад (конечный)',
 
             'new_rows.*.product_id' => 'Товар',
