@@ -17,16 +17,17 @@
 <x-app-layout>
     <x-card-list>
         <x-card>
-            <div class="horizontal-arrange vertical-center">
-                @include('table-tools.search-bar', compact('view_fields', 'headers'))
-                @include('table-tools.ordering-menu', compact('view_fields', 'headers'))
-
-                <form class="horizontal-arrange">
+            <div class="vertical-arrange vertical-center">
+                <form class="horizontal-arrange left-align" style="padding-bottom: 8px">
                     @include('report-components.report-storage-select', compact('Storage', 'report_storage'))
+                    @include('report-components.report-type-select', compact('current_report_type'))
                     @include('report-components.report-year-select', compact('used_years', 'report_year'))
                     @include('report-components.report-field-btn', compact('is_cost_report'))
-                    @include('report-components.report-type-select', compact('current_report_type'))
                 </form>
+                <div class="horizontal-arrange left-align">
+                    @include('table-tools.search-bar', compact('view_fields', 'headers'))
+                    @include('table-tools.ordering-menu', compact('view_fields', 'headers'))
+                </div>
             </div>
         </x-card>
 

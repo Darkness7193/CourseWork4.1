@@ -8,8 +8,9 @@
 
     <!-- imports: -->
     @include('php_variables')
-    <link rel="stylesheet" href="{{ asset('css/abstract/report-table.css') }}">
     <link rel="stylesheet" href="{{ asset('css/global.css') }}">
+    <link rel="stylesheet" href="{{ asset('css/abstract/report-table.css') }}">
+    <link rel="stylesheet" href="{{ asset('css/abstract/report-components.css') }}">
 </head>
 
 
@@ -17,16 +18,17 @@
 <x-app-layout>
     <x-card-list>
         <x-card>
-            <div class="horizontal-arrange vertical-center">
-                @include('table-tools.search-bar', compact('view_fields', 'headers'))
-                @include('table-tools.ordering-menu', compact('view_fields', 'headers'))
-
-                <form class="horizontal-arrange">
+            <div class="vertical-arrange vertical-center">
+                <form class="horizontal-arrange left-align" style="padding-bottom: 8px">
                     @include('report-components.report-storage-select', compact('Storage', 'report_storage'))
-                    <input name="begin_date" type="date" onfocusout="this.form.submit()" value="{{ $begin_date }}">
-                    <input name="end_date" type="date" onfocusout="this.form.submit()" value="{{ $end_date }}">
+                    <input class="report-component" name="begin_date" type="date" onfocusout="this.form.submit()" value="{{ $begin_date }}">
+                    <input class="report-component" name="end_date" type="date" onfocusout="this.form.submit()" value="{{ $end_date }}">
                     @include('report-components.report-field-btn', compact('is_cost_report'))
                 </form>
+                <div class="horizontal-arrange left-align">
+                    @include('table-tools.search-bar', compact('view_fields', 'headers'))
+                    @include('table-tools.ordering-menu', compact('view_fields', 'headers'))
+                </div>
             </div>
         </x-card>
 

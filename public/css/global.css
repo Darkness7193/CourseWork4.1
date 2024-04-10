@@ -29,9 +29,9 @@ input::-webkit-outer-spin-button {
     align-items: center;
 }
 
-.vertical-center {
+.horizontal-center {
     display: flex;
-    align-items: center;
+    justify-content: center;
 }
 
 .default-input-wrapper {

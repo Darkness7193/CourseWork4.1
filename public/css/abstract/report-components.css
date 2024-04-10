@@ -1,5 +1,5 @@
 .report-component {
-    width: 160px;
+    width: 161px;
     height: 24px;
     padding: 4px 8px 4px 2px;
     margin-left: 4px;
@@ -18,4 +18,5 @@
 .report-field-btn {
     text-align: left;
     padding-left: 6px;
+    padding-right: 2px;
 }
