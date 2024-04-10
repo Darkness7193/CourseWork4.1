@@ -6,6 +6,8 @@
 
         'img_delete_on': "{{ asset('images/delete-on.png') }}",
         'img_delete_off': "{{ asset('images/delete-off.png') }}",
+        'trash_can_icon' : "{{ asset('images/trash-can-icon.jpg') }}",
+        'un_trash_can_icon' : "{{ asset('images/un-trash-can-icon.png') }}",
 
         'per_page': Number('{{ $paginator->perPage() }}'),
         'page_count': Number('{{ $paginator->count() }}')

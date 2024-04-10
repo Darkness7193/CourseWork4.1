@@ -3,6 +3,6 @@
 
 
 <!-- f(): -->
-<button type="button" class="btn" onclick="activate_delete_btns()">
+<button type="button" class="btn activate-delete-btns-btn" onclick="toggle_activate_delete_btns_btn()">
     <img class='btn-icon' src="{{ asset('images/trash-can-icon.jpg') }}"/>
 </button>
