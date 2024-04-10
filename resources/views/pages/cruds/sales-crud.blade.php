@@ -26,12 +26,14 @@
 
     <x-card-list>
         <x-card>
-            @include('crud-components.save-btn', ['controller' => 'Sale', 'no_view_fields' => [
-                'product_move_type' => 'purchasing',
-                'new_storage_id' => null
-            ]])
-            @include('table-tools.search-bar', compact('view_fields', 'headers'))
-            @include('table-tools.ordering-menu', compact('view_fields', 'headers'))
+            <div class="horizontal-arrange vertical-center">
+                @include('table-tools.ordering-menu', compact('view_fields', 'headers'))
+                @include('table-tools.search-bar', compact('view_fields', 'headers'))
+                @include('crud-components.save-btn', ['controller' => 'Sale', 'no_view_fields' => [
+                    'product_move_type' => 'purchasing',
+                    'new_storage_id' => null
+                ]])
+            </div>
         </x-card>
 
         <x-card class="foot-margin">

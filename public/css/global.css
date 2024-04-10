@@ -43,3 +43,13 @@ input::-webkit-outer-spin-button {
 .foot-margin {
     margin-bottom: 300px;
 }
+
+.right-align {
+    margin-left: auto;
+    margin-right: 0;
+}
+
+.left-align {
+    margin-right: auto;
+    margin-left: 0;
+}
