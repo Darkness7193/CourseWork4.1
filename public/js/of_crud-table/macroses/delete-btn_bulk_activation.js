@@ -1,4 +1,4 @@
-import { activation_by_hold_mouse } from '../helpers.js'
+import { activation_by_hold_mouse } from '../../helpers.js'
 
 
 
