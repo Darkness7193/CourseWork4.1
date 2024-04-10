@@ -4,23 +4,22 @@ import {get_value, suppress_context_menu_once} from "../helpers.js"
 
 
 let crud_table = document.getElementsByClassName('crud-table')[0]
+function is_editor(element) {return element.tagName === 'INPUT' || element.tagName === 'SELECT'}
 
 
 function copy_input_value_by_hold(event)
 {
     let copy_element = document.elementFromPoint(event.clientX, event.clientY)
-    if (copy_element.tagName !== 'INPUT' && copy_element.tagName !== 'SELECT') {return}
-
+    if (!is_editor(copy_element)) {return}
     let copy_value = get_value(copy_element)
 
     crud_table.addEventListener('mousemove', (event)=>{
         let hovered_element = document.elementFromPoint(event.clientX, event.clientY)
 
-        let is_editor = ()=>{ return hovered_element.tagName === 'INPUT' || hovered_element.tagName === 'SELECT' }
-
-        if (is_editor() && event.which === 3 && hovered_element.tagName === copy_element.tagName) {
+        if (is_editor(hovered_element) && event.which === 3 && hovered_element.tagName === copy_element.tagName) {
             if (copy_element.type !== hovered_element.type) {return}
             hovered_element.value = copy_value
+            hovered_element.focus()
         }
     })
 }
