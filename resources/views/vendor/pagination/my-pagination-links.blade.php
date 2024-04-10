@@ -4,7 +4,7 @@
 
 <nav>
     <form method="POST"
-        action="{{ route('post_to_get_route', ['target_route' => Route::current()->getName()]) }}"
+        action="{{ route('set_pagination_options', ['previous_route' => Route::current()->getName() ]) }}"
         class="search-form"
         autocomplete="off"
     >   @csrf

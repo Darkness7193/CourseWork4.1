@@ -45,8 +45,6 @@ class SaleController extends Controller
                 session('ordered_orders'),
                 [['created_at', 'asc']]
             ],
-            'per_page' => $request->per_page,
-            'current_page' => $request->current_page
         ]);
 
         $sales = filter_order_paginate(ProductMove::where('product_move_type', 'selling'), $view_fields);

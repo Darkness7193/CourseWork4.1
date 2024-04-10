@@ -1,7 +1,7 @@
 <!-- imports: -->
     <link rel="stylesheet" href="{{ asset('css/table-tools/fieldwise-search-menu.css') }}">
     <link rel="stylesheet" href="{{ asset('css/abstract/dropdown.css') }}">
-    <script src="{{ asset('js/of_abstract/of_dropdown.js') }}" type="module"></script>
+    <script src="{{ asset('js/of_component/of_dropdown.js') }}" type="module"></script>
 
 
 <!-- f($view_fields, $headers, $search_targets): -->

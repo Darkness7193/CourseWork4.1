@@ -44,8 +44,6 @@ class PurchaseController extends Controller
                 session('ordered_orders'),
                 [['created_at', 'asc']]
             ],
-            'per_page' => $request->per_page,
-            'current_page' => $request->current_page
         ]);
 
         $purchases = filter_order_paginate(ProductMove::where('product_move_type', 'purchasing'), $view_fields);

@@ -43,8 +43,6 @@ class StorageController extends Controller
                 session('ordered_orders'),
                 [['created_at', 'asc']]
             ],
-            'per_page' => $request->per_page,
-            'current_page' => $request->current_page
         ]);
 
         $storages = filter_order_paginate(Storage::query(), $view_fields);

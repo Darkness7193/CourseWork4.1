@@ -64,6 +64,9 @@ Route::middleware('auth')->group(function () use($post_to_get_route) {
         Route::post('save_crud', 'SaveCrud')
             ->name('save_crud');
 
+        Route::post('set_pagination_options', 'SetPaginationOptions')
+            ->name('set_pagination_options');
+
         Route::post('set_filter', 'SetFilter')
             ->name('set_filter');
 

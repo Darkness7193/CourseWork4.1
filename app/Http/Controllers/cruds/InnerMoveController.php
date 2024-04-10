@@ -49,8 +49,6 @@ class InnerMoveController extends Controller
                 session('ordered_orders'),
                 [['created_at', 'asc']]
             ],
-            'per_page' => $request->per_page,
-            'current_page' => $request->current_page
         ]);
 
         $inner_moves = filter_order_paginate(inner_moves(ProductMove::query()), $view_fields);

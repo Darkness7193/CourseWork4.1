@@ -53,8 +53,6 @@ class TotalsByMonth extends Controller
                 false
             ],
             'current_report_type' => [$request->current_report_type, 'quantities'],
-            'per_page' => $request->per_page,
-            'current_page' => $request->current_page,
             'ordered_orders' => [
                 session('ordered_orders'),
                 [['product_name', 'asc']]

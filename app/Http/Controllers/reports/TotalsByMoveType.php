@@ -48,8 +48,6 @@ class TotalsByMoveType extends Controller
                 (bool)$request->is_cost_report,
                 false
             ],
-            'per_page' => $request->per_page,
-            'current_page' => $request->current_page,
             'ordered_orders' => [
                 session('ordered_orders'),
                 [['product_name', 'asc']]
