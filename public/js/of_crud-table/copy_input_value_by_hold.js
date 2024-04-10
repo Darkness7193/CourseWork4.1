@@ -19,7 +19,7 @@ function copy_input_value_by_hold(event)
             let hovered_element = document.elementFromPoint(event.clientX, event.clientY)
             let is_editor = ()=>{ return hovered_element.tagName === 'INPUT' || hovered_element.tagName === 'SELECT' }
 
-            if (is_editor() && is_mouse_down && event.which === 3 && hovered_element.tagName === copy_element.tagName) {
+            if (is_editor() && is_mouse_down && event.which === 3 && hovered_element.tagName === copy_element.tagName && hovered_element.type === copy_element.type) {
                 hovered_element.value = copy_value
                 hovered_element.focus()
                 suppress_context_menu_once()
