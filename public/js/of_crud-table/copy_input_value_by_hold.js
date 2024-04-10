@@ -1,32 +1,28 @@
-import {get_value, set_is_mouse_down, suppress_context_menu_once} from "../helpers.js"
+import {get_value, suppress_context_menu_once} from "../helpers.js"
 
 
 
 
-set_is_mouse_down()
 let crud_table = document.getElementsByClassName('crud-table')[0]
 
 
 function copy_input_value_by_hold(event)
 {
     let copy_element = document.elementFromPoint(event.clientX, event.clientY)
-    let is_editor = ()=>{ return copy_element.tagName === 'INPUT' || copy_element.tagName === 'SELECT' }
+    if (copy_element.tagName !== 'INPUT' && copy_element.tagName !== 'SELECT') {return}
 
-    if (is_editor() && is_mouse_down) {
-        let copy_value = get_value(copy_element)
+    let copy_value = get_value(copy_element)
 
-        crud_table.addEventListener('mousemove', (event)=>{
-            let hovered_element = document.elementFromPoint(event.clientX, event.clientY)
-            let is_editor = ()=>{ return hovered_element.tagName === 'INPUT' || hovered_element.tagName === 'SELECT' }
+    crud_table.addEventListener('mousemove', (event)=>{
+        let hovered_element = document.elementFromPoint(event.clientX, event.clientY)
+        let is_editor = ()=>{ return hovered_element.tagName === 'INPUT' || hovered_element.tagName === 'SELECT' }
 
-            if (is_editor() && is_mouse_down && event.which === 3 && hovered_element.tagName === copy_element.tagName) {
-                if (copy_element.type !== hovered_element.type) {return}
-                console.log(copy_element.type)
-                hovered_element.value = copy_value
-                hovered_element.focus()
-            }
-        })
-    }
+        if (is_editor() && event.which === 3 && hovered_element.tagName === copy_element.tagName) {
+            if (copy_element.type !== hovered_element.type) {return}
+            hovered_element.value = copy_value
+            hovered_element.focus()
+        }
+    })
 }
 
 
