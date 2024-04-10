@@ -17,7 +17,7 @@ function copy_input_value_by_hold(event)
         let hovered_element = document.elementFromPoint(event.clientX, event.clientY)
 
         if (is_editor(hovered_element) && event.which === 3 && hovered_element.tagName === copy_element.tagName) {
-            if (copy_element.type !== hovered_element.type) {return}
+            if (copy_element.type !== hovered_element.type || hovered_element.disabled) {return}
             hovered_element.value = copy_value
             hovered_element.focus()
         }
