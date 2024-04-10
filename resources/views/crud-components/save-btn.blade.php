@@ -1,9 +1,11 @@
-
+<!-- imports: -->
+    <link rel="stylesheet" href="{{ asset('css/save-btn.css') }}">
 
 <!-- f($controller, $no_view_fields): -->
-<button
-    id="save-btn"
+<x-primary-button
+    class="save-btn"
     type="button"
     onclick="submit_changes('{{ $controller }}', '{{ json_encode($no_view_fields) }}')"
     > Сохранить
-</button>
+</x-primary-button>
+
