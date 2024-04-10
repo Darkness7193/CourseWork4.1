@@ -13,9 +13,9 @@
     action="{{ route('set_order', ['previous_route' => Route::current()->getName()]) }}"
 >   @csrf
     <div class="dropdown">
-        <button class="icon ordering-btn drop-btn" type="button" onclick="toggle_dropdown_content(this)"></button>
-        <button class="icon un-ordering-btn drop-btn" type="submit" name="action" value="is_un_ordering" onclick="clear_number_checkboxes()"></button>
-        <button class="ok-ordering-btn icon" type="submit" name="action" value="is_ordering"></button>
+        <button class="icon ordering-btn" type="button" onclick="toggle_dropdown_content(this)"></button>
+        <button class="icon un-ordering-btn" type="submit" name="action" value="is_un_ordering" onclick="clear_number_checkboxes()"></button>
+        <button class="icon ok-ordering-btn" type="submit" name="action" value="is_ordering"></button>
         <div class="ordering-menu dropdown-content number-check-box-container">
             <table>
                 @foreach(array_merge($view_fields, ['created_at', 'updated_at']) as $rw => $view_field)
