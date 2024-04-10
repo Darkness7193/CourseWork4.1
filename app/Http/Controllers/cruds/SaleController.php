@@ -55,7 +55,6 @@ class SaleController extends Controller
             'products' => Product::select('id', 'name', 'selling_price')->get(),
             'storages' => Storage::select('id', 'name')->get(),
             'filler_rows' => get_filler_rows($sales),
-            'search_targets' => session('search_targets')
 
         ] + $session_items + compact('view_fields', 'headers'));
     }

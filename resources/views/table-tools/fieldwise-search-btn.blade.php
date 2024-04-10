@@ -4,7 +4,7 @@
     <script src="{{ asset('js/of_component/of_dropdown.js') }}" type="module"></script>
 
 
-<!-- f($view_fields, $headers, $search_targets): -->
+<!-- f($view_fields, $headers): -->
 <div class="fieldwise-search-btn dropdown icon">
     <button class="drop-btn icon" type="button" onclick="toggle_dropdown_content(this)"></button>
     <div class="fieldwise-search-menu dropdown-content">
@@ -16,7 +16,7 @@
                         name="{{ $view_field }}_search_target"
                         type="text"
                         onfocus="this.select();"
-                               value="{{ $search_targets['fieldwise'][$view_field] ?? '' }}"
+                               value="{{ session('search_targets')['fieldwise'][$view_field] ?? '' }}"
                     ></td>
                 </tr>
             @endforeach

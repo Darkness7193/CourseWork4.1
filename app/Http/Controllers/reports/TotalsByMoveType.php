@@ -60,7 +60,6 @@ class TotalsByMoveType extends Controller
             'paginator' => filter_order_paginate($totals, $view_fields),
             'used_years' => $used_years,
             'Storage' => Storage::class,
-            'search_targets' => session('search_targets'),
             'report_storage' => session('report_storage')
 
         ] + $session_items + compact('view_fields', 'headers'));

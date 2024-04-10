@@ -51,7 +51,6 @@ class ProductController extends Controller
             'paginator' => $products,
             'Product' => Product::class,
             'filler_rows' => get_filler_rows($products),
-            'search_targets' => session('search_targets')
 
         ] + $session_items + compact('view_fields', 'headers'));
     }

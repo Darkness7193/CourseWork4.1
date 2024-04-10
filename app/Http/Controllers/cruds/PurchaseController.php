@@ -54,7 +54,6 @@ class PurchaseController extends Controller
             'products' => Product::select('id', 'name', 'purchase_price')->get(),
             'storages' => Storage::select('id', 'name')->get(),
             'filler_rows' => get_filler_rows($purchases),
-            'search_targets' => session('search_targets')
 
         ] + $session_items + compact('view_fields', 'headers'));
     }

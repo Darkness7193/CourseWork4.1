@@ -28,7 +28,7 @@
                 'product_move_type' => 'purchasing',
                 'new_storage_id' => null
             ]])
-            @include('table-tools.search-bar', compact('search_targets', 'view_fields', 'headers'))
+            @include('table-tools.search-bar', compact('view_fields', 'headers'))
             @include('table-tools.ordering-menu', compact('view_fields', 'headers'))
         </x-card>
 

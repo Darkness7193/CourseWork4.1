@@ -51,7 +51,6 @@ class StorageController extends Controller
             'paginator' => $storages,
             'Storage' => Storage::class,
             'filler_rows' => get_filler_rows($storages),
-            'search_targets' => session('search_targets')
 
         ] + $session_items + compact('view_fields', 'headers'));
     }

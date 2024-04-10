@@ -65,7 +65,6 @@ class TotalsByMonth extends Controller
             'paginator' => filter_order_paginate($totals, $view_fields),
             'used_years' => get_used_years_of(session()->get('report_storage')->id),
             'Storage' => Storage::class,
-            'search_targets' => session('search_targets')
 
         ] + $session_items + compact('view_fields', 'headers')
         );

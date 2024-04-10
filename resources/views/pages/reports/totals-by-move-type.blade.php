@@ -17,7 +17,7 @@
 <x-app-layout>
     <x-card-list>
         <x-card>
-            @include('table-tools.search-bar', compact('search_targets', 'view_fields', 'headers'))
+            @include('table-tools.search-bar', compact('view_fields', 'headers'))
             @include('table-tools.ordering-menu', compact('view_fields', 'headers'))
 
             <form class="vertical-arrange" style="max-width: 200px">
