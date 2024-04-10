@@ -1,5 +1,6 @@
 <!-- imports: -->
     @vite(['resources/css/breeze-base.css'])
+    <link rel="stylesheet" href="{{ asset('css/global.css') }}">
 
 
 <x-guest-layout>
@@ -37,18 +38,27 @@
         </div>
 
         <div class="flex items-center justify-end mt-4">
-            <a class="underline text-sm text-gray-600 dark:text-gray-400 hover:text-gray-900 dark:hover:text-gray-100 rounded-md focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500 dark:focus:ring-offset-gray-800" href="{{ route('register') }}" style="margin-right: 16px">
-                {{ __('Регистриция') }}
-            </a>
-
-            @if (Route::has('password.request'))
-                <a class="underline text-sm text-gray-600 dark:text-gray-400 hover:text-gray-900 dark:hover:text-gray-100 rounded-md focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500 dark:focus:ring-offset-gray-800" href="{{ route('password.request') }}" style="margin-right: 8px">
-                    {{ __('Забыли пароль?') }}
+            <div class="left-align">
+                <a class="underline text-sm text-gray-600 dark:text-gray-400 hover:text-gray-900 dark:hover:text-gray-100 rounded-md focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500
+                dark:focus:ring-offset-gray-800
+                "
+                   href="{{ route('register') }}" style="margin-right: 16px"
+                >   {{ __('Регистриция') }}
                 </a>
-            @endif
+
+                @if (Route::has('password.request'))
+                    <a class="underline text-sm text-gray-600 dark:text-gray-400 hover:text-gray-900
+                    dark:hover:text-gray-100 rounded-md focus:outline-none focus:ring-2 focus:ring-offset-2
+                    focus:ring-indigo-500 dark:focus:ring-offset-gray-800
+                    "
+                       href="{{ route('password.request') }}" style="margin-right: 8px"
+                    >   {{ __('Забыли пароль?') }}
+                    </a>
+                @endif
+            </div>
 
             <x-primary-button class="ms-3">
-                {{ __('Авторизироваться') }}
+                {{ __('Войти') }}
             </x-primary-button>
         </div>
     </form>
