@@ -49,7 +49,7 @@
             </a>
 
             <x-primary-button class="ms-4">
-                {{ __('Войти') }}
+                {{ __('Зарегистрироваться') }}
             </x-primary-button>
         </div>
     </form>
