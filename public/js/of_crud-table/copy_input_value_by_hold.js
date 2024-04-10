@@ -15,12 +15,12 @@ function copy_input_value_by_hold(event)
 
     crud_table.addEventListener('mousemove', (event)=>{
         let hovered_element = document.elementFromPoint(event.clientX, event.clientY)
+
         let is_editor = ()=>{ return hovered_element.tagName === 'INPUT' || hovered_element.tagName === 'SELECT' }
 
         if (is_editor() && event.which === 3 && hovered_element.tagName === copy_element.tagName) {
             if (copy_element.type !== hovered_element.type) {return}
             hovered_element.value = copy_value
-            hovered_element.focus()
         }
     })
 }
