@@ -11,7 +11,7 @@
         <table>
             @foreach(array_merge($view_fields, ['created_at', 'updated_at']) as $rw => $view_field)
                 <tr>
-                    <td>{{ array_merge($headers, ['# по созданию', '# по изменению'])[$rw] }}:</td>
+                    <td class="header-td">{{ array_merge($headers, ['# по созданию', '# по изменению'])[$rw] }}:</td>
                     <td><input class="fieldwise-search-input"
                         name="{{ $view_field }}_search_target"
                         type="text"

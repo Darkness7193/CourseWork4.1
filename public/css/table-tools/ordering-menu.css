@@ -7,7 +7,7 @@
     border-left: 1px solid #111827;
     border-bottom: 1px solid #3a3232;
     border-right: 1px solid #3a3232;
-    box-shadow: rgba(0, 0, 0, 0.16) 0px 3px 6px, rgba(0, 0, 0, 0.23) 0px 3px 6px;
+    box-shadow: rgba(0, 0, 0, 0.16) 0px 3px 6px, rgba(0, 0, 0, 0.23) 0 3px 6px;
 }
 
 .ordering-menu input {
@@ -17,23 +17,30 @@
     color: lightgray;
 }
 
-.un-ordering-btn {
-    background-image: url('../../images/un-ordering-icon.png');
-    background-size: 100% 100% ;
+.header-td {
+    font-family: Figtree, ui-sans-serif, system-ui, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
+    font-size: 14px;
+    padding-left: 4px;
 }
 
-.ok-ordering-btn {
-    background-image: url('../../images/ok-ordering-icon.png');
-    background-size: 100% 100% ;
-}
+/* Buttons */
+    .un-ordering-btn {
+        background-image: url('../../images/un-ordering-icon.png');
+        background-size: 100% 100% ;
+    }
 
-.ordering-btn {
-    background-image: url('../../images/ordering-icon.png');
-    background-size: 100% 100% ;
-}
+    .ok-ordering-btn {
+        background-image: url('../../images/ok-ordering-icon.png');
+        background-size: 100% 100% ;
+    }
 
-.order-direction-btn {
-    background-image: url('../../images/up-ordering-icon.png');
-    background-size: 100% 100% ;
-}
+    .ordering-btn {
+        background-image: url('../../images/ordering-icon.png');
+        background-size: 100% 100% ;
+    }
+
+    .order-direction-btn {
+        background-image: url('../../images/up-ordering-icon.png');
+        background-size: 100% 100% ;
+    }
 
