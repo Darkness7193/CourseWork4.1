@@ -25,7 +25,7 @@ class ProductMoveFactory extends Factory
             'quantity' => random_int(1, 1000),
             'price' => random_int(1, 1000),
 
-            'comment' => $this->faker->text()
+            'comment' => $this->faker->text(1000)
         ];
     }
 }

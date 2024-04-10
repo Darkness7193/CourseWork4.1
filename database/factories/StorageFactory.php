@@ -16,11 +16,11 @@ class StorageFactory extends Factory
     public function definition(): array
     {
         return [
-            'name' => $this->faker->text(),
-            'address' => $this->faker->text(),
-            'phone_number' => $this->faker->text(),
-            'email' => $this->faker->text(),
-            'comment' => $this->faker->text()
+            'name' => $this->faker->text(100),
+            'address' => $this->faker->text(100),
+            'phone_number' => $this->faker->phoneNumber(),
+            'email' => $this->faker->text(100),
+            'comment' => $this->faker->text(1000)
         ];
     }
 }
