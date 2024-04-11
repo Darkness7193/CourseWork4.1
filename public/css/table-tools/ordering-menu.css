@@ -3,22 +3,21 @@
 .ordering-component {
     width: 72px;
     height: 23px;
+    border: 1px solid #111827;
+
     padding: 4px 8px 4px 8px;
     margin-left: 0;
     margin-right: 4px;
 
     background-color: #29364A;
-    border: 1px solid #111827;
 }
 
 /* fieldwise ordering menu */
     .ordering-menu {
-        background-color: #374151;
+        border: 0;
         border-radius: 2px;
-        border-top: 1px solid #111827;
-        border-left: 1px solid #111827;
-        border-bottom: 1px solid #3a3232;
-        border-right: 1px solid #3a3232;
+
+        background-color: #374151;
         box-shadow: rgba(0, 0, 0, 0.16) 0px 3px 6px, rgba(0, 0, 0, 0.23) 0 3px 6px;
     }
 
