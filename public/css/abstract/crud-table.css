@@ -72,9 +72,10 @@
     }
 
 
-.paginator-wrapper {
-    float: right;
-    margin: 10px;
+.table-tools-line {
+    margin-top: 4px;
 }
 
-
+.paginator-wrapper {
+    float: right;
+}

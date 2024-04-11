@@ -54,16 +54,17 @@
                 @endforeach
                 <tr>
                     <td colspan="{{ count($view_fields) }}">
-                        <div class="vertical-center">
-                            <div class="horizontal-arrange">
-                                @include('table-tools.ordering-menu', compact('view_fields', 'headers'))
-                                @include('table-tools.search-bar', compact('view_fields', 'headers'))
+                        <div class="table-tools-line horizontal-arrange vertical-center">
+                            @include('table-tools.ordering-menu', compact('view_fields', 'headers'))
+                            @include('table-tools.search-bar', compact('view_fields', 'headers'))
+                            <div class="paginator-wrapper">{{ $paginator->links('pagination::my-pagination-links') }}</div>
+
+                            <div class="right-align">
                                 @include('crud-components.save-btn', ['controller' => 'InnerMove', 'no_view_fields' => [
                                     'product_move_type' => 'purchasing',
                                     'new_storage_id' => null
                                 ]])
                             </div>
-                            <div class="paginator-wrapper right-align">{{ $paginator->links('pagination::my-pagination-links') }}</div>
                         </div>
                     </td>
                     <td></td>

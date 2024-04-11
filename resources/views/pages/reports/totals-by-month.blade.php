@@ -37,13 +37,11 @@
                     </tr>
                 @endforeach
                 <tr>
-                    <td colspan="{{ count($view_fields) }}" style="padding: 0;">
-                        <div class="vertical-center">
-                            <div class="horizontal-arrange">
-                                @include('table-tools.ordering-menu', compact('view_fields', 'headers'))
-                                @include('table-tools.search-bar', compact('view_fields', 'headers'))
-                            </div>
-                            <div class="paginator-wrapper right-align">{{ $paginator->links('pagination::my-pagination-links') }}</div>
+                    <td colspan="{{ count($view_fields) }}">
+                        <div class="table-tools-line horizontal-arrange vertical-center">
+                            @include('table-tools.ordering-menu', compact('view_fields', 'headers'))
+                            @include('table-tools.search-bar', compact('view_fields', 'headers'))
+                            <div class="paginator-wrapper">{{ $paginator->links('pagination::my-pagination-links') }}</div>
                         </div>
                     </td>
                     <td></td>

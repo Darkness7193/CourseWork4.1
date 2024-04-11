@@ -59,7 +59,11 @@ tr > .report-field-td {
 
 
 /* */
+.table-tools-line {
+    margin-top: 4px;
+}
+
 .paginator-wrapper {
     float: right;
-    margin: 10px;
+    margin-right: 4px;
 }
