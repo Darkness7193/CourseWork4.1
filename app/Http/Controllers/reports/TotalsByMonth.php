@@ -9,7 +9,7 @@ include_once(app_path().'/helpers/is_the_same_route.php');
 include_once(app_path().'/helpers/pure_php/get_columns.php');
 
 include_once(app_path().'/sql/queries/filter_order_paginate.php');
-include_once(app_path().'/sql/queries/report_totals/product_totals.php');
+include_once(app_path().'/sql/queries/report_totals/totals_by_months.php');
 
 use App\Models\Storage;
 use Illuminate\Http\Request;
@@ -59,7 +59,12 @@ class TotalsByMonth extends Controller
             ]
         ]);
 
-        $totals = product_totals(...session_get(['current_report_type', 'report_storage', 'report_year', 'is_cost_report']));
+        $totals = totals_by_months(
+            session()->get('report_storage')->id,
+            session('report_year'),
+            session('is_cost_report'),
+            session('current_report_type'
+        ));
 
         return view('pages/reports/totals-by-month', [
             'paginator' => filter_order_paginate($totals, $view_fields),
