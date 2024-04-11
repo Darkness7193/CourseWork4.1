@@ -25,17 +25,6 @@
     @include('global-errors')
 
     <x-card-list>
-        <x-card>
-            <div class="horizontal-arrange vertical-center">
-                @include('table-tools.ordering-menu', compact('view_fields', 'headers'))
-                @include('table-tools.search-bar', compact('view_fields', 'headers'))
-                @include('crud-components.save-btn', ['controller' => 'Product', 'no_view_fields' => [
-                    'product_move_type' => 'purchasing',
-                    'new_storage_id' => null
-                ]])
-            </div>
-        </x-card>
-
         <x-card class="foot-margin">
             <table class="crud-table" data-max-id="{{ $Product::max('id') }}"
                    data-view-fields="{{ implode(',', $view_fields) }}" data-crud-model="{{ $Product }}">
@@ -65,7 +54,17 @@
                 @endforeach
                 <tr>
                     <td colspan="{{ count($view_fields) }}">
-                        <div class="paginator-wrapper">{{ $paginator->links('pagination::my-pagination-links') }}</div>
+                        <div class="vertical-center">
+                            <div class="horizontal-arrange">
+                                @include('table-tools.ordering-menu', compact('view_fields', 'headers'))
+                                @include('table-tools.search-bar', compact('view_fields', 'headers'))
+                                @include('crud-components.save-btn', ['controller' => 'InnerMove', 'no_view_fields' => [
+                                    'product_move_type' => 'purchasing',
+                                    'new_storage_id' => null
+                                ]])
+                            </div>
+                            <div class="paginator-wrapper right-align">{{ $paginator->links('pagination::my-pagination-links') }}</div>
+                        </div>
                     </td>
                     <td></td>
                 </tr>

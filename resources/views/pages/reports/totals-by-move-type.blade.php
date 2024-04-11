@@ -17,21 +17,6 @@
 <body>
 <x-app-layout>
     <x-card-list>
-        <x-card>
-            <div class="vertical-arrange vertical-center">
-                <form class="horizontal-arrange left-align" style="padding-bottom: 8px">
-                    @include('report-components.report-storage-select', compact('Storage', 'report_storage'))
-                    <input class="report-component" name="begin_date" type="date" onfocusout="this.form.submit()" value="{{ $begin_date }}">
-                    <input class="report-component" name="end_date" type="date" onfocusout="this.form.submit()" value="{{ $end_date }}">
-                    @include('report-components.report-field-btn', compact('is_cost_report'))
-                </form>
-                <div class="horizontal-arrange left-align">
-                    @include('table-tools.search-bar', compact('view_fields', 'headers'))
-                    @include('table-tools.ordering-menu', compact('view_fields', 'headers'))
-                </div>
-            </div>
-        </x-card>
-
         <x-card class="foot-margin">
             <table class="report-table" data-view-fields="{{ implode(',', $view_fields) }}">
                 <tr>
@@ -53,12 +38,29 @@
                     </tr>
                 @endforeach
                 <tr>
-                    <td colspan="{{ count($view_fields) }}">
-                        <div class="paginator-wrapper">{{ $paginator->links('pagination::my-pagination-links') }}</div>
+                    <td colspan="{{ count($view_fields) }}" style="padding: 0;">
+                        <div class="vertical-center">
+                            <div class="horizontal-arrange">
+                                @include('table-tools.ordering-menu', compact('view_fields', 'headers'))
+                                @include('table-tools.search-bar', compact('view_fields', 'headers'))
+                            </div>
+                            <div class="paginator-wrapper right-align">{{ $paginator->links('pagination::my-pagination-links') }}</div>
+                        </div>
                     </td>
                     <td></td>
                 </tr>
             </table>
+        </x-card>
+
+        <x-card>
+            <div class="vertical-arrange vertical-center">
+                <form class="horizontal-arrange left-align" style="padding-bottom: 8px">
+                    @include('report-components.report-storage-select', compact('Storage', 'report_storage'))
+                    <input class="report-component" name="begin_date" type="date" onfocusout="this.form.submit()" value="{{ $begin_date }}">
+                    <input class="report-component" name="end_date" type="date" onfocusout="this.form.submit()" value="{{ $end_date }}">
+                    @include('report-components.report-field-btn', compact('is_cost_report'))
+                </form>
+            </div>
         </x-card>
     </x-card-list>
     <div style="height: 200px"></div>
