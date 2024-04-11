@@ -15,10 +15,6 @@
         border: 0;
     }
 
-    .crud-table tr:last-child td {
-        border: 0;
-    }
-
 
 /* Certain columns details: */
     .crud-table th {
@@ -31,7 +27,7 @@
 
 
 /* Editors of crud-table: */
-    .crud-table tr:not(:last-child) input, .crud-table select {
+    .crud-table input, .crud-table select {
         width: 100%;
         box-sizing: border-box;
         min-height: 26px;
@@ -72,10 +68,12 @@
     }
 
 
-.table-tools-line {
-    margin-top: 4px;
-}
+/* */
+    .table-tools-line {
+        margin-top: 4px;
+        margin-right: 18px; /* should be verticaly in line with visual crud-table. I don't know how make it more automatic */
+    }
 
-.paginator-wrapper {
-    float: right;
-}
+    .paginator-wrapper {
+        float: right;
+    }

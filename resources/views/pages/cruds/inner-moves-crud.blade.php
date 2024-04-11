@@ -73,17 +73,12 @@
                         <td>@include('crud-components.delete-btn')</td>
                     </tr>
                 @endforeach
-                <tr>
-                    <td colspan="{{ count($view_fields) }}">
-                        <div class="table-tools-line horizontal-arrange vertical-center">
-                            @include('table-tools.ordering-menu', compact('view_fields', 'headers'))
-                            @include('table-tools.search-bar', compact('view_fields', 'headers'))
-                            <div class="paginator-wrapper right-align">{{ $paginator->links('pagination::my-pagination-links') }}</div>
-                        </div>
-                    </td>
-                    <td></td>
-                </tr>
             </table>
+            <div class="table-tools-line horizontal-arrange vertical-center">
+                @include('table-tools.ordering-menu', compact('view_fields', 'headers'))
+                @include('table-tools.search-bar', compact('view_fields', 'headers'))
+                <div class="paginator-wrapper right-align">{{ $paginator->links('pagination::my-pagination-links') }}</div>
+            </div>
         </x-card>
 
         @include('crud-components.save-btn', ['controller' => 'InnerMove', 'no_view_fields' => [
