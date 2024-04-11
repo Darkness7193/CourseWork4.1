@@ -1,4 +1,5 @@
 .save-btn {
     font-family: Figtree, ui-sans-serif, system-ui, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
-    margin: 0 4px 0 0;
+    float: right;
+    margin-right: 44px;
 }

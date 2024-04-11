@@ -49,6 +49,11 @@ input::-webkit-outer-spin-button {
     margin-right: 0;
 }
 
+.right-align-important {
+    margin-left: auto !important;
+    margin-right: 0 !important;
+}
+
 .left-align {
     margin-right: auto;
     margin-left: 0;
