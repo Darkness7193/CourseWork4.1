@@ -14,8 +14,8 @@ function totals_by_move_type($report_storage_id, $begin_date, $end_date, $is_cos
 
     $general_totals = DB::table('product_moves')
         ->where('storage_id', '=', $report_storage_id)
-        ->when($begin_date and $end_date, function($query) use($begin_date, $end_date) {
-            $query->whereBetween(DB::raw('year(date)'), [$begin_date, $end_date]); })
+        ->when($begin_date and $end_date, fn($q)=>$q
+            ->whereBetween(DB::raw('year(date)'), [$begin_date, $end_date]))
         ->groupBy('storage_id', 'product_id')
 
         ->selectRaw(/**@lang SQL*/"
