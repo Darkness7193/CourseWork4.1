@@ -21,7 +21,7 @@ function select_totals_by_month($month, $quantity_or_cost) {
 }
 
 
-function quantity_totals(?int $report_storage_id, ?int $report_year, bool $is_cost_report) {
+function quantity_totals_by_months(?int $report_storage_id, ?int $report_year, bool $is_cost_report) {
     if ($report_storage_id === null or $report_year === null) { return ProductMove::first()->where('id', '=', 'asdf'); }
     $quantity_or_cost = $is_cost_report ? 'this.quantity*this.price' : 'this.quantity';
 
