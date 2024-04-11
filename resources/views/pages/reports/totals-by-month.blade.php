@@ -37,7 +37,7 @@
                     </tr>
                 @endforeach
                 <tr>
-                    <td colspan="{{ count($view_fields) }}">
+                    <td colspan="{{ count($view_fields) }}" style="padding: 0;">
                         <div class="table-tools-line horizontal-arrange vertical-center">
                             @include('table-tools.ordering-menu', compact('view_fields', 'headers'))
                             @include('table-tools.search-bar', compact('view_fields', 'headers'))
