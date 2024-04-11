@@ -38,22 +38,17 @@
                         <td class="report-field-td"> @if($is_cost_report) ₽ @else шт. @endif</td>
                     </tr>
                 @endforeach
-                <tr>
-                    <td colspan="{{ count($view_fields) }}" style="padding: 0;">
-                        <div class="table-tools-line horizontal-arrange vertical-center">
-                            @include('table-tools.ordering-menu', compact('view_fields', 'headers'))
-                            @include('table-tools.search-bar', compact('view_fields', 'headers'))
-                            <div class="paginator-wrapper right-align">{{ $paginator->links('pagination::my-pagination-links') }}</div>
-                        </div>
-                    </td>
-                    <td></td>
-                </tr>
             </table>
+            <div class="table-tools-line horizontal-arrange vertical-center">
+                @include('table-tools.ordering-menu', compact('view_fields', 'headers'))
+                @include('table-tools.search-bar', compact('view_fields', 'headers'))
+                <div class="paginator-wrapper right-align">{{ $paginator->links('pagination::my-pagination-links') }}</div>
+            </div>
         </x-card>
 
         <x-card>
             <div class="vertical-arrange vertical-center">
-                <form class="horizontal-arrange left-align" style="padding-bottom: 8px">
+                <form class="horizontal-arrange left-align">
                     @include('report-components.report-storage-select', compact('Storage', 'report_storage'))
                     <input class="report-component" name="begin_date" type="date" onfocusout="this.form.submit()" value="{{ $begin_date }}">
                     <input class="report-component" name="end_date" type="date" onfocusout="this.form.submit()" value="{{ $end_date }}">

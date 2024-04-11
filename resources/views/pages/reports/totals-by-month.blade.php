@@ -36,22 +36,17 @@
                         <td class="report-field-td"> @if($is_cost_report) ₽ @else шт. @endif</td>
                     </tr>
                 @endforeach
-                <tr>
-                    <td colspan="{{ count($view_fields) }}" style="padding: 0;">
-                        <div class="table-tools-line horizontal-arrange vertical-center">
-                            @include('table-tools.ordering-menu', compact('view_fields', 'headers'))
-                            @include('table-tools.search-bar', compact('view_fields', 'headers'))
-                            <div class="paginator-wrapper right-align">{{ $paginator->links('pagination::my-pagination-links') }}</div>
-                        </div>
-                    </td>
-                    <td></td>
-                </tr>
             </table>
+            <div class="table-tools-line horizontal-arrange vertical-center">
+                @include('table-tools.ordering-menu', compact('view_fields', 'headers'))
+                @include('table-tools.search-bar', compact('view_fields', 'headers'))
+                <div class="paginator-wrapper right-align">{{ $paginator->links('pagination::my-pagination-links') }}</div>
+            </div>
         </x-card>
 
         <x-card>
             <div class="vertical-arrange vertical-center">
-                <form class="horizontal-arrange left-align" style="padding-bottom: 8px">
+                <form class="horizontal-arrange left-align">
                     @include('report-components.report-storage-select', compact('Storage', 'report_storage'))
                     @include('report-components.report-type-select', compact('current_report_type'))
                     @include('report-components.report-year-select', compact('used_years', 'report_year'))

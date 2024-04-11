@@ -6,7 +6,7 @@
 /* Cells structure: */
     .report-table th {
         padding: 5px;
-        border: 3px solid transparent;
+        border: transparent;
     }
 
     .report-table td {
@@ -17,11 +17,6 @@
         vertical-align: top;
         font-size: 13.33px;
         font-family: Arial;
-    }
-
-    .report-table tr:last-child td {
-        background: transparent;
-        border: 0;
     }
 
 
@@ -54,15 +49,17 @@
 tr > .report-field-td {
     background: transparent;
     border: 0;
+    width: 20px;
 }
 
 
 /* */
-.table-tools-line {
-    margin-top: 4px;
-}
+    .table-tools-line {
+        margin-top: 4px;
+        margin-right: 25px; /* should be verticaly in line with visual crud-table. I don't know how make it more automatic */
+    }
 
-.paginator-wrapper {
-    float: right;
-    margin-right: 4px;
-}
+    .paginator-wrapper {
+        float: right;
+        margin-right: 4px;
+    }
