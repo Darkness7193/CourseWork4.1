@@ -10,12 +10,15 @@ use Illuminate\Support\Facades\DB;
 
 
 
-function select_month_totals($month, $quantity_or_cost) { return /**@lang SQL*/"
-    Sum(If(month(date) = $month,
-        If(this.product_move_type in ('purchasing', 'inventory'), $quantity_or_cost, -$quantity_or_cost),
-        0
-    )) + Ifnull(import_totals.month_{$month}_totals, 0) As month_{$month}_totals
-"; }
+function select_month_totals($q, $month, $quantity_or_cost) {
+    return $q->selectRaw(/**@lang SQL*/
+    "
+        Sum(If(month(date) = $month,
+            If(this.product_move_type in ('purchasing', 'inventory'), $quantity_or_cost, -$quantity_or_cost),
+            0
+        )) + Ifnull(import_totals.month_{$month}_totals, 0) As month_{$month}_totals
+    ");
+}
 
 
 function totals_by_months(?int $report_storage_id, ?int $report_year, bool $is_cost_report, $report_move_type=null) {
@@ -36,8 +39,8 @@ function totals_by_months(?int $report_storage_id, ?int $report_year, bool $is_c
         ->selectRaw(/**@lang SQL*/"
             Sum(If(this.product_move_type In ('purchasing', 'inventory'), $quantity_or_cost, -$quantity_or_cost))
                 + Ifnull(import_totals.year_totals, 0) As year_totals");
-            for ($i=1; $i<13; $i++) {$q=$q
-                ->selectRaw(select_month_totals($i, $quantity_or_cost)); }
+            for ($i=1; $i<13; $i++) {
+                select_month_totals($q, $i, $quantity_or_cost); }
 
     return ProductMove::query()->fromSub($totals, 'some_name');
 }
