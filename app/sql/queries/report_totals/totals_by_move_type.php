@@ -8,7 +8,7 @@ use Illuminate\Support\Facades\DB;
 
 
 
-function general_totals($report_storage_id, $begin_date, $end_date, $is_cost_report) {
+function totals_by_move_type($report_storage_id, $begin_date, $end_date, $is_cost_report) {
     if ($report_storage_id === null) { return ProductMove::first()->where('id', '=', 'asdf'); }
     $quantity_or_cost = $is_cost_report ? 'quantity*price' : 'quantity';
 

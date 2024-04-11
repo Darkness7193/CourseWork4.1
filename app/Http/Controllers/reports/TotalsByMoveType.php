@@ -3,7 +3,7 @@
 namespace App\Http\Controllers\reports;
 
 include_once(app_path().'/helpers/get_used_years_of.php');
-include_once(app_path().'/sql/queries/report_totals/general_totals.php');
+include_once(app_path().'/sql/queries/report_totals/totals_by_move_type.php');
 include_once(app_path().'/helpers/session_setif.php');
 include_once(app_path().'/helpers/pure_php/get_columns.php');
 include_once(app_path().'/helpers/is_the_same_route.php');
@@ -54,7 +54,7 @@ class TotalsByMoveType extends Controller
             ]
         ]);
 
-        $totals = general_totals(session()->get('report_storage')->id, session('begin_date'), session('end_date'), session('is_cost_report'));
+        $totals = totals_by_move_type(session()->get('report_storage')->id, session('begin_date'), session('end_date'), session('is_cost_report'));
 
         return view('pages/reports/totals-by-move-type', [
             'paginator' => filter_order_paginate($totals, $view_fields),
