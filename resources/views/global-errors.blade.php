@@ -6,7 +6,7 @@
 @if ($errors->any())
     <table class="global-errors" onclick="this.remove()">
         <ul>
-            @foreach ($errors->all() as $error)
+            @foreach (array_unique($errors->all()) as $error)
                 <tr>
                     <td>
                         {{ $error }}
