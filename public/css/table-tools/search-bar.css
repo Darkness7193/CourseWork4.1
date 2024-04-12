@@ -24,7 +24,7 @@
     margin-left: 2px;
     background: transparent;
     border: 0;
-    outline: 0 !important; /* sometimes search-input are in crud-table, but crud-table are rewrite outline */
+    outline: 0;
 
     color: lightgray;
     font-family: Figtree, ui-sans-serif, system-ui, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
