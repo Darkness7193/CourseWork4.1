@@ -19,7 +19,8 @@ function copy_input_value_by_hold(event)
         if (is_editor(hovered_element) && event.which === 3 && hovered_element.tagName === copy_element.tagName) {
             if (copy_element.type !== hovered_element.type || hovered_element.disabled) {return}
             hovered_element.value = copy_value
-            hovered_element.focus()
+            hovered_element.dispatchEvent(new Event('change')) // needs to trigger submit_changes.js
+            hovered_element.dispatchEvent(new Event('focusout'))
         }
     })
 }
