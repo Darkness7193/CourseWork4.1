@@ -35,6 +35,7 @@
                         <td>{{ $total->liquidating_totals }}</td>
                         <td>{{ $total->inventory_totals }}</td>
                         <td>{{ $total->import_totals }}</td>
+                        <td>{{ $total->write_off_totals }}</td>
                         <td class="report-field-td"> @if($is_cost_report) ₽ @else шт. @endif</td>
                     </tr>
                 @endforeach

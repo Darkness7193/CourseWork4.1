@@ -46,11 +46,11 @@ class ProductMove extends Model
     ];
 
     public static function product_move_types() {
-        return ['purchasing', 'selling', 'liquidating', 'inventory', 'transfering'];
+        return ['purchasing', 'selling', 'liquidating', 'inventory', 'transfering', 'write_off'];
     }
 
     public static function inner_move_types() {
-        return ['liquidating', 'inventory', 'transfering'];
+        return ['liquidating', 'inventory', 'transfering', 'write_off'];
     }
 
     public static function inner_move_types_ru() {
@@ -58,6 +58,7 @@ class ProductMove extends Model
             'liquidating' => 'Ликвидация',
             'inventory' => 'Инвентаризация',
             'transfering' => 'Перевоз',
+            'write_off' => 'Списание'
         ];
     }
 

@@ -25,7 +25,8 @@ function totals_by_move_type($report_storage_id, $begin_date, $end_date, $is_cos
             sum(if(product_move_type = 'selling', $quantity_or_cost, 0)) As sales_totals,
             sum(if(product_move_type = 'liquidating', $quantity_or_cost, 0)) As liquidating_totals,
             sum(if(product_move_type = 'inventory', $quantity_or_cost, 0)) As inventory_totals,
-            sum(if(product_move_type = 'transfering', $quantity_or_cost, 0)) As import_totals
+            sum(if(product_move_type = 'transfering', $quantity_or_cost, 0)) As import_totals,
+            sum(if(product_move_type = 'write_off', $quantity_or_cost, 0)) As write_off_totals
         ");
 
     return ProductMove::query()->fromSub($general_totals, 'some_name');
