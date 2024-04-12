@@ -27,7 +27,7 @@ class PurchaseUpdateBulkRequest extends FormRequest
 
     public function attributes() {
         return [
-            'updated_rows.*.date' => 'Поступило',
+            'updated_rows.*.date' => 'Закуплено',
 
             'updated_rows.*.product_id' => 'Товар',
             'updated_rows.*.quantity' => 'Кол-во',

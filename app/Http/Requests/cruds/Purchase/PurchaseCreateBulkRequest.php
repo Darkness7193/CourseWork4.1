@@ -27,7 +27,7 @@ class PurchaseCreateBulkRequest extends FormRequest
 
     public function attributes() {
         return [
-            'new_rows.*.date' => 'Поступило',
+            'new_rows.*.date' => 'Закуплено',
 
             'new_rows.*.product_id' => 'Товар',
             'new_rows.*.quantity' => 'Кол-во',

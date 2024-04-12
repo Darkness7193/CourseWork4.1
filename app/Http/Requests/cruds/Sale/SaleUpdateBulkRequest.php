@@ -27,7 +27,7 @@ class SaleUpdateBulkRequest extends FormRequest
 
     public function attributes() {
         return [
-            'updated_rows.*.date' => 'Дата',
+            'updated_rows.*.date' => 'Продано',
 
             'updated_rows.*.product_id' => 'Товар',
             'updated_rows.*.quantity' => 'Количество',

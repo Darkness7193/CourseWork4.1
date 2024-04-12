@@ -27,7 +27,7 @@ class SaleCreateBulkRequest extends FormRequest
 
     public function attributes() {
         return [
-            'new_rows.*.date' => 'Дата',
+            'new_rows.*.date' => 'Продано',
 
             'new_rows.*.product_id' => 'Товар',
             'new_rows.*.quantity' => 'Количество',

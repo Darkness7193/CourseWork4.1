@@ -59,7 +59,7 @@
                 <div class="paginator-wrapper right-align">{{ $paginator->links('pagination::my-pagination-links') }}</div>
             </div>
         </x-card>
-        @include('crud-components.save-btn', ['controller' => 'InnerMove', 'no_view_fields' => [
+        @include('crud-components.save-btn', ['controller' => 'Storage', 'no_view_fields' => [
             'product_move_type' => 'purchasing',
             'new_storage_id' => null
         ]])

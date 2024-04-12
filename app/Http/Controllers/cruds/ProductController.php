@@ -15,7 +15,6 @@ include_once(app_path().'/helpers/is_the_same_route.php');
 use App\Http\Requests\cruds\Product\ProductCreateBulkRequest;
 use App\Http\Requests\cruds\Product\ProductUpdateBulkRequest;
 use App\Models\Product;
-use App\Models\ProductMove;
 use Illuminate\Http\Request;
 use Illuminate\Routing\Controller;
 use Illuminate\Support\Facades\Session;
