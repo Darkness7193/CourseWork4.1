@@ -18,7 +18,7 @@ class InnerMoveCreateBulkRequest extends FormRequest
 
             'new_rows.*.product_move_type' => 'required|string|max:100',
             'new_rows.*.storage_id' => 'required|integer|digits_between:1,8',
-            'new_rows.*.new_storage_id' => 'required|integer|digits_between:1,8',
+            'new_rows.*.new_storage_id' => 'required_if:new_rows.*.product_move_type,transfering|integer|digits_between:1,8',
 
             'new_rows.*.product_id' => 'required|integer|digits_between:1,8',
             'new_rows.*.quantity' => 'required|integer|digits_between:1,8',

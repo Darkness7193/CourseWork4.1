@@ -18,7 +18,7 @@ class InnerMoveUpdateBulkRequest extends FormRequest
 
             'updated_rows.*.product_move_type' => 'filled|string|max:100',
             'updated_rows.*.storage_id' => 'filled|integer|digits_between:1,8',
-            'updated_rows.*.new_storage_id' => 'filled|integer|digits_between:1,8',
+            'updated_rows.*.new_storage_id' => 'sometimes|filled|integer|digits_between:1,8',
 
             'updated_rows.*.product_id' => 'filled|integer|digits_between:1,8',
             'updated_rows.*.quantity' => 'filled|integer|digits_between:1,8',
