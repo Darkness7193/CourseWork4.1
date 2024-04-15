@@ -32,13 +32,10 @@ class UserController extends Controller
     public function index(Request $request): View
     {
         [$view_fields, $headers] = get_columns([
-            ['date', 'Поступило'],
+            ['name', 'Имя'],
+            ['password', 'Пароль'],
+            ['email', 'Эл. почта'],
 
-            ['product_id', 'Товар'],
-            ['quantity', 'Кол-во'],
-            ['price', 'Цена'],
-
-            ['storage_id', 'Склад'],
             ['comment', 'Комментарий']
         ]);
         if (!is_the_same_route()) { Session::forget(['ordered_orders', 'per_page', 'current_page', 'search_targets']); }
