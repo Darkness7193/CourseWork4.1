@@ -12,18 +12,12 @@ use Spatie\Permission\PermissionRegistrar;
 
 
 function create_demo_users() {
-    User::factory()->create([
-        'name' => 'Guest',
-        'password' => 1,
-        'email' => 'GuestEmail@example.com',
-    ]);
-
     $user = User::factory()->create([
-        'name' => 'ApprovedUserName',
+        'name' => 'UserName',
         'password' => 1,
-        'email' => 'ApprovedUserEmail@example.com',
+        'email' => 'UserEmail@example.com',
     ]);
-    $user->assignRole('ApprovedUser');
+    $user->assignRole('User');
 
     $user = User::factory()->create([
         'name' => 'AdminName',
@@ -31,6 +25,13 @@ function create_demo_users() {
         'email' => 'AdminEmail@example.com',
     ]);
     $user->assignRole('Admin');
+
+    $user = User::factory()->create([
+        'name' => 'SuperAdminName',
+        'password' => 1,
+        'email' => 'SuperAdminName@example.com',
+    ]);
+    $user->assignRole('SuperAdmin');
 }
 
 
@@ -47,15 +48,19 @@ class PermissionsSeeder extends Seeder
         Permission::create(['name' => 'delete user']);
 
 
-        $role1 = Role::create(['name' => 'ApprovedUser']);
+        $role1 = Role::create(['name' => 'User']);
         $role1->givePermissionTo('access site');
 
+        /*
         $role2 = Role::create(['name' => 'Admin']);
         $role2->givePermissionTo('access site');
         $role2->givePermissionTo('access user page');
         $role2->givePermissionTo('approve user');
         $role2->givePermissionTo('disapprove user');
         $role2->givePermissionTo('delete user');
+         */
+
+        $role3 = Role::create(['name' => 'SuperAdmin']);
 
 
         create_demo_users();
