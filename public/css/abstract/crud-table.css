@@ -1,6 +1,7 @@
 .crud-table {
     border-collapse: collapse;
     table-layout: fixed;
+    margin-bottom: 4px;
 }
 
 
