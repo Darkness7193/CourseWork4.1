@@ -14,15 +14,19 @@
 
 /* fieldwise ordering menu */
     .ordering-menu {
-        border: 0;
-        border-radius: 2px;
+        border: 1px solid #111827;
 
-        background-color: #374151;
+        background-color: #29364A;
         box-shadow: rgba(0, 0, 0, 0.16) 0 3px 6px, rgba(0, 0, 0, 0.23) 0 3px 6px;
     }
 
+    .dropdown-content.ordering-menu {
+        margin-top: 10px;
+        margin-left: -9px;
+    }
+
     .ordering-menu input {
-        background-color: #29364A;
+        background-color: #374151;
         border: 1px solid #111827;
         border-radius: 3px;
         color: lightgray;

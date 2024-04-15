@@ -4,11 +4,17 @@
 }
 
 .fieldwise-search-menu {
-    border: 0;
-    border-radius: 2px;
+    border: 1px solid #111827;
 
-    background-color: #374151;
+    background-color: #29364A;
+
     box-shadow: rgba(0, 0, 0, 0.16) 0 3px 6px, rgba(0, 0, 0, 0.23) 0 3px 6px;
+}
+
+
+.dropdown-content.fieldwise-search-menu {
+    margin-top: 7px;
+    margin-left: -9px;
 }
 
 .fieldwise-search-input {
@@ -17,7 +23,7 @@
     border: 1px solid #111827;
     border-radius: 3px;
 
-    background-color: #29364A;
+    background-color: #374151;
     outline: 1px lightblue;
     color: lightgray;
 }
