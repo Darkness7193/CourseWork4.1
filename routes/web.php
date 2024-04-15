@@ -7,6 +7,7 @@ use App\Http\Controllers\cruds\ProductController;
 use App\Http\Controllers\cruds\PurchaseController;
 use App\Http\Controllers\cruds\SaleController;
 use App\Http\Controllers\cruds\StorageController;
+use App\Http\Controllers\cruds\UserController;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\reports\TotalsByMonth;
@@ -43,6 +44,9 @@ Route::middleware('auth')->group(function () use($post_to_get_route) {
 
         Route::get('storages/crud', [StorageController::class, 'index'])
             ->name('storages.crud');
+
+        Route::get('users/crud', [UserController::class, 'index'])
+            ->name('users.crud');
     });
 
 

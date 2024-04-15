@@ -43,6 +43,7 @@
                 <div class="vertical-arrange">
                     <x-responsive-nav-link onclick="window.location='{{ route('products.crud') }}'">{{ __('Товары') }}</x-responsive-nav-link>
                     <x-responsive-nav-link onclick="window.location='{{ route('storages.crud') }}'">{{ __('Склады') }}</x-responsive-nav-link>
+                    <x-responsive-nav-link onclick="window.location='{{ route('users.crud') }}'">{{ __('Пользователи') }}</x-responsive-nav-link>
                 </div>
             </x-card>
         </div>
