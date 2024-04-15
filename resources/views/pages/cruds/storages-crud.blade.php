@@ -22,7 +22,7 @@
 
 <body>
 <x-app-layout>
-    @include('global-errors')
+    <x-global-errors/>
 
     <x-card-list>
         <x-card class="foot-margin">
@@ -33,36 +33,33 @@
                         <th>{{ mb_strtoupper($header) }}</th>
                     @endforeach
 
-                    <th>@include('crud-components.activate-delete-btns-btn')</th>
+                    <th><x-crud-components.activate-delete-btns-btn/></th>
                 </tr>
 
                 @foreach (array_merge($paginator->items(), $filler_rows) as $storage)
                     <tr data-row-id="{{ $storage->id }}">
                         <td><input type="text" value="{{ $storage->name }}" onfocusout="update_cell_of(this)"></td>
                         <td><input type="text" value="{{ $storage->address }}" onfocusout="update_cell_of(this)"></td>
-                        <td><input type="text" step="0.01" value="{{ $storage->phone_number }}"
-                                   onfocusout="update_cell_of(this)"></td>
-                        <td><input type="text" step="0.01" value="{{ $storage->email }}"
-                                   onfocusout="update_cell_of(this)">
-                        </td>
+                        <td><input type="text" step="0.01" value="{{ $storage->phone_number }}" onfocusout="update_cell_of(this)"></td>
+                        <td><input type="text" step="0.01" value="{{ $storage->email }}" onfocusout="update_cell_of(this)"></td>
 
-                        <td class="comment-td"><input type="text" value="{{ $storage->comment }}"
-                                                      onfocusout="update_cell_of(this)"></td>
+                        <td class="comment-td"><input type="text" value="{{ $storage->comment }}" onfocusout="update_cell_of(this)"></td>
 
-                        <td>@include('crud-components.delete-btn')</td>
+                        <td><x-crud-components.delete-btn/></td>
                     </tr>
                 @endforeach
             </table>
             <div class="table-tools-line horizontal-arrange vertical-center">
-                @include('table-tools.ordering-menu', compact('view_fields', 'headers'))
-                @include('table-tools.search-bar', compact('view_fields', 'headers'))
-                <div class="paginator-wrapper right-align">{{ $paginator->links('pagination::my-pagination-links') }}</div>
+                <x-table-tools.ordering-menu :$view_fields :$headers />
+                <x-table-tools.search-bar :$view_fields :$headers />
+                <div
+                    class="paginator-wrapper right-align">{{ $paginator->links('pagination::my-pagination-links') }}</div>
             </div>
         </x-card>
-        @include('crud-components.save-btn', ['controller' => 'Storage', 'no_view_fields' => [
+        <x-crud-components.save-btn controller="Storage" :no_view_fields="[
             'product_move_type' => 'purchasing',
             'new_storage_id' => null
-        ]])
+        ]" />
     </x-card-list>
     <div style="height: 200px"></div>
 </x-app-layout>

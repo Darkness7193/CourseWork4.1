@@ -2,7 +2,7 @@
     <link rel="stylesheet" href="{{ asset('css/global-errors.css') }}">
 
 
-<!-- f(): -->
+@props([])
 @if ($errors->any())
     <table class="global-errors" onclick="this.remove()">
         <ul>

@@ -1,0 +1,26 @@
+<!-- imports: -->
+<link rel="stylesheet" href="{{ asset('css/table-tools/search-bar.css') }}">
+
+
+@props(['view_fields', 'headers'])
+<form class="search-bar vertical-center"
+      method="post"
+      action="{{ route('set_filter', ['previous_route' => Route::current()->getName()]) }}"
+>   @csrf
+
+    <div class="default-input-wrapper">
+        <button name="action" value="search"></button>
+    </div>
+
+    <x-table-tools.fieldwise-search-btn :$view_fields :$headers />
+    <button class="icon anti-search-btn" type="submit" name="action" value="un_search"></button>
+    <button class="icon search-btn" type="submit" name="action" value="search"></button>
+
+    <input class="search-input"
+           name="tablewise_search_target"
+           value="{{ session('search_targets')['tablewise'] ?? '' }}"
+           type="text"
+           placeholder="Фильтр"
+           onfocus="this.select();"
+    >
+</form>

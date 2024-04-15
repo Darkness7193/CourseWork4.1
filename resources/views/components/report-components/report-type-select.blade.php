@@ -9,7 +9,7 @@
 ])
 
 
-<!-- f($current_report_type): -->
+@props(['current_report_type'])
 <select class="report-component" name="current_report_type" onchange="this.form.submit()">
     @foreach ($ru_report_types as $report_type => $ru_report_type)
         <option value="{{ $report_type }}">{{ $ru_report_type }}</option>

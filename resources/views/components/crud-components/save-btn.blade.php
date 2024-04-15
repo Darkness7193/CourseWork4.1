@@ -1,7 +1,8 @@
 <!-- imports: -->
     <link rel="stylesheet" href="{{ asset('css/save-btn.css') }}">
 
-<!-- f($controller, $no_view_fields): -->
+
+@props(['controller', 'no_view_fields'])
 <x-primary-button
     class="save-btn"
     type="button"

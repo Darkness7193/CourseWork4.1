@@ -7,7 +7,7 @@
     <script src="{{ asset('js/of_ordering-menu/of_order-direction-btn.js') }}" type="module"></script>
 
 
-<!-- f($CrudModel, $view_fields, $headers): -->
+@props(['CrudModel', 'view_fields', 'headers'])
 <form class="ordering-component vertical-center"
     method="post"
     action="{{ route('set_order', ['previous_route' => Route::current()->getName()]) }}"

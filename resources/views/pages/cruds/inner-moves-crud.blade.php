@@ -23,7 +23,7 @@
 
 <body>
 <x-app-layout>
-    @include('global-errors')
+    <x-global-errors/>
 
     <x-card-list>
         <x-card class="foot-margin">
@@ -34,7 +34,7 @@
                         <th>{{ mb_strtoupper($header) }}</th>
                     @endforeach
 
-                    <th>@include('crud-components.activate-delete-btns-btn')</th>
+                    <th><x-crud-components.activate-delete-btns-btn/></th>
                 </tr>
 
                 @foreach (array_merge($paginator->items(), $filler_rows) as $inner_move)
@@ -52,16 +52,16 @@
                                 </option>
                             </select></td>
 
-                        <td>@include('crud-components.foreign-cell', ['selected_foreign_row' => $inner_move->storage, 'foreign_rows' => $storages])</td>
+                        <td><x-crud-components.foreign-cell :selected_foreign_row="$inner_move->storage" :foreign_rows="$storages" /></td>
                         <td>
-                            @include('crud-components.foreign-cell', ['class' => 'new-storage-select', 'foreign_rows' => $storages] + (
-                                "$inner_move->product_move_type" === 'transfering'
-                                    ? ['selected_foreign_row' => $inner_move->new_storage]
-                                    : ['parameters' => 'disabled="true"'])
-                            )
+                            @if("$inner_move->product_move_type" === 'transfering')
+                                <x-crud-components.foreign-cell class="new-storage-select" :foreign_rows="$storages" :selected_foreign_row="$inner_move->new_storage" />
+                            @else
+                                <x-crud-components.foreign-cell class="new-storage-select" :foreign_rows="$storages" parameters='disabled="true"' />
+                            @endif
                         </td>
 
-                        <td>@include('crud-components.foreign-cell', ['selected_foreign_row' => $inner_move->product, 'foreign_rows' => $products])</td>
+                        <td><x-crud-components.foreign-cell :selected_foreign_row="$inner_move->product" :foreign_rows="$products" /></td>
                         <td><input type="number" value="{{ $inner_move->quantity }}" onfocusout="update_cell_of(this)">
                         </td>
                         <td><input type="number" step="0.01" value="{{ $inner_move->price }}"
@@ -70,21 +70,22 @@
                         <td class="comment-td"><input type="text" value="{{ $inner_move->comment }}"
                                                       onfocusout="update_cell_of(this)"></td>
 
-                        <td>@include('crud-components.delete-btn')</td>
+                        <td><x-crud-components.delete-btn/></td>
                     </tr>
                 @endforeach
             </table>
             <div class="table-tools-line horizontal-arrange vertical-center">
-                @include('table-tools.ordering-menu', compact('view_fields', 'headers'))
-                @include('table-tools.search-bar', compact('view_fields', 'headers'))
-                <div class="paginator-wrapper right-align">{{ $paginator->links('pagination::my-pagination-links') }}</div>
+                <x-table-tools.ordering-menu :$view_fields :$headers />
+                <x-table-tools.search-bar :$view_fields :$headers />
+                <div
+                    class="paginator-wrapper right-align">{{ $paginator->links('pagination::my-pagination-links') }}</div>
             </div>
         </x-card>
 
-        @include('crud-components.save-btn', ['controller' => 'InnerMove', 'no_view_fields' => [
+        <x-crud-components.save-btn controller="InnerMove" :no_view_fields="[
             'product_move_type' => 'purchasing',
             'new_storage_id' => null
-        ]])
+        ]" />
     </x-card-list>
     <div style="height: 200px"></div>
 </x-app-layout>

@@ -1,6 +1,6 @@
 
 
-<!-- f($Storage, $report_storage): -->
+@props(['Storage', 'report_storage'])
 <select class="report-component" name="report_storage_id" onchange="this.form.submit()">
     @foreach ($Storage::all() as $storage)
         <option value="{{ $storage->id ?? '' }}">{{ $storage->name }}</option>
