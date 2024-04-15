@@ -52,7 +52,7 @@
                     dark:focus:ring-offset-gray-800
                     "
                    href="{{ route('register') }}" style="margin-right: 16px"
-                >   {{ __('Регистриция') }}
+                >   {{ __('Регистрaция') }}
                 </a>
             </div>
         </div>

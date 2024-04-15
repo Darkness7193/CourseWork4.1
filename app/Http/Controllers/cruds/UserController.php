@@ -15,8 +15,6 @@ include_once(app_path().'/helpers/is_the_same_route.php');
 
 use App\Http\Requests\cruds\User\UserCreateBulkRequest;
 use App\Http\Requests\cruds\User\UserUpdateBulkRequest;
-use App\Models\Product;
-use App\Models\Storage;
 use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Routing\Controller;
@@ -46,7 +44,7 @@ class UserController extends Controller
             'ordered_orders' => [session('ordered_orders'), [['created_at', 'asc']], ],
         ]);
 
-        $users = filter_order_paginate(User::query(), $view_fields);
+        $users = filter_order_paginate(User::where('id', '!=', auth()->id()), $view_fields);
 
         return view('pages/cruds/users-crud', [
             'paginator' => $users,
