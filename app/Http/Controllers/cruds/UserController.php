@@ -13,10 +13,9 @@ include_once(app_path().'/helpers/session_setif.php');
 include_once(app_path().'/helpers/clear_session.php');
 include_once(app_path().'/helpers/is_the_same_route.php');
 
-use App\Http\Requests\cruds\Purchase\PurchaseCreateBulkRequest;
-use App\Http\Requests\cruds\Purchase\PurchaseUpdateBulkRequest;
+use App\Http\Requests\cruds\User\UserCreateBulkRequest;
+use App\Http\Requests\cruds\User\UserUpdateBulkRequest;
 use App\Models\Product;
-use App\Models\ProductMove;
 use App\Models\Storage;
 use App\Models\User;
 use Illuminate\Http\Request;
@@ -59,12 +58,12 @@ class UserController extends Controller
     }
 
 
-    public function create_bulk(Request $request): void {
+    public function create_bulk(UserCreateBulkRequest $request): void {
         create_bulk(User::class, $request->new_rows, $request->no_view_fields);
     }
 
 
-    public function update_bulk(Request $request): void {
+    public function update_bulk(UserUpdateBulkRequest $request): void {
         update_bulk(User::class, $request->updated_rows);
     }
 

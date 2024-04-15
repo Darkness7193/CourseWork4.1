@@ -1,6 +1,6 @@
 
 
-<x-crud-page page-title="Пользователи" :$paginator :$view_fields :$headers>
+<x-crud-page page-title="Пользователи" controller="User" :$paginator :$view_fields :$headers>
     <table class="crud-table" data-max-id="{{ $User::max('id') }}"
            data-view-fields="{{ implode(',', $view_fields) }}" data-crud-model="{{ $User }}">
         <tr>
@@ -13,7 +13,7 @@
 
         @foreach (array_merge($paginator->items(), $filler_rows) as $user)
             <tr data-row-id="{{ $user->id }}">
-                @php($is_exist_user = "$user")
+                @php($is_exist_user = ("$user" !== ''))
                 <td><input type="text" value="{{ $user->name }}" @if($is_exist_user) disabled @endif onfocusout="update_cell_of(this)"></td>
                 <td><input type="password" value="{{ $user->password }}" @if($is_exist_user) disabled @endif onfocusout="update_cell_of(this)"></td>
                 <td><input type="text" value="{{ $user->email }}" @if($is_exist_user) disabled @endif onfocusout="update_cell_of(this)"></td>

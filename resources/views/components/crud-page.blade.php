@@ -2,7 +2,7 @@
 <html lang="ru">
 
 
-@props(['paginator', 'page_title'=>'', 'view_fields', 'headers'])
+@props(['paginator', 'controller', 'page_title'=>'', 'view_fields', 'headers'])
 <head>
     <title>{{ $page_title }}</title>
     @include('global-head')
@@ -37,7 +37,7 @@
             </div>
         </x-card>
 
-        <x-crud-components.save-btn controller="InnerMove" :no_view_fields="[
+        <x-crud-components.save-btn :$controller :no_view_fields="[
             'product_move_type' => 'purchasing',
             'new_storage_id' => null
         ]" />

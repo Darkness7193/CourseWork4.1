@@ -1,6 +1,6 @@
 
 
-<x-crud-page page-title="Продажи" :$paginator :$view_fields :$headers>
+<x-crud-page page-title="Продажи" controller="Sale" :$paginator :$view_fields :$headers>
     <table class="crud-table" data-max-id="{{ $ProductMove::max('id') }}"
            data-view-fields="{{ implode(',', $view_fields) }}" data-crud-model="{{ $ProductMove }}">
         <tr>
