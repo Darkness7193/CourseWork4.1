@@ -19,6 +19,7 @@
 
     width: 240px;
     height: var(--search-component-height);
+
     padding: 4px 8px 4px 8px;
     margin-left: 0;
     margin-right: 4px;

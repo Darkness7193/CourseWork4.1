@@ -10,7 +10,6 @@
     }
 
     .report-table td {
-        min-width: 52px;
         padding: 5px;
         border: 1px solid #111827;
 
@@ -20,6 +19,10 @@
 
         font-size: 13.33px;
         font-family: Arial;
+    }
+
+    .report-table td:not(:last-child) {
+        min-width: 52px;
     }
 
 

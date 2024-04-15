@@ -8,7 +8,6 @@
     box-sizing: border-box;
 
     height: var(--ordering-component-height);
-
     border: 1px solid #111827;
 
     padding: 4px 6px;
