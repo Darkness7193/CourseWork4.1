@@ -1,6 +1,7 @@
 
 
 <x-crud-page page-title="Внутренние движения" controller="InnerMove" :$paginator :$view_fields :$headers>
+    </style>
     <table class="crud-table" data-max-id="{{ $ProductMove::max('id') }}"
            data-view-fields="{{ implode(',', $view_fields) }}" data-crud-model="{{ $ProductMove }}">
         <tr>
