@@ -1,23 +1,35 @@
-<!DOCTYPE html>
-<html lang="ru">
 
 
-<head>
-    <title> Товары </title>
-    @include('global-head')
+<x-crud-page page-title="Товары" :$paginator :$view_fields :$headers>
+    <table class="crud-table" data-max-id="{{ $Product::max('id') }}"
+           data-view-fields="{{ implode(',', $view_fields) }}" data-crud-model="{{ $Product }}">
+        <tr>
+            @foreach($headers as $header)
+                <th>{{ mb_strtoupper($header) }}</th>
+            @endforeach
 
-    <!-- imports: -->
-    @include('php_variables')
-    <script src="{{ asset('js/of_crud-table/submit_changes.js') }}" type="module"></script>
+            <th><x-crud-components.activate-delete-btns-btn/></th>
+        </tr>
 
-    <script src="{{ asset('js/of_crud-table/macroses/delete-btn_bulk_activation.js') }}" type="module"></script>
-    <script src="{{ asset('js/of_crud-table/macroses/copy_input_value_by_hold.js') }}" type="module"></script>
-    <script src="{{ asset('js/of_crud-table/macroses/auto_price_insert.js') }}" type="module"></script>
-    <script src="{{ asset('js/of_crud-table/macroses/auto_table_input_refocus.js') }}" type="module"></script>
-    <link rel="stylesheet" href="{{ asset('css/global.css') }}">
-    <link rel="stylesheet" href="{{ asset('css/abstract/crud-table.css') }}">
-    <link rel="stylesheet" href="{{ asset('css/abstract/foreign-cell.css') }}">
-</head>
+        @foreach (array_merge($paginator->items(), $filler_rows) as $product)
+            <tr data-row-id="{{ $product->id }}">
+                <td><input type="text" value="{{ $product->name }}" onfocusout="update_cell_of(this)"></td>
+                <td><input type="text" value="{{ $product->manufactor }}" onfocusout="update_cell_of(this)">
+                </td>
+                <td><input type="number" step="0.01" value="{{ $product->purchase_price }}"
+                           onfocusout="update_cell_of(this)"></td>
+                <td><input type="number" step="0.01" value="{{ $product->selling_price }}"
+                           onfocusout="update_cell_of(this)"></td>
+
+                <td class="comment-td"><input type="text" value="{{ $product->comment }}"
+                                              onfocusout="update_cell_of(this)"></td>
+
+                <td><x-crud-components.delete-btn/></td>
+            </tr>
+        @endforeach
+    </table>
+</x-crud-page>
+
 
 
 <body>
