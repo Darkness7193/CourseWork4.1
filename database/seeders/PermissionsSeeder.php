@@ -41,7 +41,6 @@ class PermissionsSeeder extends Seeder
     {
         app()[PermissionRegistrar::class]->forgetCachedPermissions();
 
-        Permission::create(['name' => 'access site']);
         Permission::create(['name' => 'access user page']);
         Permission::create(['name' => 'approve user']);
         Permission::create(['name' => 'disapprove user']);
@@ -49,7 +48,6 @@ class PermissionsSeeder extends Seeder
 
 
         $role1 = Role::create(['name' => 'User']);
-        $role1->givePermissionTo('access site');
 
         /*
         $role2 = Role::create(['name' => 'Admin']);
