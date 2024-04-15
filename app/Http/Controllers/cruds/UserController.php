@@ -32,6 +32,8 @@ class UserController extends Controller
     {
         [$view_fields, $headers] = get_columns([
             ['name', 'Имя'],
+            ['surname', 'Фамилия'],
+            ['last_name', 'Отчество'],
             ['password', 'Пароль'],
             ['email', 'Эл. почта'],
 
@@ -39,10 +41,7 @@ class UserController extends Controller
         ]);
         if (!is_the_same_route()) { Session::forget(['ordered_orders', 'per_page', 'current_page', 'search_targets']); }
         $session_items = session_setif([
-            'ordered_orders' => [
-                session('ordered_orders'),
-                [['created_at', 'asc']]
-            ],
+            'ordered_orders' => [session('ordered_orders'), [['created_at', 'asc']], ],
         ]);
 
         $users = filter_order_paginate(User::query(), $view_fields);
@@ -50,8 +49,6 @@ class UserController extends Controller
         return view('pages/cruds/users-crud', [
             'paginator' => $users,
             'User' => User::class,
-            'products' => Product::select('id', 'name', 'purchase_price')->get(),
-            'storages' => Storage::select('id', 'name')->get(),
             'filler_rows' => get_filler_rows($users),
 
         ] + $session_items + compact('view_fields', 'headers'));
