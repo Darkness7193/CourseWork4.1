@@ -15,21 +15,21 @@ function create_demo_users() {
     $user = User::factory()->create([
         'name' => 'UserName',
         'password' => 1,
-        'email' => 'UserEmail@example.com',
+        'email' => 'UserEmail@gmail.com',
     ]);
     $user->assignRole('User');
 
     $user = User::factory()->create([
-        'name' => 'AdminName',
+        'name' => 'sa',
         'password' => 1,
-        'email' => 'AdminEmail@example.com',
+        'email' => 'sa@example.com',
     ]);
     $user->assignRole('Admin');
 
     $user = User::factory()->create([
-        'name' => 'SuperAdminName',
+        'name' => '1',
         'password' => 1,
-        'email' => 'SuperAdminName@example.com',
+        'email' => '1',
     ]);
     $user->assignRole('SuperAdmin');
 }
