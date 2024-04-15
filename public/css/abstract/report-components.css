@@ -1,6 +1,8 @@
 .report-component {
+    box-sizing: border-box;
+
     width: 166px;
-    height: 33px;
+    height: 32px;
     padding: 0 8px 0 2px;
     margin-left: 0;
     margin-right: 4px;

@@ -1,3 +1,8 @@
+:root {
+    --search-component-height: 32px;
+}
+
+
 .anti-search-btn {
     background-image: url('../../images/anti-search-icon.png');
     margin-right: 4px;
@@ -8,9 +13,12 @@
     margin-right: 2px;
 }
 
-.search-bar{
-    width: 222px;
-    height: 23px;
+.search-bar {
+    position: relative;
+    box-sizing: border-box;
+
+    width: 240px;
+    height: var(--search-component-height);
     padding: 4px 8px 4px 8px;
     margin-left: 0;
     margin-right: 4px;

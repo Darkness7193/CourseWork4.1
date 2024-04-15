@@ -1,11 +1,17 @@
+:root {
+    --ordering-component-height: 32px;
+}
 
 
 .ordering-component {
-    width: 72px;
-    height: 23px;
+    position: relative;
+    box-sizing: border-box;
+
+    height: var(--ordering-component-height);
+
     border: 1px solid #111827;
 
-    padding: 4px 8px 4px 8px;
+    padding: 4px 6px;
     margin-left: 0;
     margin-right: 4px;
 
@@ -21,8 +27,10 @@
     }
 
     .dropdown-content.ordering-menu {
-        margin-top: 10px;
-        margin-left: -8.5px;
+        position: absolute;
+        top: var(--ordering-component-height);
+        left: -0.5px;
+        margin-top: 4px;
     }
 
     .ordering-menu input {
