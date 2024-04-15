@@ -13,9 +13,10 @@
 
         @foreach (array_merge($paginator->items(), $filler_rows) as $user)
             <tr data-row-id="{{ $user->id }}">
-                <td><input type="text" value="{{ $user->name }}" onfocusout="update_cell_of(this)"></td>
-                <td><input type="password" value="{{ $user->password }}" onfocusout="update_cell_of(this)"></td>
-                <td><input type="text" value="{{ $user->email }}" onfocusout="update_cell_of(this)"></td>
+                @php($is_exist_user = "$user")
+                <td><input type="text" value="{{ $user->name }}" @if($is_exist_user) disabled @endif onfocusout="update_cell_of(this)"></td>
+                <td><input type="password" value="{{ $user->password }}" @if($is_exist_user) disabled @endif onfocusout="update_cell_of(this)"></td>
+                <td><input type="text" value="{{ $user->email }}" @if($is_exist_user) disabled @endif onfocusout="update_cell_of(this)"></td>
                 <td><input type="text" value="{{ $user->comment }}" onfocusout="update_cell_of(this)"></td>
                 <td><x-crud-components.delete-btn/></td>
             </tr>
