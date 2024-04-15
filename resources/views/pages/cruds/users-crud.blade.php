@@ -20,6 +20,7 @@
 
                 <td><input type="password" value="{{ $user->password }}" @if($is_exist_user) disabled @endif onfocusout="update_cell_of(this)"></td>
                 <td><input type="text" value="{{ $user->email }}" @if($is_exist_user) disabled @endif onfocusout="update_cell_of(this)"></td>
+                <td><input type="text" value="{{ $user->phone_number }}" @if($is_exist_user) disabled @endif onfocusout="update_cell_of(this)"></td>
                 <td><input type="text" value="{{ $user->comment }}" onfocusout="update_cell_of(this)"></td>
                 <td><x-crud-components.delete-btn/></td>
             </tr>

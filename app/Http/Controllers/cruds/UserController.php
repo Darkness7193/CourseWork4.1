@@ -34,8 +34,10 @@ class UserController extends Controller
             ['name', 'Имя'],
             ['surname', 'Фамилия'],
             ['last_name', 'Отчество'],
+
             ['password', 'Пароль'],
             ['email', 'Эл. почта'],
+            ['phone_number', 'Номер'],
 
             ['comment', 'Комментарий']
         ]);
