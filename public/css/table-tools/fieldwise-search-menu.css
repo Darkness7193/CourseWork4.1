@@ -37,7 +37,9 @@
 }
 
 .header-td {
+    padding-left: 4px;
+
     font-family: Figtree, ui-sans-serif, system-ui, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
     font-size: 14px;
-    padding-left: 4px;
+    white-space:nowrap;
 }
