@@ -1,7 +1,3 @@
-<!-- imports: -->
-    @vite(['resources/css/breeze-base.css'])
-
-
 <x-guest-layout>
     <div class="mb-4 text-sm text-gray-600 dark:text-gray-400">
         {{ __('Забыли пароль? Не проблема.
