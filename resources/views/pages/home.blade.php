@@ -16,9 +16,9 @@
             </h2>
             <x-card>
                 <div class="vertical-arrange">
-                    <x-responsive-nav-link onclick="window.location='{{ route('product_moves.purchases_crud') }}'">{{ __('Закупки') }}</x-responsive-nav-link>
-                    <x-responsive-nav-link onclick="window.location='{{ route('product_moves.sales_crud') }}'">{{ __('Продажи') }}</x-responsive-nav-link>
-                    <x-responsive-nav-link onclick="window.location='{{ route('product_moves.inner_moves_crud') }}'">{{ __('Внутренние движения') }}</x-responsive-nav-link>
+                    <x-responsive-nav-link onclick="window.location='{{ route('product_moves.purchases.crud') }}'">{{ __('Закупки') }}</x-responsive-nav-link>
+                    <x-responsive-nav-link onclick="window.location='{{ route('product_moves.sales.crud') }}'">{{ __('Продажи') }}</x-responsive-nav-link>
+                    <x-responsive-nav-link onclick="window.location='{{ route('product_moves.inner_moves.crud') }}'">{{ __('Внутренние движения') }}</x-responsive-nav-link>
                 </div>
             </x-card>
         </div>

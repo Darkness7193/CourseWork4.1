@@ -15,6 +15,20 @@
                     <x-nav-link :href="route('home')" :active="request()->routeIs('home')">
                         {{ __('Главная') }}
                     </x-nav-link>
+
+                    <x-nav-link :href="route('product_moves.purchases.crud')" :active="request()->routeIs('product_moves.purchases.crud')">
+                        {{ __('Закупки') }}
+                    </x-nav-link>
+                    <x-nav-link :href="route('product_moves.sales.crud')" :active="request()->routeIs('product_moves.sales.crud')">
+                        {{ __('Продажи') }}
+                    </x-nav-link>
+                    <x-nav-link :href="route('product_moves.inner_moves.crud')" :active="request()->routeIs('product_moves.inner_moves.crud')">
+                        {{ __('Внутренние движения') }}
+                    </x-nav-link>
+
+                    <x-nav-link :href="route('products.crud')" :active="request()->routeIs('products.crud')">
+                        {{ __('Товары') }}
+                    </x-nav-link>
                 </div>
             </div>
 

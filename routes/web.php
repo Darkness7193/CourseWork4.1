@@ -30,14 +30,14 @@ Route::middleware('auth')->group(function () use($post_to_get_route) {
 
     /*Cruds &| Catalogs*/
     Route::group(['namespace' => 'App\Http\Controllers\cruds'], function() {
-        Route::get('product_moves/purchases_crud', [PurchaseController::class, 'index'])
-            ->name('product_moves.purchases_crud');
+        Route::get('product_moves/purchases/crud', [PurchaseController::class, 'index'])
+            ->name('product_moves.purchases.crud');
 
-        Route::get('product_moves/sales_crud', [SaleController::class, 'index'])
-            ->name('product_moves.sales_crud');
+        Route::get('product_moves/sales/crud', [SaleController::class, 'index'])
+            ->name('product_moves.sales.crud');
 
-        Route::get('product_moves/inner_moves_crud', [InnerMoveController::class, 'index'])
-            ->name('product_moves.inner_moves_crud');
+        Route::get('product_moves/inner_moves/crud', [InnerMoveController::class, 'index'])
+            ->name('product_moves.inner_moves.crud');
 
         Route::get('products/crud', [ProductController::class, 'index'])
             ->name('products.crud');
