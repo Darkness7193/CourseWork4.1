@@ -19,7 +19,19 @@ class ProfileUpdateRequest extends FormRequest
             'name' => ['required', 'string', 'max:255'],
             'surname' => ['sometimes', 'string', 'max:255'],
             'last_name' => ['sometimes', 'string', 'max:255'],
+            'phone_number' => ['sometimes', 'string', 'max:25'],
             'email' => ['required', 'string', 'lowercase', 'email', 'max:255', Rule::unique(User::class)->ignore($this->user()->id)],
+        ];
+    }
+
+    public function attributes()
+    {
+        return [
+            'name' => 'Имя',
+            'surname' => 'Фамилия',
+            'last_name' => 'Отчество',
+            'phone_number' => 'Номер',
+            'email' => 'Эл. почта',
         ];
     }
 }
