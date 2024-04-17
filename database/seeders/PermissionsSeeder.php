@@ -22,14 +22,7 @@ function create_demo_users() {
     $user = User::factory()->create([
         'name' => 'sa',
         'password' => 1,
-        'email' => 'sa@example.com',
-    ]);
-    $user->assignRole('Admin');
-
-    $user = User::factory()->create([
-        'name' => '1',
-        'password' => 1,
-        'email' => '1',
+        'email' => 'SuperAdmin@gmail.com',
     ]);
     $user->assignRole('SuperAdmin');
 }
@@ -48,6 +41,7 @@ class PermissionsSeeder extends Seeder
 
 
         $role1 = Role::create(['name' => 'User']);
+        $role3 = Role::create(['name' => 'SuperAdmin']);
 
         /*
         $role2 = Role::create(['name' => 'Admin']);
@@ -57,8 +51,6 @@ class PermissionsSeeder extends Seeder
         $role2->givePermissionTo('disapprove user');
         $role2->givePermissionTo('delete user');
          */
-
-        $role3 = Role::create(['name' => 'SuperAdmin']);
 
 
         create_demo_users();
