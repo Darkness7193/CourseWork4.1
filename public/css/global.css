@@ -19,7 +19,7 @@ input::-webkit-outer-spin-button {
 }
 
 input:disabled, select:disabled {
-    opacity: 0.66;
+    opacity: 0.60;
 }
 
 input, select {
