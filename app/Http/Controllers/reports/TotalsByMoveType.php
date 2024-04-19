@@ -33,8 +33,8 @@ class TotalsByMoveType extends Controller
             ['import_totals', 'Импорт'],
             ['write_off_totals', 'Списание']
         ]);
-        if (!is_the_same_route()) { Session::forget(['ordered_orders', 'per_page', 'current_page', 'search_targets', 'report_storage', 'report_year', 'is_cost_report']); }
 
+        if (!is_the_same_route()) { Session::forget(['report_storage', 'report_year', 'is_cost_report']); }
         session_setif([
             'report_storage' => [
                 $request->report_storage_id ? Storage::find($request->report_storage_id) : null,

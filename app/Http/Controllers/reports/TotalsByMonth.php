@@ -5,7 +5,6 @@ namespace App\Http\Controllers\reports;
 include_once(app_path().'/helpers/get_used_years_of.php');
 include_once(app_path().'/helpers/session_setif.php');
 include_once(app_path().'/helpers/session_get.php');
-include_once(app_path().'/helpers/is_the_same_route.php');
 include_once(app_path().'/helpers/pure_php/get_columns.php');
 
 include_once(app_path().'/sql/queries/filter_order_paginate.php');
@@ -39,7 +38,7 @@ class TotalsByMonth extends Controller
             ['month_11_totals', 'Ноя'],
             ['month_12_totals', 'Дек']
         ]);
-        if (!is_the_same_route()) { Session::forget(['ordered_orders', 'per_page', 'current_page', 'search_targets']); }
+
         $session_items = session_setif([
             'report_storage' => [
                 $request->report_storage_id ? Storage::find($request->report_storage_id) : null,

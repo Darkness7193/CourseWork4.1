@@ -11,7 +11,6 @@ include_once(app_path().'/helpers/pure_php/get_columns.php');
 include_once(app_path().'/helpers/get_filler_rows.php');
 include_once(app_path().'/helpers/session_setif.php');
 include_once(app_path().'/helpers/clear_session.php');
-include_once(app_path().'/helpers/is_the_same_route.php');
 
 use App\Http\Requests\cruds\Purchase\PurchaseCreateBulkRequest;
 use App\Http\Requests\cruds\Purchase\PurchaseUpdateBulkRequest;
@@ -38,7 +37,7 @@ class PurchaseController extends Controller
             ['storage_id', 'Склад'],
             ['comment', 'Комментарий']
         ]);
-        if (!is_the_same_route()) { Session::forget(['ordered_orders', 'per_page', 'current_page', 'search_targets']); }
+
         $session_items = session_setif([
             'ordered_orders' => [
                 session('ordered_orders'),
