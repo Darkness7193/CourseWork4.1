@@ -45,19 +45,19 @@ class PermissionsSeeder extends Seeder
         Permission::create(['name' => 'delete user']);
 
 
-        $role1 = Role::create(['name' => 'UnapprovedUser']);
-        $role1 = Role::create(['name' => 'User']);
-        $role1 = Role::create(['name' => 'Admin']);
-        $role3 = Role::create(['name' => 'SuperAdmin']);
+        $role0 = Role::create(['name' => 'UnapprovedUser']);
 
-        /*
+        $role1 = Role::create(['name' => 'User']);
+        $role1->givePermissionTo('access site');
+
         $role2 = Role::create(['name' => 'Admin']);
         $role2->givePermissionTo('access site');
         $role2->givePermissionTo('access user page');
         $role2->givePermissionTo('approve user');
         $role2->givePermissionTo('disapprove user');
         $role2->givePermissionTo('delete user');
-         */
+
+        $role3 = Role::create(['name' => 'SuperAdmin']);
 
 
         create_demo_users();
