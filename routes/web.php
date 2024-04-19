@@ -23,6 +23,8 @@ use Illuminate\Support\Facades\Route;
 
 Route::middleware('auth')->group(function () use($post_to_get_route) {
     /*Home*/
+    Route::get('home', [HomeController::class, 'index'])
+        ->name('home');
     Route::get('', [HomeController::class, 'index'])
         ->name('home');
 
@@ -44,8 +46,10 @@ Route::middleware('auth')->group(function () use($post_to_get_route) {
         Route::get('storages/crud', [StorageController::class, 'index'])
             ->name('storages.crud');
 
-        Route::get('users/crud', [UserController::class, 'index'])
-            ->name('users.crud');
+        Route::group(['middleware' => ['can:access user page']], function() {
+            Route::get('users/crud', [UserController::class, 'index'])
+                ->name('users.crud');
+        });
     });
 
 
