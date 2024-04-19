@@ -19,7 +19,7 @@
                 <td><input type="text" value="{{ $user->surname }}" @if($is_exist_user) disabled @endif onfocusout="update_cell_of(this)"></td>
                 <td><input type="text" value="{{ $user->last_name }}" @if($is_exist_user) disabled @endif onfocusout="update_cell_of(this)"></td>
 
-                <td><input type="password" value="{{ $user->password }}" @if($is_exist_user) disabled @endif onfocusout="update_cell_of(this)"></td>
+                <td><input type="password" value="{{ $is_exist_user ? '***' : '' }}" @if($is_exist_user) disabled @endif onfocusout="update_cell_of(this)"></td>
                 <td><input type="email" value="{{ $user->email }}" @if($is_exist_user) disabled @endif onfocusout="update_cell_of(this)"></td>
                 <td><input type="text" value="{{ $user->phone_number }}" @if($is_exist_user) disabled @endif onfocusout="update_cell_of(this)"></td>
                 <td><input type="text" value="{{ $user->comment }}" onfocusout="update_cell_of(this)"></td>
