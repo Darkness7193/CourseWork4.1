@@ -12,6 +12,7 @@ use App\Http\Controllers\HomeController;
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\reports\TotalsByMonth;
 use App\Http\Controllers\reports\TotalsByMoveType;
+use App\Http\Middleware\HasSiteAccess;
 use Illuminate\Support\Facades\Route;
 
 /**
@@ -21,7 +22,7 @@ use Illuminate\Support\Facades\Route;
 
 
 
-Route::group(['middleware' => ['auth', 'can:access site']], function () use($post_to_get_route) {
+Route::group(['middleware' => ['auth', HasSiteAccess::class]], function () use($post_to_get_route) {
     /*Home*/
     Route::get('home', [HomeController::class, 'index'])
         ->name('home');
