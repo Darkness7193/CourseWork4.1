@@ -64,7 +64,7 @@ class UserController extends Controller
             if (auth()->user()->can('create user')) {
                 $user = User::create(array_merge($request->no_view_fields, $new_row));
 
-                $user->syncRoles( ($user && auth()->user()->can('assign role '.$new_row['role']))
+                $user->assignRoles( ($user && auth()->user()->can('assign role '.$new_row['role']))
                     ? $new_row['role']
                     : 'unapproved user'
                 );
@@ -83,7 +83,8 @@ class UserController extends Controller
                 $exist_user->update($updated_cells);
             }
 
-            if (auth()->user()->can('assign role '.$updated_cells['role'])) {
+            if (auth()->user()->can('assign role '.$updated_cells['role']) &&
+                auth()->user()->can('remove role '.$exist_user->getRoleNames()->first())) {
                 $exist_user->syncRoles($updated_cells['role']);
             }
         }
