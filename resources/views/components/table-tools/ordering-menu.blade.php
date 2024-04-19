@@ -13,34 +13,36 @@
     action="{{ route('set_order', ['previous_route' => Route::current()->getName()]) }}"
 >   @csrf
     <div class="dropdown">
-        <button class="icon ordering-btn" type="button" onclick="toggle_dropdown_content(this)"></button>
-        <button class="icon un-ordering-btn" type="submit" name="action" value="is_un_ordering" onclick="clear_number_checkboxes()"></button>
-        <button class="icon ok-ordering-btn" type="submit" name="action" value="is_ordering"></button>
-        <div class="ordering-menu dropdown-content number-check-box-container">
-            <table>
-                @foreach(array_merge($view_fields, ['created_at', 'updated_at']) as $rw => $view_field)
-                    <tr>
-                        <td class="header-td">{{ array_merge($headers, ['# по созданию', '# по изменению'])[$rw] }}:</td>
-                        <td>
-                            <button class="icon order-direction-btn"
-                                type="button"
-                                onclick="toggle_ordering_direction(this)">
-                            </button>
-                        </td>
-                        <td><input class="order-direction-input"
-                            hidden="hidden"
-                            name="{{ $view_field }}_order_direction"
-                            value="asc"
-                        ></td>
+        <div class="vertical-center">
+            <button class="icon ordering-btn" type="button" onclick="toggle_dropdown_content(this)"></button>
+            <button class="icon un-ordering-btn" type="submit" name="action" value="is_un_ordering" onclick="clear_number_checkboxes()"></button>
+            <button class="icon ok-ordering-btn" type="submit" name="action" value="is_ordering"></button>
+            <div class="ordering-menu dropdown-content number-check-box-container">
+                <table>
+                    @foreach(array_merge($view_fields, ['created_at', 'updated_at']) as $rw => $view_field)
+                        <tr>
+                            <td class="header-td">{{ array_merge($headers, ['# по созданию', '# по изменению'])[$rw] }}:</td>
+                            <td>
+                                <button class="icon order-direction-btn"
+                                    type="button"
+                                    onclick="toggle_ordering_direction(this)">
+                                </button>
+                            </td>
+                            <td><input class="order-direction-input"
+                                hidden="hidden"
+                                name="{{ $view_field }}_order_direction"
+                                value="asc"
+                            ></td>
 
-                        <td><input class="number-checkbox-input"
-                            name="{{ $view_field }}_order_priority"
-                            type="number"
-                            readonly
-                        ></td>
-                    </tr>
-                @endforeach
-            </table>
+                            <td><input class="number-checkbox-input"
+                                name="{{ $view_field }}_order_priority"
+                                type="number"
+                                readonly
+                            ></td>
+                        </tr>
+                    @endforeach
+                </table>
+            </div>
         </div>
     </div>
 </form>
