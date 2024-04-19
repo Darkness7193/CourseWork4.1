@@ -13,7 +13,7 @@
     @if($user->getRoleNames()->first() === 'super admin') disabled @endif
     >
     @can('assign role unapproved user')
-        <option value="uapproved user"> Неодобренный </option>
+        <option value="unapproved user"> Неодобренный </option>
     @endcan
     @can('assign role approved user')
         <option value="approved user"> Пользователь </option>
