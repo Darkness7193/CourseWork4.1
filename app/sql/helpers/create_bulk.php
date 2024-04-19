@@ -1,9 +1,9 @@
 <?php
 
 
-function create_bulk($Model, $updated_rows, $cells_defaults)
+function create_bulk($Model, $new_rows, $cells_defaults)
 {
-    foreach ($updated_rows as $updated_cells) {
-        $Model::create(array_merge($cells_defaults, $updated_cells));
+    foreach ($new_rows as $new_row) {
+        $Model::create(array_merge($cells_defaults, $new_row));
     }
 }

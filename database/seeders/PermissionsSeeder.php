@@ -4,6 +4,8 @@ namespace Database\Seeders;
 
 use App\Models\User;
 use Illuminate\Database\Seeder;
+use Illuminate\Support\Facades\Artisan;
+use Illuminate\Support\Facades\Cache;
 use Spatie\Permission\Models\Permission;
 use Spatie\Permission\Models\Role;
 use Spatie\Permission\PermissionRegistrar;
@@ -33,6 +35,9 @@ class PermissionsSeeder extends Seeder
     public function run(): void
     {
         app()[PermissionRegistrar::class]->forgetCachedPermissions();
+        Artisan::call('cache:forget spatie.permission.cache');
+        Artisan::call('cache:forget spatie.role.cache');
+        Artisan::call('cache:clear');
 
         Permission::create(['name' => 'access user page']);
         Permission::create(['name' => 'approve user']);
@@ -40,7 +45,9 @@ class PermissionsSeeder extends Seeder
         Permission::create(['name' => 'delete user']);
 
 
+        $role1 = Role::create(['name' => 'UnapprovedUser']);
         $role1 = Role::create(['name' => 'User']);
+        $role1 = Role::create(['name' => 'Admin']);
         $role3 = Role::create(['name' => 'SuperAdmin']);
 
         /*

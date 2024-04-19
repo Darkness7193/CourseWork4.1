@@ -1,5 +1,7 @@
 
 
+
+
 <x-crud-page page-title="Товары" controller="Product" :$paginator :$view_fields :$headers>
     <table class="crud-table" data-max-id="{{ $Product::max('id') }}"
            data-view-fields="{{ implode(',', $view_fields) }}" data-crud-model="{{ $Product }}">

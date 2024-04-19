@@ -17,6 +17,7 @@ class UserCreateBulkRequest extends FormRequest
             'new_rows.*.name' => 'required|string|max:100',
             'new_rows.*.surname' => 'sometimes|string|max:100',
             'new_rows.*.last_name' => 'sometimes|string|max:100',
+            'new_rows.*.role' => 'required|string|max:100',
             'new_rows.*.password' => 'required|string|max:255',
 
             'new_rows.*.email' => ['required', 'string', 'lowercase', 'email', 'max:255', Rule::unique(User::class)->ignore($this->user()->id)],
@@ -31,7 +32,8 @@ class UserCreateBulkRequest extends FormRequest
             'new_rows.*.name' => 'Имя',
             'new_rows.*.surname' => 'Фамилия',
             'new_rows.*.last_name' => 'Отчество',
-            'new_rows.*.password' => 'пароль',
+            'new_rows.*.role' => 'Роль',
+            'new_rows.*.password' => 'Пароль',
 
             'new_rows.*.email' => 'Эл. почта',
             'new_rows.*.phone_number' => 'Номер',

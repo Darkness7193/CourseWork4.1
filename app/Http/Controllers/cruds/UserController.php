@@ -19,8 +19,7 @@ use Illuminate\Http\Request;
 use Illuminate\Routing\Controller;
 use Illuminate\Support\Facades\Session;
 use Illuminate\View\View;
-
-
+use Spatie\Permission\Models\Role;
 
 
 class UserController extends Controller
@@ -31,6 +30,7 @@ class UserController extends Controller
             ['name', 'Имя'],
             ['surname', 'Фамилия'],
             ['last_name', 'Отчество'],
+            ['role', 'Роль'],
 
             ['password', 'Пароль'],
             ['email', 'Эл. почта'],
@@ -49,18 +49,29 @@ class UserController extends Controller
             'paginator' => $users,
             'User' => User::class,
             'filler_rows' => get_filler_rows($users),
+            'Role' => Role::class,
 
         ] + $session_items + compact('view_fields', 'headers'));
     }
 
 
     public function create_bulk(UserCreateBulkRequest $request): void {
-        create_bulk(User::class, $request->new_rows, $request->no_view_fields);
+        foreach ($request->new_rows as $new_row) {
+            $user = User::create(array_merge($request->no_view_fields, $new_row));
+            $user->syncRoles($new_row['role']);
+        }
     }
 
 
     public function update_bulk(UserUpdateBulkRequest $request): void {
-        update_bulk(User::class, $request->updated_rows);
+        foreach ($request->updated_rows as $row_id => $updated_cells)
+        {
+            $exist_user = User::find((int)$row_id);
+            if ($exist_user) {
+                $exist_user->update($updated_cells);
+                $exist_user->syncRoles($updated_cells['role']);
+            }
+        }
     }
 
 
