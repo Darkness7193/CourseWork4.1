@@ -15,18 +15,77 @@ use Spatie\Permission\PermissionRegistrar;
 
 function create_demo_users() {
     $user = User::factory()->create([
-        'name' => 'UserName',
+        'name' => 'unapproved_user',
         'password' => 1,
-        'email' => 'UserEmail@gmail.com',
+        'email' => '0@gmail.com',
     ]);
-    $user->assignRole('User');
+    $user->assignRole('unapproved user');
 
     $user = User::factory()->create([
-        'name' => 'sa',
+        'name' => 'approved_user',
         'password' => 1,
-        'email' => 'SuperAdmin@gmail.com',
+        'email' => '1@gmail.com',
     ]);
-    $user->assignRole('SuperAdmin');
+    $user->assignRole('approved user');
+
+    $user = User::factory()->create([
+        'name' => 'admin',
+        'password' => 1,
+        'email' => '2@gmail.com',
+    ]);
+    $user->assignRole('admin');
+
+    $user = User::factory()->create([
+        'name' => 'super_admin',
+        'password' => 1,
+        'email' => '3@gmail.com',
+    ]);
+    $user->assignRole('super admin');
+}
+
+
+function create_permissions() {
+    Permission::create(['name' => 'access site']);
+    Permission::create(['name' => 'access user page']);
+
+    Permission::create(['name' => 'create user']);
+    Permission::create(['name' => 'delete user']);
+
+    Permission::create(['name' => 'assign role unapproved user']);
+    Permission::create(['name' => 'remove role unapproved user']);
+    Permission::create(['name' => 'assign role approved user']);
+    Permission::create(['name' => 'remove role approved user']);
+
+    Permission::create(['name' => 'assign role admin']);
+    Permission::create(['name' => 'remove role admin']);
+    Permission::create(['name' => 'assign role super admin']);
+    Permission::create(['name' => 'remove role super admin']);
+}
+
+
+function create_roles() {
+    $role0 = Role::create(['name' => 'unapproved user']);
+
+    $role1 = Role::create(['name' => 'approved user']);
+    $role1->syncPermissions(
+        'access site'
+    );
+
+    $role2 = Role::create(['name' => 'admin']);
+    $role2->syncPermissions(
+        'access site',
+        'access user page',
+
+        'create user',
+        'delete user',
+
+        'assign role unapproved user',
+        'remove role unapproved user',
+        'assign role approved user',
+        'remove role approved user',
+    );
+
+    $role3 = Role::create(['name' => 'super admin']);
 }
 
 
@@ -39,27 +98,10 @@ class PermissionsSeeder extends Seeder
         Artisan::call('cache:forget spatie.role.cache');
         Artisan::call('cache:clear');
 
-        Permission::create(['name' => 'access user page']);
-        Permission::create(['name' => 'approve user']);
-        Permission::create(['name' => 'disapprove user']);
-        Permission::create(['name' => 'delete user']);
+        Artisan::call('migrate:fresh --seed');
 
-
-        $role0 = Role::create(['name' => 'UnapprovedUser']);
-
-        $role1 = Role::create(['name' => 'User']);
-        $role1->givePermissionTo('access site');
-
-        $role2 = Role::create(['name' => 'Admin']);
-        $role2->givePermissionTo('access site');
-        $role2->givePermissionTo('access user page');
-        $role2->givePermissionTo('approve user');
-        $role2->givePermissionTo('disapprove user');
-        $role2->givePermissionTo('delete user');
-
-        $role3 = Role::create(['name' => 'SuperAdmin']);
-
-
+        create_permissions();
+        create_roles();
         create_demo_users();
     }
 }

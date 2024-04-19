@@ -43,8 +43,10 @@ class UserController extends Controller
             'ordered_orders' => [session('ordered_orders'), [['created_at', 'asc']], ],
         ]);
 
-        $users = filter_order_paginate(User::where('id', '!=', auth()->id()), $view_fields);
-
+        $users = filter_order_paginate(User::query(), $view_fields);
+        User::with('roles')->get()->filter(
+            fn ($user) => $user->roles->where('name', 'Super Admin')->toArray()
+        )->count();
         return view('pages/cruds/users-crud', [
             'paginator' => $users,
             'User' => User::class,
