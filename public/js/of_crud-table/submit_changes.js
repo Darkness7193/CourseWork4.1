@@ -36,9 +36,19 @@ function toggle_row_deleting(delete_btn) {
 }
 
 
+function delete_empty_new_rows() {
+    for (let [row_id, new_row] of Object.entries(new_rows)) {
+        if (Object.values(new_row).join("") === "") { // if full of empty strings
+            delete new_rows[row_id]
+        }
+    }
+}
+
+
 function submit_changes(controller, no_view_fields) {
     ;[deleted_rows, updated_rows] = remove_elements_that_in_both(deleted_rows, updated_rows)
     ;[deleted_rows, new_rows] = remove_elements_that_in_both(deleted_rows, new_rows)
+    delete_empty_new_rows()
 
     post(window.php_vars['save_crud_route'], {
         'controller': controller,
