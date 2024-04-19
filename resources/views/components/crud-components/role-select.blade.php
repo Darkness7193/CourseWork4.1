@@ -1,5 +1,5 @@
 @php($ru_roles = [
-    'unapproved user' => 'Неодобренный',
+    'unapproved user' => 'Неодобрен',
     'approved user' => 'Пользователь',
     'admin' => 'Админ',
     'super admin' => 'Супер админ'
