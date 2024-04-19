@@ -1,3 +1,8 @@
+<!-- imports: -->
+    <link rel="stylesheet" href="{{ asset('css/global.css') }}">
+
+
+
 <x-guest-layout>
     <!-- Session Status -->
     <x-auth-session-status class="mb-4" :status="session('status')" />
@@ -17,42 +22,37 @@
             <x-input-label for="password" :value="__('Пароль')" />
 
             <x-text-input id="password" class="block mt-1 w-full"
-                            type="password"
-                            name="password"
-                            required autocomplete="current-password" />
+                          type="password"
+                          name="password"
+                          required autocomplete="current-password" />
 
             <x-input-error :messages="$errors->get('password')" class="mt-2" />
         </div>
 
         <!-- Remember Me -->
-        <div class="flex items-center justify-end mt-4">
-            <div class="left-align">
-                <label for="remember_me" class="inline-flex items-center">
-                    <input id="remember_me" type="checkbox" class="rounded dark:bg-gray-900 border-gray-300 dark:border-gray-700 text-indigo-600 shadow-sm focus:ring-indigo-500 dark:focus:ring-indigo-600 dark:focus:ring-offset-gray-800" name="remember">
-                    <span class="ms-2 text-sm text-gray-600 dark:text-gray-400">{{ __('Запомнить меня') }}</span>
-                </label>
-            </div>
-            <div class="right-align">
-                @if (Route::has('password.request'))
-                    <a class="underline text-sm text-gray-600 dark:text-gray-400 hover:text-gray-900
-                    dark:hover:text-gray-100 rounded-md focus:outline-none focus:ring-2 focus:ring-offset-2
-                    focus:ring-indigo-500 dark:focus:ring-offset-gray-800
-                    "
-                       href="{{ route('password.request') }}" style="margin-right: 8px"
-                    >   {{ __('Забыли пароль?') }}
-                    </a>
-                @endif
-
-                <a class="underline text-sm text-gray-600 dark:text-gray-400 hover:text-gray-900 dark:hover:text-gray-100 rounded-md focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500
-                    dark:focus:ring-offset-gray-800
-                    "
-                   href="{{ route('register') }}" style="margin-right: 16px"
-                >   {{ __('Регистрaция') }}
-                </a>
-            </div>
+        <div class="block mt-4">
+            <label for="remember_me" class="inline-flex items-center">
+                <input id="remember_me" type="checkbox" class="rounded dark:bg-gray-900 border-gray-300 dark:border-gray-700 text-indigo-600 shadow-sm focus:ring-indigo-500 dark:focus:ring-indigo-600 dark:focus:ring-offset-gray-800" name="remember">
+                <span class="ms-2 text-sm text-gray-600 dark:text-gray-400">{{ __('Запомнить меня') }}</span>
+            </label>
         </div>
 
         <div class="flex items-center justify-end mt-4">
+            <div class="left-align">
+                <a class="underline text-sm text-gray-600 dark:text-gray-400 hover:text-gray-900 dark:hover:text-gray-100 rounded-md focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500
+                    dark:focus:ring-offset-gray-800
+                    "
+                    href="{{ route('register') }}" style="margin-right: 16px"
+                >   {{ __('Регистрaция') }} </a>
+
+                @if (Route::has('password.request'))
+                    <a class="underline text-sm text-gray-600 dark:text-gray-400 hover:text-gray-900 dark:hover:text-gray-100 rounded-md focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500 dark:focus:ring-offset-gray-800" href="{{ route('password.request') }}">
+                        {{ __('Забыли пароль?') }}
+                    </a>
+                @endif
+            </div>
+
+
             <x-primary-button class="ms-3">
                 {{ __('Войти') }}
             </x-primary-button>
