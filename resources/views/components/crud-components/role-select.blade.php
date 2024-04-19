@@ -8,7 +8,10 @@
 
 @props(['user'])
 @php($current_role = $user->getRoleNames()->first())
-<select class="foreign-cell user-role-select" onfocusout="update_cell_of(this)" @cannot("$user" ? "remove role $current_role" : null) disabled @endcan>
+<select class="foreign-cell user-role-select" onfocusout="update_cell_of(this)"
+    @cannot("$user" ? "remove role $current_role" : null) disabled @endcan
+    @if($user->getRoleNames()->first() === 'super admin') disabled @endif
+    >
     @can('assign role unapproved user')
         <option value="uapproved user"> Неодобренный </option>
     @endcan
@@ -17,9 +20,6 @@
     @endcan
     @can('assign role admin')
         <option value="admin"> Админ </option>
-    @endcan
-    @can('assign role super admin')
-        <option value="admin"> Супер админ </option>
     @endcan
 
     <option value="{{ "{$user->getRoleNames()->first()}" ? $user->getRoleNames()->first() : '' }}" selected="selected"

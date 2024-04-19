@@ -57,10 +57,18 @@ class UserController extends Controller
     }
 
 
-    public function create_bulk(UserCreateBulkRequest $request): void {
-        foreach ($request->new_rows as $new_row) {
-            $user = User::create(array_merge($request->no_view_fields, $new_row));
-            $user->syncRoles($new_row['role']);
+    public function create_bulk(UserCreateBulkRequest $request): void
+    {
+        foreach ($request->new_rows as $new_row)
+        {
+            if (auth()->user()->can('create user')) {
+                $user = User::create(array_merge($request->no_view_fields, $new_row));
+
+                $user->syncRoles( ($user && auth()->user()->can('assign role '.$new_row['role']))
+                    ? $new_row['role']
+                    : 'unapproved user'
+                );
+            }
         }
     }
 
@@ -69,8 +77,13 @@ class UserController extends Controller
         foreach ($request->updated_rows as $row_id => $updated_cells)
         {
             $exist_user = User::find((int)$row_id);
-            if ($exist_user) {
+            if (!$exist_user) { continue; }
+
+            if (auth()->user()->can('edit '.$updated_cells['role'])) {
                 $exist_user->update($updated_cells);
+            }
+
+            if (auth()->user()->can('assign role '.$updated_cells['role'])) {
                 $exist_user->syncRoles($updated_cells['role']);
             }
         }

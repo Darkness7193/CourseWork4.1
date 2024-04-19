@@ -5,7 +5,6 @@ namespace Database\Seeders;
 use App\Models\User;
 use Illuminate\Database\Seeder;
 use Illuminate\Support\Facades\Artisan;
-use Illuminate\Support\Facades\Cache;
 use Spatie\Permission\Models\Permission;
 use Spatie\Permission\Models\Role;
 use Spatie\Permission\PermissionRegistrar;
@@ -49,16 +48,23 @@ function create_permissions() {
     Permission::create(['name' => 'access user page']);
 
     Permission::create(['name' => 'create user']);
+    Permission::create(['name' => 'edit user']);
     Permission::create(['name' => 'delete user']);
 
     Permission::create(['name' => 'assign role unapproved user']);
+    Permission::create(['name' => 'edit unapproved user']);
     Permission::create(['name' => 'remove role unapproved user']);
+
     Permission::create(['name' => 'assign role approved user']);
+    Permission::create(['name' => 'edit approved user']);
     Permission::create(['name' => 'remove role approved user']);
 
     Permission::create(['name' => 'assign role admin']);
+    Permission::create(['name' => 'edit admin']);
     Permission::create(['name' => 'remove role admin']);
+
     Permission::create(['name' => 'assign role super admin']);
+    Permission::create(['name' => 'edit super admin']);
     Permission::create(['name' => 'remove role super admin']);
 }
 
@@ -80,8 +86,11 @@ function create_roles() {
         'delete user',
 
         'assign role unapproved user',
+        'edit unapproved user',
         'remove role unapproved user',
+
         'assign role approved user',
+        'edit approved user',
         'remove role approved user',
     );
 
