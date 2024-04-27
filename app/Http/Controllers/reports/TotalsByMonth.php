@@ -51,9 +51,7 @@ class TotalsByMonth extends Controller
         $used_years = get_used_years_of(session()->get('report_storage')->id);
         $session_items = $session_items + session_setif([
             'report_year' => [
-                $report_storage_same()
-                    ? $request->report_year
-                    : null,
+                $report_storage_same() ? $request->report_year : null,
                 max($used_years)
             ],
             'is_cost_report' => [
