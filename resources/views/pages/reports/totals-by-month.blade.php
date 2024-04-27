@@ -20,9 +20,9 @@
     <x-card-list>
         <x-card class="foot-margin">
             <table class="report-table" data-view-fields="{{ implode(',', $view_fields) }}">
-                <tr>
+                <tr class="header-tr">
                     @foreach($headers as $header)
-                        <th>{{ mb_strtoupper($header) }}</th>
+                        <th>{{ $header }}</th>
                     @endforeach
                 </tr>
 

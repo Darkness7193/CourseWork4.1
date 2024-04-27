@@ -5,11 +5,17 @@
 <x-crud-page page-title="Пользователи" controller="User" :$paginator :$view_fields :$headers>
     <table class="crud-table" data-max-id="{{ $User::max('id') }}"
            data-view-fields="{{ implode(',', $view_fields) }}" data-crud-model="{{ $User }}">
-        <tr>
-            @foreach($headers as $header)
-                <th>{{ mb_strtoupper($header) }}</th>
-            @endforeach
+        <tr class="header-tr">
+            <th>{{ $headers['name'] }}<x-crud-components.required-asterisk/></th>
+            <th>{{ $headers['surname'] }}</th>
+            <th>{{ $headers['last_name'] }}</th>
+            <th>{{ $headers['role'] }}<x-crud-components.required-asterisk/></th>
 
+            <th>{{ $headers['password'] }}<x-crud-components.required-asterisk/></th>
+            <th>{{ $headers['email'] }}<x-crud-components.required-asterisk/></th>
+            <th>{{ $headers['phone_number'] }}</th>
+
+            <th>{{ $headers['comment'] }}</th>
             <th><x-crud-components.activate-delete-btns-btn/></th>
         </tr>
         @foreach (array_merge($paginator->items(), $filler_rows) as $user)

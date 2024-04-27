@@ -22,17 +22,18 @@ use Illuminate\View\View;
 class TotalsByMoveType extends Controller
 {
     public function index(Request $request): View {
-        [$view_fields, $headers] = get_columns([
-            ['product_id', 'Товар'],
+        $headers = [
+            'product_id' => 'Товар',
 
-            ['purchases_totals', 'Закупка'],
-            ['sales_totals', 'Продажа'],
-            ['quantity_totals', 'Остаток'],
-            ['liquidating_totals', 'Утилизация'],
-            ['inventory_totals', 'Инвентаризация'],
-            ['import_totals', 'Импорт'],
-            ['write_off_totals', 'Списание']
-        ]);
+            'purchases_totals' => 'Закупка',
+            'sales_totals' => 'Продажа',
+            'quantity_totals' => 'Остаток',
+            'liquidating_totals' => 'Утилизация',
+            'inventory_totals' => 'Инвентаризация',
+            'import_totals' => 'Импорт',
+            'write_off_totals' => 'Списание',
+        ];
+        $view_fields = array_keys($headers);
 
         if (!is_the_same_route()) { Session::forget(['report_storage', 'report_year', 'is_cost_report']); }
         session_setif([

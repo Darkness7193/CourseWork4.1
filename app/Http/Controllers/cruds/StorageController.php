@@ -27,15 +27,16 @@ class StorageController extends Controller
 {
     public function index(Request $request): View
     {
-        [$view_fields, $headers] = get_columns([
-            ['name', 'Наименование'],
+        $headers = [
+            'name' => 'Наименование',
 
-            ['address', 'Адрес'],
-            ['phone_number', 'Номер'],
-            ['email', 'Эл. почта'],
+            'address' => 'Адрес',
+            'phone_number' => 'Номер',
+            'email' => 'Эл. почта',
 
-            ['comment', 'Комментарий'],
-        ]);
+            'comment' => 'Комментарий',
+        ];
+        $view_fields = array_keys($headers);
 
         $session_items = session_setif([
             'ordered_orders' => [

@@ -5,11 +5,14 @@
 <x-crud-page page-title="Товары" controller="Product" :$paginator :$view_fields :$headers>
     <table class="crud-table" data-max-id="{{ $Product::max('id') }}"
            data-view-fields="{{ implode(',', $view_fields) }}" data-crud-model="{{ $Product }}">
-        <tr>
-            @foreach($headers as $header)
-                <th>{{ mb_strtoupper($header) }}</th>
-            @endforeach
+        <tr class="header-tr">
+            <th>{{ $headers['name'] }}<x-crud-components.required-asterisk/></th>
 
+            <th>{{ $headers['manufactor'] }}</th>
+            <th>{{ $headers['purchase_price'] }}<x-crud-components.required-asterisk/></th>
+            <th>{{ $headers['selling_price'] }}<x-crud-components.required-asterisk/></th>
+
+            <th>{{ $headers['comment'] }}</th>
             <th><x-crud-components.activate-delete-btns-btn/></th>
         </tr>
 

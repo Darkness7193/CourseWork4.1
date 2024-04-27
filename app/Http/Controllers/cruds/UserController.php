@@ -26,18 +26,19 @@ class UserController extends Controller
 {
     public function index(Request $request): View
     {
-        [$view_fields, $headers] = get_columns([
-            ['name', 'Имя'],
-            ['surname', 'Фамилия'],
-            ['last_name', 'Отчество'],
-            ['role', 'Роль'],
+        $headers = [
+            'name' => 'Имя',
+            'surname' => 'Фамилия',
+            'last_name' => 'Отчество',
+            'role' => 'Роль',
 
-            ['password', 'Пароль'],
-            ['email', 'Эл. почта'],
-            ['phone_number', 'Номер'],
+            'password' => 'Пароль',
+            'email' => 'Эл. почта',
+            'phone_number' => 'Номер',
 
-            ['comment', 'Комментарий']
-        ]);
+            'comment' => 'Комментарий'
+        ];
+        $view_fields = array_keys($headers);
 
         $session_items = session_setif([
             'ordered_orders' => [session('ordered_orders'), [['created_at', 'asc']], ],

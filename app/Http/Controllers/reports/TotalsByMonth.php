@@ -21,23 +21,24 @@ use Illuminate\Support\Facades\Session;
 class TotalsByMonth extends Controller
 {
     public function index(Request $request) {
-        [$view_fields, $headers] = get_columns([
-            ['product_name', 'Товар'],
-            ['year_totals', 'Год'],
+        $headers = [
+            'product_name' => 'Товар',
+            'year_totals' => 'Год',
 
-            ['month_1_totals',  'Янв'],
-            ['month_2_totals',  'Фев'],
-            ['month_3_totals',  'Мар'],
-            ['month_4_totals',  'Апр'],
-            ['month_5_totals',  'Май'],
-            ['month_6_totals',  'Июн'],
-            ['month_7_totals',  'Июл'],
-            ['month_8_totals',  'Авг'],
-            ['month_9_totals',  'Сен'],
-            ['month_10_totals', 'Окт'],
-            ['month_11_totals', 'Ноя'],
-            ['month_12_totals', 'Дек']
-        ]);
+            'month_1_totals' => 'Янв',
+            'month_2_totals' => 'Фев',
+            'month_3_totals' => 'Мар',
+            'month_4_totals' => 'Апр',
+            'month_5_totals' => 'Май',
+            'month_6_totals' => 'Июн',
+            'month_7_totals' => 'Июл',
+            'month_8_totals' => 'Авг',
+            'month_9_totals' => 'Сен',
+            'month_10_totals' => 'Окт',
+            'month_11_totals' => 'Ноя',
+            'month_12_totals' => 'Дек'
+        ];
+        $view_fields = array_keys($headers);
 
         $session_items = session_setif([
             'report_storage' => [

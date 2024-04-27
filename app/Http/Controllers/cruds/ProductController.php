@@ -26,15 +26,16 @@ class ProductController extends Controller
 {
     public function index(Request $request): View
     {
-        [$view_fields, $headers] = get_columns([
-            ['name', 'Наименование'],
+        $headers = [
+            'name' => 'Наименование',
 
-            ['manufactor', 'Производитель'],
-            ['purchase_price', 'Цена закупки'],
-            ['selling_price', 'Цена продажи'],
+            'manufactor' => 'Производитель',
+            'purchase_price' => 'Цена закупки',
+            'selling_price' => 'Цена продажи',
 
-            ['comment', 'Комментарий'],
-        ]);
+            'comment' => 'Комментарий',
+        ];
+        $view_fields = array_keys($headers);
         $session_items = session_setif([
             'ordered_orders' => [
                 session('ordered_orders'),

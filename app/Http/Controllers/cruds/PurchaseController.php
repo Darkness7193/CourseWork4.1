@@ -27,16 +27,17 @@ class PurchaseController extends Controller
 {
     public function index(Request $request): View
     {
-        [$view_fields, $headers] = get_columns([
-            ['date', 'Поступило'],
+        $headers = [
+            'date' => 'Поступило',
 
-            ['product_id', 'Товар'],
-            ['quantity', 'Кол-во'],
-            ['price', 'Цена'],
+            'product_id' => 'Товар',
+            'quantity' => 'Кол-во',
+            'price' => 'Цена',
 
-            ['storage_id', 'Склад'],
-            ['comment', 'Комментарий']
-        ]);
+            'storage_id' => 'Склад',
+            'comment' => 'Комментарий'
+        ];
+        $view_fields = array_keys($headers);
 
         $session_items = session_setif([
             'ordered_orders' => [

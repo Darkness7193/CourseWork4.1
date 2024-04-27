@@ -16,9 +16,9 @@ class StorageUpdateBulkRequest extends FormRequest
         return [
             'updated_rows.*.name' => 'filled|string|max:100',
 
-            'updated_rows.*.address' => 'filled|string|max:100',
-            'updated_rows.*.phone_number' => 'filled|string|max:100',
-            'updated_rows.*.email' => 'filled|email|max:100',
+            'updated_rows.*.address' => 'sometimes|string|max:100',
+            'updated_rows.*.phone_number' => 'sometimes|string|max:100',
+            'updated_rows.*.email' => 'sometimes|email|max:100',
 
             'updated_rows.*.comment' => 'nullable|string|max:1000',
         ];

@@ -29,19 +29,20 @@ class InnerMoveController extends Controller
 {
     public function index(Request $request): View
     {
-        [$view_fields, $headers] = get_columns([
-            ['date', 'Дата'],
+        $headers = [
+            'date' => 'Дата',
 
-            ['product_move_type', 'Тип'],
-            ['storage_id', 'Склад (изначальный)'],
-            ['new_storage_id', 'Склад (конечный)'],
+            'product_move_type' => 'Тип',
+            'storage_id' => 'Склад (изначальный)',
+            'new_storage_id' => 'Склад (конечный)',
 
-            ['product_id', 'Товар'],
-            ['quantity', 'Кол-во'],
-            ['price', 'Цена'],
+            'product_id' => 'Товар',
+            'quantity' => 'Кол-во',
+            'price' => 'Цена',
 
-            ['comment', 'Комментарий'],
-        ]);
+            'comment' => 'Комментарий',
+        ];
+        $view_fields = array_keys($headers);
         $session_items = session_setif([
             'ordered_orders' => [
                 session('ordered_orders'),

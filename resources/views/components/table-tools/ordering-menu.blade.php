@@ -18,10 +18,11 @@
             <button class="icon un-ordering-btn" type="submit" name="action" value="is_un_ordering" onclick="clear_number_checkboxes()"></button>
             <button class="icon ok-ordering-btn" type="submit" name="action" value="is_ordering"></button>
             <div class="ordering-menu dropdown-content number-check-box-container">
+                @php($headers = array_merge($headers, ['created_at' => '# по созданию', 'updated_at' => '# по изменению']))
                 <table>
-                    @foreach(array_merge($view_fields, ['created_at', 'updated_at']) as $rw => $view_field)
+                    @foreach($headers as $view_field => $header)
                         <tr>
-                            <td class="header-td">{{ array_merge($headers, ['# по созданию', '# по изменению'])[$rw] }}:</td>
+                            <td class="header-td">{{ $header }}:</td>
                             <td>
                                 <button class="icon order-direction-btn"
                                     type="button"

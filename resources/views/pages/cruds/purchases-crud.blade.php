@@ -5,10 +5,15 @@
 <x-crud-page page-title="Закупки" controller="Purchase" :$paginator :$view_fields :$headers>
     <table class="crud-table" data-max-id="{{ $ProductMove::max('id') }}"
            data-view-fields="{{ implode(',', $view_fields) }}" data-crud-model="{{ $ProductMove }}">
-        <tr>
-            @foreach($headers as $header)
-                <th>{{ mb_strtoupper($header) }}</th>
-            @endforeach
+        <tr class="header-tr">
+            <th>{{ $headers['date'] }}<x-crud-components.required-asterisk/></th>
+
+            <th>{{ $headers['product_id'] }}<x-crud-components.required-asterisk/></th>
+            <th>{{ $headers['quantity'] }}<x-crud-components.required-asterisk/></th>
+            <th>{{ $headers['price'] }}<x-crud-components.required-asterisk/></th>
+
+            <th>{{ $headers['storage_id'] }}<x-crud-components.required-asterisk/></th>
+            <th>{{ $headers['comment'] }}</th>
 
             <th><x-crud-components.activate-delete-btns-btn/></th>
         </tr>
@@ -32,14 +37,11 @@
                     </select>
                 </td>
 
-                <td><input type="number" value="{{ $purchase->quantity }}" onfocusout="update_cell_of(this)">
-                </td>
-                <td><input class="purchase-price-input" type="number" step="0.01" value="{{ $purchase->price }}"
-                           onfocusout="update_cell_of(this)"></td>
+                <td><input type="number" value="{{ $purchase->quantity }}" onfocusout="update_cell_of(this)"></td>
+                <td><input class="purchase-price-input" type="number" step="0.01" value="{{ $purchase->price }}" onfocusout="update_cell_of(this)"></td>
 
                 <td><x-crud-components.foreign-cell :selected_foreign_row="$purchase->storage" :foreign_rows="$storages"/></td>
-                <td class="comment-td"><input type="text" value="{{ $purchase->comment }}"
-                                              onfocusout="update_cell_of(this)"></td>
+                <td class="comment-td"><input type="text" value="{{ $purchase->comment }}" onfocusout="update_cell_of(this)"></td>
 
                 <td><x-crud-components.delete-btn/></td>
             </tr>
