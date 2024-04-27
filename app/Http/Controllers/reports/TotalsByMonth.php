@@ -63,8 +63,8 @@ class TotalsByMonth extends Controller
             session()->get('report_storage')->id,
             session('report_year'),
             session('is_cost_report'),
-            session('current_report_type'
-        ));
+            session('current_report_type')
+        );
 
         return view('pages/reports/totals-by-month', [
             'paginator' => filter_order_paginate($totals, $view_fields),

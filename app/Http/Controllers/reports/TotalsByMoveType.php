@@ -56,7 +56,12 @@ class TotalsByMoveType extends Controller
             ]
         ]);
 
-        $totals = totals_by_move_type(session()->get('report_storage')->id, session('begin_date'), session('end_date'), session('is_cost_report'));
+        $totals = totals_by_move_type(
+            session()->get('report_storage')->id,
+            session('begin_date'),
+            session('end_date'),
+            session('is_cost_report')
+        );
 
         return view('pages/reports/totals-by-move-type', [
             'paginator' => filter_order_paginate($totals, $view_fields),
