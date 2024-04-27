@@ -39,6 +39,7 @@ class TotalsByMonth extends Controller
             'month_12_totals' => 'Дек'
         ];
         $view_fields = array_keys($headers);
+        $report_storage_same = fn()=> $request->report_storage_id === session('report_storage_id');
 
         $session_items = session_setif([
             'report_storage' => [
@@ -46,7 +47,7 @@ class TotalsByMonth extends Controller
                 Storage::first() ?? (object)['id'=>null, 'name'=>'Складов нет']
             ],
             'report_year' => [
-                $request->report_storage_id !== session('report_storage_id') ? $request->report_year : null,
+                $report_storage_same() ? null : $request->report_year,
             ],
             'is_cost_report' => [
                 (bool)$request->is_cost_report,
@@ -55,7 +56,7 @@ class TotalsByMonth extends Controller
             'current_report_type' => [$request->current_report_type, 'quantities'],
             'ordered_orders' => [
                 session('ordered_orders'),
-                [['product_name', 'asc']]
+                [['product_name', 'asc'], ]
             ]
         ]);
 
