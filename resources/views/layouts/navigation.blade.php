@@ -16,6 +16,7 @@
                         {{ __('Главная') }}
                     </x-nav-link>
 
+                    <!--
                     <x-nav-link :href="route('product_moves.purchases.crud')" :active="request()->routeIs('product_moves.purchases.crud')">
                         {{ __('Закупки') }}
                     </x-nav-link>
@@ -26,9 +27,11 @@
                         {{ __('Внутренние движения') }}
                     </x-nav-link>
 
+
                     <x-nav-link :href="route('products.crud')" :active="request()->routeIs('products.crud')">
                         {{ __('Товары') }}
                     </x-nav-link>
+                    -->
                 </div>
             </div>
 
