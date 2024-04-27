@@ -45,9 +45,16 @@ class TotalsByMonth extends Controller
             'report_storage' => [
                 $request->report_storage_id ? Storage::find($request->report_storage_id) : null,
                 Storage::first() ?? (object)['id'=>null, 'name'=>'Складов нет']
-            ],
+            ]
+        ]);
+
+        $used_years = get_used_years_of(session()->get('report_storage')->id);
+        $session_items = $session_items + session_setif([
             'report_year' => [
-                $report_storage_same() ? null : $request->report_year,
+                $report_storage_same()
+                    ? $request->report_year
+                    : null,
+                max($used_years)
             ],
             'is_cost_report' => [
                 (bool)$request->is_cost_report,
@@ -69,7 +76,7 @@ class TotalsByMonth extends Controller
 
         return view('pages/reports/totals-by-month', [
             'paginator' => filter_order_paginate($totals, $view_fields),
-            'used_years' => get_used_years_of(session()->get('report_storage')->id),
+            'used_years' => $used_years,
             'Storage' => Storage::class,
 
         ] + $session_items + compact('view_fields', 'headers')
