@@ -39,7 +39,7 @@ class TotalsByMonth extends Controller
             'month_12_totals' => 'Дек'
         ];
         $view_fields = array_keys($headers);
-        $report_storage_same = fn()=> $request->report_storage_id === session('report_storage_id');
+        $is_report_storage_same = fn()=> $request->report_storage_id === session('report_storage_id');
 
         $session_items = session_setif([
             'report_storage' => [
@@ -51,8 +51,10 @@ class TotalsByMonth extends Controller
         $used_years = get_used_years_of(session()->get('report_storage')->id);
         $session_items = $session_items + session_setif([
             'report_year' => [
-                $report_storage_same() ? $request->report_year : null,
-                max($used_years)
+                !$is_report_storage_same() # WHY this don't work without negation?! It should be opposite..
+                    ? $request->report_year
+                    : ($used_years ? max($used_years) : null),
+                null,
             ],
             'is_cost_report' => [
                 (bool)$request->is_cost_report,
