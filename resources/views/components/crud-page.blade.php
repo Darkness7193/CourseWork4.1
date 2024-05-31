@@ -27,20 +27,24 @@
     <x-global-errors/>
 
     <x-card-list>
-        <x-card class="foot-margin">
-            {{ $slot }}
-            <div class="table-tools-line horizontal-arrange vertical-center">
-                <x-table-tools.ordering-menu :$view_fields :$headers />
-                <x-table-tools.search-bar :$view_fields :$headers />
-                <div class="paginator-wrapper right-align">{{ $paginator->links('pagination::my-pagination-links') }}</div>
-            </div>
-        </x-card>
+        <div>
+            <x-card-header text="{{ $page_title }}"/>
+            <x-card class="foot-margin">
+                {{ $slot }}
+                <div class="table-tools-line horizontal-arrange vertical-center">
+                    <x-table-tools.ordering-menu :$view_fields :$headers />
+                    <x-table-tools.search-bar :$view_fields :$headers />
+                    <div class="paginator-wrapper right-align">{{ $paginator->links('pagination::my-pagination-links') }}</div>
+                </div>
+            </x-card>
 
-        <x-crud-components.save-btn :$controller :no_view_fields="[
+            <x-crud-components.save-btn :$controller :no_view_fields="[
             'product_move_type' => 'purchasing',
             'new_storage_id' => null
         ]" />
+        </div>
     </x-card-list>
+
     <div style="height: 200px"></div>
 </x-app-layout>
 </body>

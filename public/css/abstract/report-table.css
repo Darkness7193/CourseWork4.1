@@ -56,6 +56,10 @@ tr > .report-field-td {
 
 
 /* */
+    .header-tr {
+        /* text-transform: uppercase; */
+    }
+
     .table-tools-line {
         margin-top: 4px;
         margin-right: 25px; /* should be verticaly in line with visual crud-table. I don't know how make it more automatic */
