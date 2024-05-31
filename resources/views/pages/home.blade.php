@@ -11,9 +11,7 @@
 <x-app-layout>
     <x-card-list>
         <div>
-            <h2 class="card-header text-lg font-medium text-gray-900 dark:text-gray-100">
-                {{ __('Движения') }}
-            </h2>
+            <x-card-header text="Движения"/>
             <x-card>
                 <div class="vertical-arrange">
                     <x-responsive-nav-link onclick="window.location='{{ route('product_moves.purchases.crud') }}'">{{ __('Закупки') }}</x-responsive-nav-link>
@@ -24,9 +22,7 @@
         </div>
 
         <div>
-            <h2 class="card-header text-lg font-medium text-gray-900 dark:text-gray-100">
-                {{ __('Отчеты') }}
-            </h2>
+            <x-card-header text="Отчеты"/>
             <x-card>
                 <div class="vertical-arrange">
                     <x-responsive-nav-link onclick="window.location='{{ route('product_moves.totals_by_move_type') }}'">{{ __('Отчет по типам движений') }}</x-responsive-nav-link>
@@ -36,9 +32,7 @@
         </div>
 
         <div>
-            <h2 class="card-header text-lg font-medium text-gray-900 dark:text-gray-100">
-                {{ __('Справочник') }}
-            </h2>
+            <x-card-header text="Справочник"/>
             <x-card>
                 <div class="vertical-arrange">
                     <x-responsive-nav-link onclick="window.location='{{ route('products.crud') }}'">{{ __('Товары') }}</x-responsive-nav-link>
