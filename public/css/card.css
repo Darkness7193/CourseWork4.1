@@ -5,4 +5,7 @@
 
 .card {
     margin-bottom: 10px;
+    margin-top: 0;
+    background: rgb(31 41 55 / var(--tw-bg-opacity));
+    border-radius: 8px;
 }

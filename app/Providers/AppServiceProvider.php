@@ -45,7 +45,7 @@ class AppServiceProvider extends ServiceProvider
             );
         });
 
-        Blade::anonymousComponentPath(__DIR__. '/../../resources/views/components/breeze-components');
         Blade::anonymousComponentPath(__DIR__. '/../../resources/views');
+        Blade::anonymousComponentPath(__DIR__. '/../../resources/views/components/breeze-components');
     }
 }

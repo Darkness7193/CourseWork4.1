@@ -26,10 +26,10 @@
 <x-app-layout>
     <x-global-errors/>
 
-    <x-card-list>
+    <x-card-list class="foot-margin">
         <div>
             <x-card-header text="{{ $page_title }}"/>
-            <x-card class="foot-margin">
+            <x-card>
                 {{ $slot }}
                 <div class="table-tools-line horizontal-arrange vertical-center">
                     <x-table-tools.ordering-menu :$view_fields :$headers />
@@ -45,8 +45,6 @@
         ]" />
         </div>
     </x-card-list>
-
-    <div style="height: 200px"></div>
 </x-app-layout>
 </body>
 </html>
