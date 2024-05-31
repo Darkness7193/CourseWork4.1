@@ -30,6 +30,14 @@ Route::group(['middleware' => ['auth', HasSiteAccess::class]], function () use($
         ->name('home');
 
 
+    /*Info*/
+    Route::get('hotkeys_info', fn() => view('pages.hotkeys_info'))
+        ->name('hotkeys_info');
+
+    Route::get('info', fn() => view('pages.info'))
+        ->name('info');
+
+
     /*Cruds &| Catalogs*/
     Route::group(['namespace' => 'App\Http\Controllers\cruds'], function() {
         Route::get('product_moves/purchases/crud', [PurchaseController::class, 'index'])

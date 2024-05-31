@@ -13,10 +13,18 @@
                 <!-- Navigation Links -->
                 <div class="hidden space-x-8 sm:-my-px sm:ms-10 sm:flex">
                     <x-nav-link :href="route('home')" :active="request()->routeIs('home')">
-                        {{ __('Главная') }}
+                        Главная
+                    </x-nav-link>
+
+                    <x-nav-link :href="route('hotkeys_info')" :active="request()->routeIs('hotkeys_info')">
+                        Хоткеи
                     </x-nav-link>
 
                     <!--
+                    <x-nav-link :href="route('info')" :active="request()->routeIs('info')">
+                        Справка
+                    </x-nav-link>
+
                     <x-nav-link :href="route('product_moves.purchases.crud')" :active="request()->routeIs('product_moves.purchases.crud')">
                         {{ __('Закупки') }}
                     </x-nav-link>
