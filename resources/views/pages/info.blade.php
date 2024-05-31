@@ -11,9 +11,7 @@
 <x-app-layout>
     <x-card-list>
         <div>
-            <h2 class="card-header text-lg font-medium text-gray-900 dark:text-gray-100">
-                Справка
-            </h2>
+            <x-card-header text="Справка"/>
             <x-card>
                 фывафывафыв
             </x-card>
