@@ -34,6 +34,7 @@
                 <div class="table-tools-line horizontal-arrange vertical-center">
                     <x-table-tools.ordering-menu :$view_fields :$headers />
                     <x-table-tools.search-bar :$view_fields :$headers />
+                    <x-table-tools.excel-port-menu></x-table-tools.excel-port-menu>
                     <div class="paginator-wrapper right-align">{{ $paginator->links('pagination::my-pagination-links') }}</div>
                 </div>
             </x-card>

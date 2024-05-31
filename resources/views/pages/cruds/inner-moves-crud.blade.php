@@ -2,7 +2,7 @@
 
 
 
-<x-crud-page page_title="Внутренние движения" controller="InnerMove" :$paginator :$view_fields :$headers>
+<x-layouts.crud-page page_title="Внутренние движения" controller="InnerMove" :$paginator :$view_fields :$headers>
     </style>
     <table class="crud-table" data-max-id="{{ $ProductMove::max('id') }}"
            data-view-fields="{{ implode(',', $view_fields) }}" data-crud-model="{{ $ProductMove }}">
@@ -58,4 +58,4 @@
             </tr>
         @endforeach
     </table>
-</x-crud-page>
+</x-layouts.crud-page>

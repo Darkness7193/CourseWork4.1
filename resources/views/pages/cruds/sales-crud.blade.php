@@ -2,7 +2,7 @@
 
 
 
-<x-crud-page page_title="Продажи" controller="Sale" :$paginator :$view_fields :$headers>
+<x-layouts.crud-page page_title="Продажи" controller="Sale" :$paginator :$view_fields :$headers>
     <table class="crud-table" data-max-id="{{ $ProductMove::max('id') }}"
            data-view-fields="{{ implode(',', $view_fields) }}" data-crud-model="{{ $ProductMove }}">
         <tr class="header-tr">
@@ -48,4 +48,4 @@
             </tr>
         @endforeach
     </table>
-</x-crud-page>
+</x-layouts.crud-page>

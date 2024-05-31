@@ -9,6 +9,8 @@
         'trash_can_icon' : "{{ asset('images/trash-can-icon.jpg') }}",
         'un_trash_can_icon' : "{{ asset('images/un-trash-can-icon.png') }}",
 
+        'excel_icon' : "{{ asset('images/excel-icon.png') }}",
+
         'per_page': Number('{{ $paginator->perPage() }}'),
         'page_count': Number('{{ $paginator->count() }}')
     }
