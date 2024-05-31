@@ -45,9 +45,9 @@
         <x-card class="foot-margin">
             <table class="crud-table" data-max-id="{{ $Product::max('id') }}"
                    data-view-fields="{{ implode(',', $view_fields) }}" data-crud-model="{{ $Product }}">
-                <tr>
+                <tr class="header-tr">
                     @foreach($headers as $header)
-                        <th>{{ mb_strtoupper($header) }}</th>
+                        <th>{{ $header }}</th>
                     @endforeach
 
                     <th><x-crud-components.activate-delete-btns-btn/></th>
