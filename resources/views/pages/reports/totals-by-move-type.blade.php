@@ -53,11 +53,26 @@
 
             <x-card>
                 <div class="vertical-arrange vertical-center">
-                    <form class="horizontal-arrange left-align">
-                        <x-report-components.report-storage-select :$Storage :$report_storage />
-                        <input class="report-component" name="begin_date" type="date" onfocusout="this.form.submit()" value="{{ $begin_date }}">
-                        <input class="report-component" name="end_date" type="date" onfocusout="this.form.submit()" value="{{ $end_date }}">
-                        <x-report-components.report-field-btn :$is_cost_report />
+                    <form class="left-align">
+                        <p class="report-settings-title">Настройки отчета</p>
+                        <table class="report-settings">
+                            <tr>
+                                <td>Склад</td>
+                                <td><x-report-components.report-storage-select :$Storage :$report_storage /></td>
+                            </tr>
+                            <tr>
+                                <td>Начальная дата</td>
+                                <td><input class="report-component" name="begin_date" type="date" onfocusout="this.form.submit()" value="{{ $begin_date }}"></td>
+                            </tr>
+                            <tr>
+                                <td>Конечная дата</td>
+                                <td><input class="report-component" name="end_date" type="date" onfocusout="this.form.submit()" value="{{ $end_date }}"></td>
+                            </tr>
+                            <tr>
+                                <td>Единица измерения</td>
+                                <td><x-report-components.report-field-btn :$is_cost_report /></td>
+                            </tr>
+                        </table>
                     </form>
                 </div>
             </x-card>

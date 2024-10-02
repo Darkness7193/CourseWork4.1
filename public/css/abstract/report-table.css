@@ -69,3 +69,22 @@ tr > .report-field-td {
         float: right;
         margin-right: 4px;
     }
+
+
+.report-settings {
+    border-collapse: collapse;
+    table-layout: fixed;
+
+    color: lightgray;
+    font-family: Figtree, ui-sans-serif, system-ui, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
+    font-size: 14px;
+}
+
+.report-settings-title {
+    font-weight: bold;
+    padding-bottom: 10px;
+}
+
+.report-settings td {
+    padding-right: 10px;
+}

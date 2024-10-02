@@ -50,11 +50,26 @@
 
             <x-card>
                 <div class="vertical-arrange vertical-center">
-                    <form class="horizontal-arrange left-align">
-                        <x-report-components.report-storage-select :$Storage :$report_storage />
-                        <x-report-components.report-type-select :$current_report_type />
-                        <x-report-components.report-year-select :$used_years :$report_year />
-                        <x-report-components.report-field-btn :$is_cost_report />
+                    <form class="left-align">
+                        <p class="report-settings-title">Настройки отчета</p>
+                        <table class="report-settings">
+                            <tr>
+                                <td>Склад</td>
+                                <td><x-report-components.report-storage-select :$Storage :$report_storage /></td>
+                            </tr>
+                            <tr>
+                                <td>Тип перемещения товаров</td>
+                                <td><x-report-components.report-type-select :$current_report_type /></td>
+                            </tr>
+                            <tr>
+                                <td>Год</td>
+                                <td><x-report-components.report-year-select :$used_years :$report_year /></td>
+                            </tr>
+                            <tr>
+                                <td>Единица измерения</td>
+                                <td><x-report-components.report-field-btn :$is_cost_report /></td>
+                            </tr>
+                        </table>
                     </form>
                 </div>
             </x-card>
