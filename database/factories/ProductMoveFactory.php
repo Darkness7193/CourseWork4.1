@@ -15,7 +15,7 @@ class ProductMoveFactory extends Factory
     public function definition(): array
     {
         return [
-            'date' => $this->faker->date(), //'2024-12-01',
+            'date' => $this->faker->date('2024_m_d'), //'2024-12-01',
 
             'product_move_type' => ProductMove::product_move_types()[random_int(0, 4)],
             'storage_id' => Storage::get()->random()->id,

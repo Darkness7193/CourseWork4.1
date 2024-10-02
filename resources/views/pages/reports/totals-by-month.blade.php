@@ -21,31 +21,35 @@
         <div>
             <x-card-header text="Отчет по месяцам"/>
             <x-card class="foot-margin">
-                <table class="report-table" data-view-fields="{{ implode(',', $view_fields) }}">
-                    <tr class="header-tr">
-                        @foreach($headers as $header)
-                            <th>{{ $header }}</th>
-                        @endforeach
-                    </tr>
-
-                    @foreach ($paginator as $total)
-                        <tr>
-                            <td>{{ $total->product_name }}</td>
-
-                            <td class="year-td">{{ $total->year_totals }}</td>
-                            @php($seasons = ['winter-td', 'spring-td', 'summer-td', 'fall-td', 'winter-td'])
-                            @for ($i=1; $i<13; $i++)
-                                <td class="{{ $seasons[intdiv($i, 3)] }}">{{ $total->{"month_{$i}_totals"} }}</td>
-                            @endfor
-                            <td class="report-field-td">{{ $is_cost_report ? '₽' : 'шт.' }}</td>
+                @if (isset($paginator) && count($paginator) > 0)
+                    <table class="report-table" data-view-fields="{{ implode(',', $view_fields) }}">
+                        <tr class="header-tr">
+                            @foreach($headers as $header)
+                                <th>{{ $header }}</th>
+                            @endforeach
                         </tr>
-                    @endforeach
-                </table>
-                <div class="table-tools-line horizontal-arrange vertical-center">
-                    <x-table-tools.ordering-menu :$view_fields :$headers />
-                    <x-table-tools.search-bar :$view_fields :$headers />
-                    <div class="paginator-wrapper right-align">{{ $paginator->links('pagination::my-pagination-links') }}</div>
-                </div>
+
+                        @foreach ($paginator as $total)
+                            <tr>
+                                <td>{{ $total->product_name }}</td>
+
+                                <td class="year-td">{{ $total->year_totals }}</td>
+                                @php($seasons = ['winter-td', 'spring-td', 'summer-td', 'fall-td', 'winter-td'])
+                                @for ($i=1; $i<13; $i++)
+                                    <td class="{{ $seasons[intdiv($i, 3)] }}">{{ $total->{"month_{$i}_totals"} }}</td>
+                                @endfor
+                                <td class="report-field-td">{{ $is_cost_report ? '₽' : 'шт.' }}</td>
+                            </tr>
+                        @endforeach
+                    </table>
+                    <div class="table-tools-line horizontal-arrange vertical-center">
+                        <x-table-tools.ordering-menu :$view_fields :$headers />
+                        <x-table-tools.search-bar :$view_fields :$headers />
+                        <div class="paginator-wrapper right-align">{{ $paginator->links('pagination::my-pagination-links') }}</div>
+                    </div>
+                @else
+                    На указанном складе за этот год перемещений товаров такого типа не было. Измените склад, год или тип отчета
+                @endif
             </x-card>
 
             <x-card>
