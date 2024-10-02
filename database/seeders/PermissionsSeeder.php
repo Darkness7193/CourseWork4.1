@@ -54,31 +54,35 @@ function create_permissions() {
     Permission::create(['name' => 'assign role unapproved user']);
     Permission::create(['name' => 'edit unapproved user']);
     Permission::create(['name' => 'remove role unapproved user']);
+    Permission::create(['name' => 'delete unapproved user']);
 
     Permission::create(['name' => 'assign role approved user']);
     Permission::create(['name' => 'edit approved user']);
     Permission::create(['name' => 'remove role approved user']);
+    Permission::create(['name' => 'delete approved user']);
 
     Permission::create(['name' => 'assign role admin']);
     Permission::create(['name' => 'edit admin']);
     Permission::create(['name' => 'remove role admin']);
+    Permission::create(['name' => 'delete admin']);
 
     Permission::create(['name' => 'assign role super admin']);
     Permission::create(['name' => 'edit super admin']);
     Permission::create(['name' => 'remove role super admin']);
+    Permission::create(['name' => 'delete super admin']);
 }
 
 
 function create_roles() {
-    $role0 = Role::create(['name' => 'unapproved user']);
+    $unapproved_user = Role::create(['name' => 'unapproved user']);
 
-    $role1 = Role::create(['name' => 'approved user']);
-    $role1->syncPermissions(
+    $approved_user = Role::create(['name' => 'approved user']);
+    $approved_user->syncPermissions(
         'access site'
     );
 
-    $role2 = Role::create(['name' => 'admin']);
-    $role2->syncPermissions(
+    $admin = Role::create(['name' => 'admin']);
+    $admin->syncPermissions(
         'access site',
         'access user page',
 
@@ -88,13 +92,15 @@ function create_roles() {
         'assign role unapproved user',
         'edit unapproved user',
         'remove role unapproved user',
+        'delete unapproved user',
 
         'assign role approved user',
         'edit approved user',
         'remove role approved user',
+        'delete approved user',
     );
 
-    $role3 = Role::create(['name' => 'super admin']);
+    $super_admin = Role::create(['name' => 'super admin']);
 }
 
 
