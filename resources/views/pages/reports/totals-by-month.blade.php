@@ -55,7 +55,7 @@
             <x-card>
                 <div class="vertical-arrange vertical-center">
                     <form class="left-align">
-                        <p class="report-settings-title">Настройки отчета</p>
+                        <p class="report-settings-title">Параметры отчета</p>
                         <table class="report-settings">
                             <tr>
                                 <td>Склад</td>
