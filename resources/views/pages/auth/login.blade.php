@@ -1,6 +1,12 @@
 <!-- imports: -->
     <link rel="stylesheet" href="{{ asset('css/global.css') }}">
+    <link rel="stylesheet" href="{{ asset('css/global-errors.css') }}">
 
+
+<table class="global-errors" style="top: 10px;">
+    <tr><td>Логин: 3@gmail.com</td></tr>
+    <tr><td>Пароль: 1</td></tr>
+</table>
 
 
 <x-guest-layout>
@@ -13,7 +19,7 @@
         <!-- Email Address -->
         <div>
             <x-input-label for="email" :value="__('Эл. почта')" />
-            <x-text-input id="email" class="block mt-1 w-full" type="email" name="email" :value="old('email')" required autofocus autocomplete="username" />
+            <x-text-input id="email" class="block mt-1 w-full" type="email" name="email" :value="old('email') ?? '3@gmail.com'" required autofocus autocomplete="username" />
             <x-input-error :messages="$errors->get('email')" class="mt-2" />
         </div>
 
@@ -21,7 +27,7 @@
         <div class="mt-4">
             <x-input-label for="password" :value="__('Пароль')" />
 
-            <x-text-input id="password" class="block mt-1 w-full"
+            <x-text-input id="password" class="block mt-1 w-full" value="1"
                           type="password"
                           name="password"
                           required autocomplete="current-password" />
