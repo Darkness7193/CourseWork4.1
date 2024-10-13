@@ -4,7 +4,7 @@
 <!-- imports: -->
     <link rel="stylesheet" href="{{ asset('css/global.css') }}">
     <link rel="stylesheet" href="{{ asset('css/home.css') }}">
-    @vite(['resources/css/breeze-base.css'])
+    @vite(['resources/css/app.css'])
 
 
 <body>
